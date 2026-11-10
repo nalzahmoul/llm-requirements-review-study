@@ -2,7 +2,7 @@
 
 These scripts follow the Methodology of the paper: 11 Ski interviews from LLMREI, three reviewer models, both authors code all 33 responses, then the analysis.
 
-The easiest way is to run the files in `steps/` in order (open one in VS Code, press Run). Run everything from the project folder (the one with `data/`, `runner/` and `steps/`).
+You should run the files in `steps/` in order (open one in VS Code, press Run). Run everything from the project folder (the one with `data/`, `runner/` and `steps/`).
 
 ## Reproduce the supplied analysis
 
@@ -27,7 +27,7 @@ All three models run through **OpenRouter**. Create a local file named `runner/k
 OPENROUTER_API_KEY=YOUR_API_KEY
 ```
 
-`keys.env` stays on your computer. Do not upload it to Overleaf or GitHub, e-mail it, or paste it in a chat.
+`keys.env` stays on your computer. Do not upload it anywhere.
 
 ## The steps
 
