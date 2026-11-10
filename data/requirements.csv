@@ -1,0 +1,13 @@
+ID,Salon,Ski
+R1,FR: A booking system for clients to make appointments shall be implemented.,FR: An online system with options for reservation and booking shall be implemented.
+R2,FR: A digital diary shall be implemented keeping track of customer appointments / demand.,"FR: The website shall have a social media connection for advertising on various platforms like Twitter, Facebook, and Instagram."
+R3,It shall be possible to send the prepared records by email to an accountant.,"FR: The website shall be connected with a centralized database for keeping track of reservations, bookings, hires, and inventory in each resort."
+R4,The bookings system shall collect data for business analysis. The data shall be provided in form of reports.,"FR: Inventory Management System for ski equipment, clothing, and other hireable items across the three resorts."
+R5,An inventory management system shall keep track of supplies and send a notification when supplies are running out.,FR: The website shall show the weather and snow forecasts at the resorts.
+R6,Staff Scheduling and Rostering system to manage staff schedules integrated in the digital diary.,FR: The website shall have booking training classes and clothing/Ski equipment hiring features.
+R7,"The bookkeeping shall keep track of receipts, expenses, wages, GST, etc.","FR: An online payment system to handle all bookings, reservations and rentals."
+R8,Book keeping shall be automated using FAST ACCOUNTS.,"FR: The centralized system should be able to generate reports for reservations, payments, inventory, and other business aspects."
+R9,,PR: The implementation shall not cause too much disruption to the business.
+R10,,NFR: The website shall offer a pleasing and intuitive website for customers to see availabilities in the resorts.
+R11,,BR: The system should help the business increase ist visibility across. the US and attract more customers.
+R12,,"BR: The system should reduce manual coordination and streamline tasks such as booking, payments, and inventory tracking."
