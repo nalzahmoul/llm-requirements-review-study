@@ -1,0 +1,147 @@
+# Software Requirements — Cool Ski Resorts
+
+## 1. Purpose and scope
+
+The system will replace the fragmented booking and rental processes at Cool Ski Resorts with a unified online platform serving its three existing US resorts.
+
+The business objectives are to:
+- Attract more customers through an improved online presence and promotional activities.
+- Allow customers to book accommodation, rent equipment and clothing, and book ski lessons online.
+- Reduce manual administration through automation.
+- Centralize operational data and reporting.
+- Improve customer service through timely feedback handling.
+- Introduce the system without interrupting day-to-day business.
+
+Initial scope covers the three existing resorts and their current services. The system must support future expansion without requiring those future services to be implemented initially.
+
+## 2. Users
+
+| User group | Main needs |
+|---|---|
+| Customers and prospective customers | Explore resorts, book services, pay, view current conditions, and provide feedback |
+| Resort staff | Manage reservations and rentals, handle walk-ins, correct records, and respond to customer issues |
+| Accounting staff | Maintain accounting records and generate reports |
+| Owner and management | View consolidated and resort-specific reports, assess promotions, and oversee operations |
+
+Detailed access permissions require clarification.
+
+## 3. Functional requirements
+
+### 3.1 Resort website and information
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide a single customer-facing website covering all three resorts. |
+| FR-02 | The website shall display information about each resort, its services, and contact details. |
+| FR-03 | The website shall display photographs of the resorts and their offerings. |
+| FR-04 | The system shall provide an events calendar showing resort events and seasonal activities. |
+| FR-05 | The system shall display current weather and snow conditions for each resort through an external weather service. |
+| FR-06 | The system shall display real-time ski-lift operating information and wait times, subject to the availability of suitable data sources. |
+
+### 3.2 Reservations, rentals, and payments
+
+| ID | Requirement |
+|---|---|
+| FR-07 | Customers shall be able to book rooms online at any of the three resorts. |
+| FR-08 | Customers shall be able to reserve or rent ski equipment and clothing online. |
+| FR-09 | Customers shall be able to book ski training classes online. |
+| FR-10 | The system shall automatically process reservations that do not require staff intervention. |
+| FR-11 | The system shall identify reservations requiring intervention and make them available to staff for review and resolution. |
+| FR-12 | The system shall track equipment and clothing inventory, including quantities available and quantities rented out at each resort. |
+| FR-13 | Authorized staff shall be able to manually create, correct, and remove booking and rental records. |
+| FR-14 | Staff shall be able to record bookings and rentals for walk-in customers and customers who do not use online booking. |
+| FR-15 | The system shall support customer payments using commonly used payment options. The specific payment methods shall be agreed before implementation. |
+
+### 3.3 Centralized data and accounting
+
+| ID | Requirement |
+|---|---|
+| FR-16 | The system shall store booking and rental information for all three resorts in one shared database. |
+| FR-17 | Shared records shall identify the resort to which they belong. |
+| FR-18 | The system shall generate reports for an individual resort or for all resorts combined. |
+| FR-19 | The system shall automatically generate accounting reports at configured times. |
+| FR-20 | Authorized users shall be able to generate accounting reports on demand. |
+| FR-21 | Authorized staff shall be able to manually add, correct, and remove accounting records. |
+
+### 3.4 Promotions and external partnerships
+
+| ID | Requirement |
+|---|---|
+| FR-22 | The system shall support connections to social media platforms for running promotions and advertisements. |
+| FR-23 | The system shall support promotional activities conducted with travel agencies and tourism networks. |
+| FR-24 | The system shall provide campaign reporting that compares booking volumes associated with promotional periods against an agreed baseline. |
+| FR-25 | Campaign reporting shall include promotional reach and customer reception where the necessary data is available. |
+| FR-26 | Authorized users shall be able to define promotion-report templates. |
+| FR-27 | The system shall automatically generate a report using the selected template after a promotion ends. |
+
+The specific platforms, integration mechanisms, attribution rules, and campaign metrics remain to be defined.
+
+### 3.5 Customer feedback and staff response
+
+| ID | Requirement |
+|---|---|
+| FR-28 | Customers shall be able to provide optional feedback about their experience. |
+| FR-29 | Customers shall be able to submit feedback or report problems during their stay or while using a service, rather than only after departure. |
+| FR-30 | Customers shall be able to request assistance or an equipment replacement when reporting a relevant issue. |
+| FR-31 | Customers shall be able to submit suggestions for future features through the feedback facility. |
+| FR-32 | The system shall notify relevant staff when feedback requires attention. |
+| FR-33 | Available staff shall be able to access feedback and respond to reported issues. |
+| FR-34 | The system shall provide staff with suggested actions or guidance for handling customer feedback and issues. |
+| FR-35 | Feedback collection shall be optional and designed to avoid excessive or intrusive requests. |
+
+Email alerts and a staff dashboard are candidate mechanisms, not confirmed implementation choices. The stakeholder also accepted the general idea of checkout surveys or follow-up feedback requests; the exact channels and frequency require agreement.
+
+## 4. Quality and operational requirements
+
+| ID | Area | Requirement |
+|---|---|---|
+| NFR-01 | Usability | The customer and staff interfaces shall be easy to use for customers, employees, and the owner. Usability acceptance criteria shall be established through representative-user testing. |
+| NFR-02 | Visual design | The customer-facing interface shall have a modern, aesthetically pleasing design. |
+| NFR-03 | Device support | Customers shall be able to use the website and its booking services on mobile devices and desktop computers through a responsive interface. |
+| NFR-04 | Security | The system shall protect customer information and restrict sensitive operations to authorized users. |
+| NFR-05 | Payment security | Payment processing shall use appropriate security controls and meet applicable payment-processing requirements. |
+| NFR-06 | Resilience | The system shall include measures to reduce the risk of unauthorized access and service disruption. Specific availability and recovery targets remain to be agreed. |
+| NFR-07 | Compliance | Applicable privacy, payment, lodging, and other relevant legal or industry requirements shall be identified and incorporated. No particular regulatory framework was confirmed in the interview. |
+| NFR-08 | Extensibility | The system shall allow additional resorts and service types to be introduced in the future, including services unrelated to skiing. |
+| NFR-09 | Integration flexibility | The system shall support future connections to external service providers, including equipment-related services where required. |
+| NFR-10 | Operational continuity | Deployment and transition from the existing systems shall not interrupt day-to-day resort operations. |
+
+## 5. Transition and acceptance requirements
+
+| ID | Requirement |
+|---|---|
+| TR-01 | The transition plan shall address the existing local resort databases and the consolidation of operational information into the shared system. The records and history to be migrated remain to be agreed. |
+| TR-02 | The owner, selected employees, and selected customers shall be able to test the system before general release. |
+| TR-03 | Pre-release testing shall include customer-facing functions, staff workflows, and ease of use. |
+| TR-04 | The implementation shall support staff onboarding before they are expected to use the new system in normal operations. |
+
+## 6. Future or optional capabilities
+
+These capabilities should not be treated as confirmed initial-release requirements.
+
+| Capability | Status |
+|---|---|
+| Customer reviews | Desired capability; initial-release scope not confirmed |
+| Personalized recommendations | Desired capability; initial-release scope not confirmed |
+| Loyalty program | Potential future addition |
+| Additional resorts and new service types | Future expansion; architectural support required now |
+| Virtual tours | Nice-to-have; photographs are the initial preference |
+| Customer messaging service | Undecided |
+| External equipment or service-provider integrations | Desired when needed; specific providers and workflows undefined |
+
+## 7. Outstanding decisions
+
+The following details must be resolved before the requirements form a complete implementation baseline:
+
+- Booking rules, availability constraints, pricing, cancellations, refunds, and no-shows.
+- Rental periods, returns, damaged or missing items, and inventory allocation.
+- Ski-class capacities, schedules, and instructor assignment.
+- Whether customers need accounts or may book as guests.
+- Supported payment methods, payment timing, and accounting integration.
+- Staff permissions and controls over manual corrections or removals.
+- Report contents, formats, schedules, and financial calculations.
+- Social media platforms, travel partners, data feeds, and campaign measurement methods.
+- Feedback routing, response responsibilities, and notification frequency.
+- Weather and lift-data availability, refresh rates, and behavior when feeds fail.
+- Data migration scope, cutover arrangements, and preservation of historical records.
+- Measurable performance, availability, security, recovery, accessibility, and usability acceptance criteria.

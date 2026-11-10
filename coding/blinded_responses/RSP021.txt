@@ -1,0 +1,89 @@
+# Software Requirements: Ski Resort Customer and Reservation Website
+
+## 1. Purpose and scope
+
+The system shall provide a website for managing customer reservations and payments for the stakeholder’s three ski resorts. It will replace or reduce the current manual processes involving telephone and fax reservations and payments made at the resorts.
+
+The website will also support equipment inventory management, daily weather forecasts, and social media connectivity to attract customers.
+
+## 2. Functional requirements
+
+### 2.1 Reservations
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-01 | The system shall allow customers to book rooms at the stakeholder’s ski resorts. | High |
+| FR-02 | The system shall allow customers to reserve ski equipment. | High |
+| FR-03 | The system shall allow customers to book ski training classes. | High |
+| FR-04 | The system shall support reservations across all three resorts. | High |
+
+### 2.2 Payments
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-05 | The system shall allow customers to pay online for reservations. | High |
+| FR-06 | The system shall support credit card payments. | High |
+| FR-07 | The system shall support PayPal payments. | High |
+
+Credit card and PayPal support were accepted in the interview, although detailed payment requirements remain to be confirmed.
+
+### 2.3 Centralized data management
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-08 | The system shall use a centralized database to store and manage reservation and payment records for the three resorts. | High |
+
+The stakeholder explicitly requested a centralized database. The precise customer information to be stored was not specified.
+
+### 2.4 Equipment inventory
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-09 | The system shall enable resort personnel to track available ski equipment. | Not specified |
+| FR-10 | The system shall provide real-time updates to equipment availability. | Not specified |
+| FR-11 | The system shall integrate equipment inventory with equipment reservations so that bookings automatically update availability. | Not specified |
+
+### 2.5 Weather forecasts
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-12 | The website shall display daily weather forecast information to customers. | Not specified |
+
+The weather provider, forecast location coverage, and refresh frequency were not established. “Daily” describes the requested forecast presentation, not necessarily its refresh interval.
+
+### 2.6 Social media connectivity
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-13 | The website shall provide general sharing and connectivity features for major social media platforms to support advertising and customer acquisition. | Not specified |
+
+The specific platforms and integration mechanisms remain to be determined.
+
+## 3. Non-functional requirements
+
+| ID | Requirement | Qualification |
+|---|---|---|
+| NFR-01 | The website shall provide an intuitive customer experience, particularly for reservations and payments. | Measurable usability acceptance criteria must be agreed with the stakeholder. |
+
+No explicit performance, security, accessibility, reliability, or capacity targets were established during the interview.
+
+## 4. Scope exclusions
+
+- Customer feedback and review features are not required for the stated scope.
+- No payment methods beyond credit card and PayPal were requested.
+- Specific social media platforms were not selected.
+
+## 5. Outstanding clarification needs
+
+The following details are necessary before implementation but were not established in the interview:
+
+- **Customer management:** Required customer records, account creation, guest bookings, and staff access.
+- **Reservations:** Room types, booking dates and durations, class schedules and capacities, availability rules, cancellations, and changes.
+- **Payments:** Currency, pricing, deposits versus full payment, refunds, payment provider, and whether on-site payments must remain supported.
+- **Multi-resort operations:** Resort selection and whether equipment inventory is maintained separately at each resort.
+- **Inventory:** Equipment categories, quantities, sizes, rental periods, returns, and handling of unavailable or damaged equipment.
+- **Weather:** Forecast locations, information displayed, data provider, and update frequency.
+- **Social media:** Supported platforms and the meaning of “connectivity” beyond sharing.
+- **Quality and controls:** User permissions, data protection, payment security, availability, performance, backup, and measurable usability criteria.
+
+These items are unresolved requirements questions, not confirmed features.

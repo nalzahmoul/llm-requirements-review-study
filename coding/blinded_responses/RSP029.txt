@@ -1,0 +1,197 @@
+# Software Requirements Specification: Cool Ski Resorts Online Reservation & Management System
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements for Cool Ski Resorts' new online system, based on the elicitation interview. Each requirement shows its source and confidence:
+
+- **[S] Stated:** the stakeholder said it explicitly.
+- **[C] Confirmed:** the stakeholder agreed to something the interviewer proposed. This is lower confidence, because some confirmations were one-word answers to compound questions.
+- **[D] Derived:** inferred from context. It needs stakeholder validation.
+
+### 1.2 Business Context
+Cool Ski Resorts runs three newly opened ski resorts in different US mountain locations. Each resort offers three services:
+- Hotel room bookings
+- Ski equipment and clothing hire
+- Ski training classes
+
+The current process has five main weaknesses:
+- Reservations and hires are taken by telephone and fax.
+- Payments are handled semi-manually at each resort.
+- Data is held in a separate local database at each resort.
+- Coordination between the resorts is becoming difficult.
+- The website is static and shows only service information and contact details.
+
+### 1.3 Business Objectives
+| ID | Objective |
+|----|-----------|
+| BO-1 | Increase visibility and attract customers nationwide. The resorts are new and currently have very few customers. |
+| BO-2 | Increase revenue through online reservation, booking, and payment. |
+| BO-3 | Streamline operations across the three resorts through a centralized database. |
+| BO-4 | Make business reporting easier. |
+| BO-5 | Gain a competitive edge through innovative digital features. |
+| BO-6 | Restructure the business digitally with minimal disruption to current operations. |
+
+### 1.4 Scope
+**In scope:**
+- Public website
+- Online reservations, hires, and class bookings
+- Online payment
+- Centralized database
+- Inventory management
+- Reporting
+- Weather and snow-condition display
+- Social media integration
+
+**Out of scope (as stated):**
+- Internal tools for coordinating social media content creation or team communication
+
+## 2. Stakeholders and User Classes
+
+| User Class | Description | Primary Needs |
+|------------|-------------|---------------|
+| Owner (Mary/Jim Smith) | Business owner with oversight of all three resorts | Consolidated reports, business visibility |
+| Customers | Public users planning ski holidays | Browse services, book, pay, check weather |
+| Customer Service Staff | Per-resort staff | Manage reservations and customer queries |
+| Accounts/Finance Assistants | Per-resort staff handling accounts, taxation, and booking finances | Payment records, financial and tax reporting |
+| Inventory Staff | Per-resort staff | Track hire equipment, clothing, and availability |
+| Marketing/Content Staff | Internal staff who create social media content | Publish weekly posts, link the site to social platforms |
+
+## 3. Functional Requirements
+
+### 3.1 Public Website and Service Catalog
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-1.1 | The system shall provide a public website that presents the services available at each of the three resorts. | Must | [S] |
+| FR-1.2 | The website shall let customers view hotel room types, hire equipment and clothing, and training classes for each resort. | Must | [S] |
+| FR-1.3 | The website shall show resort information and contact details, carrying over the content of the existing static site. | Must | [D] |
+| FR-1.4 | The website shall let customers filter or compare offerings by resort. | Should | [D] |
+
+### 3.2 Hotel Reservations
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-2.1 | The system shall let customers search room availability by resort, date range, and number of guests. | Must | [S]/[D] |
+| FR-2.2 | The system shall let customers reserve available rooms online. | Must | [S] |
+| FR-2.3 | The system shall prevent double-booking of rooms. | Must | [D] |
+| FR-2.4 | The system shall send customers a booking confirmation, for example by email. | Should | [D] |
+| FR-2.5 | The system shall let customers and staff view, modify, and cancel reservations according to a resort policy that is still to be defined. | Should | [D] |
+| FR-2.6 | Staff shall be able to create and manage reservations received by phone or in person. | Must | [D] |
+
+### 3.3 Equipment and Clothing Hire
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-3.1 | The system shall let customers book ski equipment and clothing hire online, by resort and by date. | Must | [S] |
+| FR-3.2 | The system shall show only items that are available for the selected dates and resort. | Must | [D] |
+| FR-3.3 | The system shall record item attributes needed for hire, such as type, size, and condition. | Should | [D] |
+
+### 3.4 Training Class Booking
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-4.1 | The system shall let customers book ski training classes online. | Must | [S] |
+| FR-4.2 | The system shall show class schedules and remaining capacity, and shall prevent overbooking. | Must | [D] |
+| FR-4.3 | Staff shall be able to create, edit, and cancel classes. | Must | [D] |
+
+### 3.5 Online Payment
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-5.1 | The system shall let customers pay online for reservations, hires, and classes. | Must | [S] |
+| FR-5.2 | The system shall record all payment transactions in the central database and link each one to its booking and resort. | Must | [S]/[D] |
+| FR-5.3 | The system shall support refunds for cancellations according to resort policy. | Should | [D] |
+| FR-5.4 | The system shall record the transaction data that accounts assistants need for accounting and tax purposes. | Must | [D] |
+
+### 3.6 Inventory Management
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-6.1 | The system shall track inventory at each resort, including hire equipment and clothing. | Must | [S] |
+| FR-6.2 | The system shall update inventory availability when items are hired and returned. | Must | [D] |
+| FR-6.3 | Staff shall be able to add, edit, and retire inventory items. | Must | [D] |
+| FR-6.4 | The system shall show inventory levels per resort and across all resorts. | Must | [C] |
+
+### 3.7 Centralized Data and Synchronization
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-7.1 | The system shall maintain a centralized database of reservations, bookings, hires, payments, and inventory for all three resorts. | Must | [S] |
+| FR-7.2 | The website shall connect to the centralized database. | Must | [S] |
+| FR-7.3 | Data shall be synchronized between the resorts and the central system on a schedule. The frequency is "not frequent" and still needs to be defined (see OI-1). | Must | [S] |
+| FR-7.4 | The system shall migrate existing data from each resort's local database into the central database. | Must | [D] |
+
+### 3.8 Reporting
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-8.1 | The system shall generate occupancy rate reports. | Must | [C] |
+| FR-8.2 | The system shall generate inventory level reports. | Must | [C] |
+| FR-8.3 | The system shall generate booking trend reports. | Must | [C] |
+| FR-8.4 | All reports shall be available for each individual resort and aggregated across all resorts. | Must | [C] |
+| FR-8.5 | The system shall generate financial and revenue reports to support accounts and taxation work. | Should | [D] |
+
+### 3.9 Weather and Snow Conditions
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-9.1 | The system shall show weather forecasts for each resort's region. | Must | [S] |
+| FR-9.2 | Weather information shall include snow conditions. | Must | [S] |
+| FR-9.3 | Weather information shall be shown on the main page and on the booking pages. | Must | [S] |
+| FR-9.4 | Weather data shall be updated in real time. The acceptable refresh interval still needs to be defined. | Must | [S] |
+| FR-9.5 | Weather data shall come from the US national weather forecast service, assumed to be the National Weather Service/NOAA API. | Must | [S]/[D] |
+| FR-9.6 | The system shall degrade gracefully, without breaking booking, if the weather service is unavailable. | Should | [D] |
+
+### 3.10 Social Media Integration
+| ID | Requirement | Priority | Source |
+|----|-------------|----------|--------|
+| FR-10.1 | The website shall link to the company's Twitter (X), Facebook, and Instagram accounts. | Must | [S] |
+| FR-10.2 | The system shall let promotions be shared on these platforms. | Should | [C] |
+| FR-10.3 | The system shall support display of customer reviews and testimonials. | Could | [C] |
+| FR-10.4 | The system shall support display of user-generated content from the resorts. | Could | [C] |
+| FR-10.5 | The business shall publish a weekly post containing resort news, weather, and pictures. Content creation and scheduling are handled internally, so the system needs no content-planning or team-coordination tools. | — | [S] |
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement | Source |
+|----|----------|-------------|--------|
+| NFR-1 | Usability | The website shall be aesthetically pleasing and intuitive for first-time customers. | [S] |
+| NFR-2 | Usability | The website shall be responsive and usable on mobile devices. | [D] |
+| NFR-3 | Security | Online payments shall comply with PCI DSS. A third-party payment gateway is recommended. | [D] |
+| NFR-4 | Security | Customer personal data shall be protected under applicable US privacy laws, such as CCPA where relevant. | [D] |
+| NFR-5 | Security | Staff access shall be role-based: owner, accounts, customer service, and inventory. Staff shall see only the resort data they are authorized to see. | [D] |
+| NFR-6 | Scalability | The system shall support growth from a small customer base to nationwide traffic. | [D] (BO-1) |
+| NFR-7 | Availability | The public booking site shall be available 24/7. The target uptime is still to be defined. | [D] |
+| NFR-8 | Data Integrity | Room, hire, and class availability shall stay consistent so that overbooking cannot occur. | [D] |
+| NFR-9 | Transition | The rollout shall minimize disruption to current operations, for example through phased deployment and parallel running. | [S] |
+| NFR-10 | Maintainability | Staff shall be able to update service, pricing, and content without developer involvement. | [D] |
+
+## 5. Constraints
+
+| ID | Constraint | Source |
+|----|-----------|--------|
+| C-1 | The centralized database shall be an SQL (relational) database. | [S] |
+| C-2 | Weather data shall come from the US national weather forecast system. | [S] |
+| C-3 | Social media integration is limited to Twitter (X), Facebook, and Instagram. | [S] |
+
+## 6. Assumptions
+
+- **A-1:** "US weather forecast system" means the National Weather Service (NOAA) public API.
+- **A-2:** "Post about jews from the resort" is a typo for "**news** from the resort."
+- **A-3:** Telephone bookings will continue alongside online bookings.
+- **A-4:** Each resort keeps local staff who will use the system for daily operations.
+- **A-5:** "Mary/Jim Smith" is one owner. The name was given ambiguously.
+
+## 7. Open Issues, Conflicts, and Risks
+
+| ID | Issue | Impact | Recommended Action |
+|----|-------|--------|-------------------|
+| **OI-1** | **Conflict: synchronization versus online booking.** The stakeholder wants infrequent scheduled syncs, but live online booking needs current availability. If resort-side bookings sync only occasionally, the same room, item, or class place could be sold twice. | High: double-bookings and customer dissatisfaction | Clarify the architecture. Either make all bookings, including phone bookings, go directly through the central system in real time, or limit scheduled sync to non-critical data such as reports and historical records. Define the sync frequency. |
+| OI-2 | **Snow-condition data source.** The NWS API provides forecasts but may not provide on-mountain snow conditions such as base depth or slope status. | Medium | Confirm data needs. Consider NOAA NOHRSC data, resort-entered snow reports, or a specialist ski-conditions provider. |
+| OI-3 | **Low-confidence social media requirements.** "Yes" was given to a compound question covering auto-sharing, user-generated content, and reviews. It is also unclear whether weekly posts are published through the system or directly on each platform. | Medium | Confirm each feature separately and decide whether automated cross-posting is needed. |
+| OI-4 | **Inventory scope undefined.** It is unclear whether inventory covers only hire items or also hotel supplies and retail. Stock alerts, maintenance tracking, and procurement were not discussed. | Medium | Run a follow-up session with inventory staff. |
+| OI-5 | **Pain points not elicited.** "It sucks" gave no actionable detail about the current system. | Medium | Interview resort staff (accounts, customer service, inventory) directly. |
+| OI-6 | **Undiscussed areas.** No input was gathered on customer accounts and login, cancellation and refund policy, pricing and promotions or discount codes, package deals (room plus hire plus class), languages, accessibility, budget, timeline, or hosting. | Medium–High | Hold a follow-up elicitation session. |
+| OI-7 | **"Innovative solutions."** The stakeholder wants competitive innovation but named no specific features beyond weather integration. | Low–Medium | Propose options such as package bundles, loyalty programs, and dynamic pricing for stakeholder review. |
+| OI-8 | **Accounting and tax integration.** It is unclear whether the system should integrate with existing accounting software or produce tax-ready reports. | Medium | Consult the accounts assistants. |
+| OI-9 | **Reporting format.** Report frequency, format (dashboard or export), and recipients were not specified. | Low | Confirm with the owner. |
+
+## 8. Reviewer Notes on the Elicitation
+
+The interview captured high-level features well, but the stakeholder's answers were often brief or single-word. Several requirements rest on interviewer suggestions rather than stakeholder statements. The main concerns are:
+
+1. **The architecture conflict in OI-1** is the most significant risk and should be resolved before design begins.
+2. **No operational staff were interviewed.** Accounts, customer service, and inventory staff are key users, so further sessions with them are strongly recommended.
+3. **Requirements marked [C] and [D]** should be validated with the stakeholder before the document is baselined.

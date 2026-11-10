@@ -1,0 +1,108 @@
+# Software Requirements: Ski Resort Website
+
+## 1. Purpose and Scope
+
+The system shall provide a customer-facing website serving Jim’s three ski resorts, with centralized reservation data to prevent double bookings.
+
+The business goals are to improve customer satisfaction, enable online room reservations, and help customers explore resort offerings and conditions.
+
+## 2. Functional Requirements
+
+### 2.1 Centralized Room Reservations — Highest Priority
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall centralize room availability and reservation data for all three resorts. |
+| FR-02 | The system shall allow customers to view available rooms at each resort. |
+| FR-03 | The system shall allow customers to select and reserve a room online. |
+| FR-04 | The system shall prevent conflicting reservations for the same room over overlapping stay dates. |
+| FR-05 | The system shall display room prices and differences in pricing between seasons. |
+
+### 2.2 Payments
+
+| ID | Requirement |
+|---|---|
+| FR-06 | The system shall integrate with PayPal to process customer payments. |
+| FR-07 | The system shall provide payment confirmations. |
+| FR-08 | The system shall automatically issue payment receipts. |
+
+**Clarification needed:** The stakeholder initially requested payment by bank transfer, then specified PayPal and confirmed the PayPal-based summary. Whether bank transfers must also be supported remains unresolved.
+
+### 2.3 Resort Information and Promotion
+
+| ID | Requirement |
+|---|---|
+| FR-09 | The website shall allow customers to view the offerings available at each of the three resorts. |
+| FR-10 | The system shall support promotion and advertising through social media integration. |
+
+The specific social media platforms and integration capabilities have not been defined.
+
+### 2.4 Weather and Snow Conditions
+
+| ID | Requirement |
+|---|---|
+| FR-11 | The system shall allow customers to access weather information and forecasts relevant to the resorts. |
+| FR-12 | The system shall allow customers to access snow-condition information and forecasts relevant to the resorts. |
+
+Data sources, update frequency, and forecast periods require clarification.
+
+### 2.5 Inventory Management
+
+| ID | Requirement |
+|---|---|
+| FR-13 | The system shall provide inventory management functionality. |
+
+The inventory types, users, and required management operations have not been specified.
+
+### 2.6 Training Class Booking
+
+| ID | Requirement |
+|---|---|
+| FR-14 | The system shall allow customers to book training classes. |
+
+Class types, schedules, capacity limits, pricing, and payment rules require clarification.
+
+### 2.7 Customer Feedback
+
+| ID | Requirement |
+|---|---|
+| FR-15 | The system shall provide functionality for customer feedback or reviews. |
+
+The format, publication rules, and moderation requirements have not been defined.
+
+## 3. User Experience Requirements
+
+| ID | Requirement |
+|---|---|
+| UX-01 | The website shall have an aesthetically pleasing visual design. |
+| UX-02 | The website shall provide an intuitive customer interface for discovering resort offerings and completing reservations. |
+
+These are confirmed stakeholder expectations, but measurable acceptance criteria must be agreed upon.
+
+## 4. Feature Priorities
+
+The stakeholder explicitly confirmed the following ranking presented by the interviewer:
+
+1. Centralized booking and prevention of double reservations
+2. Aesthetically pleasing and intuitive website
+3. Inventory management
+4. Social media promotion and advertising integration
+5. Customer feedback or reviews
+6. Weather and snow-condition forecasts
+
+**Priority discrepancy:** Training class booking was requested but omitted from the confirmed ranking. Its relative priority must be clarified.
+
+## 5. Outstanding Requirements Questions
+
+Before implementation, the following matters need resolution:
+
+- Whether the new website replaces all three existing websites or whether they remain connected to the centralized reservation system.
+- Whether telephone and fax reservations will continue and how those bookings will enter the centralized system.
+- When a reservation becomes confirmed, particularly in relation to payment, and how unpaid or failed-payment bookings are handled.
+- Whether cancellation, modification, refund, deposit, or partial-payment functionality is required.
+- How seasons and seasonal room prices are defined and maintained.
+- Which staff roles need access to manage rooms, reservations, prices, inventory, classes, and reviews.
+- The detailed scope of inventory, class booking, social media, and feedback functionality.
+- Measurable usability, performance, availability, security, and privacy requirements.
+
+These items were not established in the interview and should not be treated as confirmed functionality.

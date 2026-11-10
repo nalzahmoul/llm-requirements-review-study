@@ -1,0 +1,120 @@
+# Software Requirements: Cool Ski Resorts Online System
+
+## 1. Purpose and scope
+
+Cool Ski Resorts requires a web-based system serving its three U.S.-based ski resorts. The system will replace or streamline manual reservation and payment processes, centralize operational data, and enable customers to book and pay for services online.
+
+The business objectives are to:
+- Improve customer experience through convenient self-service.
+- Reduce manual work, errors, and coordination effort between resorts.
+- Increase customer reach and online visibility.
+- Improve operational efficiency while minimizing disruption to current operations.
+
+## 2. Users
+
+- **Customers:** Book accommodation, equipment rentals, and training classes; pay online; and view resort information.
+- **Resort staff:** Manage reservations, inventory, customer information, and payment records, and support guest arrival.
+- **Owners and management:** Monitor operations and financial information across the three resorts.
+
+Detailed permissions for these user groups remain to be defined.
+
+## 3. Functional requirements
+
+### 3.1 Online reservations and bookings — Priority 1
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall allow customers to book hotel rooms online at the three resorts. |
+| FR-02 | The system shall allow customers to reserve ski equipment rentals online. |
+| FR-03 | The system shall allow customers to register for training classes online. |
+| FR-04 | The system shall provide self-service online booking at any time of day. |
+| FR-05 | The system shall send customers a booking confirmation by email after a booking is made. |
+| FR-06 | The booking confirmation shall include a booking number, a QR code, or both, to identify the reservation and simplify guest arrival. The identifier format remains to be confirmed. |
+
+**Check-in requirement requiring confirmation:** The stakeholder expressed a desire for staff to scan booking QR codes using phones to reduce the guest entry process. The interviewer’s final interpretation was not explicitly confirmed. Whether QR scanning is required, whether a booking number is sufficient, and what scanning should do must be clarified.
+
+### 3.2 Centralized database — Priority 2
+
+| ID | Requirement |
+|---|---|
+| FR-07 | The system shall use a centralized database shared across all three resorts. |
+| FR-08 | The system shall centrally maintain reservation, customer, inventory, and payment/financial information. |
+| FR-09 | The system shall allow authorized staff to manage reservations and customer information for resort operations. |
+| FR-10 | The system shall make current reservation, inventory, and financial information available across the resorts to support coordination and monitoring. |
+
+### 3.3 Integrated online payments — Priority 3
+
+| ID | Requirement |
+|---|---|
+| FR-11 | The system shall allow customers to pay online for booked services. |
+| FR-12 | The system shall support booking deposits and full payments. |
+| FR-13 | The system shall record payments against their associated bookings in the centralized database. |
+
+Payment methods, deposit rules, balance-payment timing, and the payment provider were not specified.
+
+### 3.4 Inventory and resource management — Priority 4
+
+| ID | Requirement |
+|---|---|
+| FR-14 | The system shall track ski equipment availability in real time. |
+| FR-15 | The system shall track room occupancy and availability in real time. |
+| FR-16 | The system shall track other bookable resource availability as those resources are defined. |
+| FR-17 | The system shall update availability when bookings affect resource capacity. |
+| FR-18 | The system shall prevent bookings that exceed available room or resource capacity. |
+
+Although full inventory management is ranked fourth, sufficient availability control is needed when online booking is introduced to prevent overbooking.
+
+### 3.5 Social media integration — Priority 5
+
+| ID | Requirement |
+|---|---|
+| FR-19 | The website shall provide links to the resorts’ Facebook, Instagram, and Twitter accounts to support promotion and customer interaction. |
+
+Social feeds, automated posting, social login, and other deeper integrations were not requested explicitly.
+
+### 3.6 Weather and snow information — Priority 6
+
+| ID | Requirement |
+|---|---|
+| FR-20 | The website shall display current weather and snow conditions relevant to the resorts. |
+| FR-21 | The website shall display weather and snow forecasts to help guests plan their trips. |
+
+The information provider, update frequency, and handling of unavailable data remain to be defined.
+
+## 4. Nonfunctional and transition requirements
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The booking and payment processes shall be simple and easy to use, avoiding unnecessary complexity. Measurable usability criteria must be agreed. |
+| NFR-02 | The system shall process online payments securely. Specific security controls and applicable compliance requirements must be established before implementation. |
+| NFR-03 | The system shall support 24/7 customer self-service. Availability targets and maintenance arrangements remain to be agreed. |
+| NFR-04 | Operational data shall be updated sufficiently promptly to support real-time availability tracking and coordination. Maximum acceptable update delays remain to be defined. |
+| NFR-05 | The system design shall accommodate later addition of customer reviews, loyalty functionality, and mobile optimization without treating these as committed initial-release features. |
+| TR-01 | The transition from the existing resort-local processes and databases shall minimize disruption to ongoing resort operations. Migration and rollout arrangements must be agreed. |
+
+## 5. Future enhancements—not committed to the initial release
+
+The stakeholder requested advance planning for:
+
+- **Customer reviews and testimonials:** Allow guests to leave feedback for prospective customers.
+- **Loyalty program:** Allow repeat customers to enroll for rewards or discounts.
+- **Mobile optimization:** Provide a fully responsive website that is easy to use on mobile devices.
+
+These enhancements are lower priority than the six core capabilities.
+
+## 6. Outstanding requirements decisions
+
+The following topics were not resolved in the interview:
+
+1. Booking rules, including dates, party sizes, room selection, equipment quantities, and class capacities.
+2. Whether customers need accounts or may book as guests.
+3. Cancellation, amendment, refund, and no-show policies.
+4. Pricing, taxes, deposit amounts, and remaining-balance payment rules.
+5. Booking-number versus QR-code requirements and the exact arrival/check-in workflow.
+6. Staff roles, access permissions, and cross-resort data access.
+7. Scope of financial monitoring, taxation support, and reporting.
+8. Migration of existing data and continued handling of phone, fax, and on-site bookings.
+9. Security, privacy, performance, accessibility, and availability acceptance criteria.
+10. External service providers and integration details for payments, email, and weather data.
+
+These decisions should be confirmed before the requirements are treated as a complete implementation baseline.

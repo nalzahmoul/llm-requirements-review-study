@@ -1,0 +1,60 @@
+Based on the requirements elicitation interview transcript, here is a structured Software Requirements Specification (SRS) document, along with a Reviewer’s Note highlighting areas that require further clarification.
+
+---
+
+# Software Requirements Specification (SRS)
+
+## 1. Project Overview
+* **Business Context:** A chain of three (mostly new) ski resorts.
+* **Project Goal:** Develop a new, centralized website to increase the customer base (marketing/exposure) and streamline internal operations and management across all three resorts.
+* **Target Timeline:** Approximately 1 year to completion.
+
+---
+
+## 2. Functional Requirements (FR)
+
+### 2.1. Customer-Facing Portal & Booking System
+* **FR-1.1 Resort Reservations:** The system shall allow customers to book visits/stays at any of the three ski resorts.
+* **FR-1.2 Training Class Bookings:** The system shall allow customers to view and book ski training classes.
+* **FR-1.3 Public Booking Calendar:** The system shall display a public-facing calendar showing resort opening times and real-time booking availability.
+* **FR-1.4 Calendar Synchronization:** The system shall synchronize booking calendars between the internal database and the public-facing website in real time.
+* **FR-1.5 Customer Profiles:** The system shall allow customers to create and manage personal profiles to track their bookings and information.
+* **FR-1.6 Payment Gateway:** The system shall integrate a payment gateway to process customer payments for reservations and training classes online.
+* **FR-1.7 Weather Forecast Display:** The system shall display the local weather forecast for the ski resorts during the booking process so customers know what to expect.
+
+### 2.2. Human Resources & Hiring Module
+* **FR-2.1 Job Listings:** The system shall provide a public careers section where administrators can post job listings across the three resorts.
+* **FR-2.2 Application Management:** The system shall allow applicants to submit applications online and provide an internal interface for HR/management to review and manage these applications.
+
+### 2.3. Internal Management & Centralized Database
+* **FR-3.1 Centralized Data Storage:** The system shall feature a single, centralized database to manage data across all three resorts.
+* **FR-3.2 Account & Tax Management:** The internal system shall manage financial accounts and tax information for all three resorts in one central location.
+
+---
+
+## 3. Non-Functional Requirements (NFR)
+
+* **NFR-1 Performance (Real-Time Updates):** 
+  * Booking availability must update in real-time to prevent double-booking.
+  * Weather forecast data must be fetched/updated dynamically with each customer inquiry.
+* **NFR-2 Security & Access Control:** The centralized database (specifically financial, tax, and HR data) must be strictly for internal use only. Only the availability/opening calendar data shall be exposed to public users.
+* **NFR-3 Usability & Design:** The website must be aesthetically pleasing, intuitive, and easy to use for customers.
+* **NFR-4 Scalability/Extensibility:** The calendar and booking architecture must be designed to easily accommodate a "Special Events" feature in future updates, even though it is not needed for the initial launch.
+
+---
+
+## 4. External Interface & Integration Requirements
+* **INT-1 Weather API:** The system shall integrate with a reliable third-party weather API (vendor to be proposed by the development team).
+* **INT-2 Payment Processor:** The system shall integrate with a third-party payment gateway (vendor TBD).
+* **INT-3 Accounting/Tax Software Integration:** The system must either integrate with or replace the current accounting and tax management software used by the resorts.
+
+---
+
+## 5. Requirements Reviewer’s Notes (Gaps & Action Items)
+As a requirements reviewer, I have identified several ambiguities and missing details from the transcript that must be resolved before architecture and development can begin:
+
+1. **Follow-up with the Stakeholder's Assistant (High Priority):** The stakeholder does not know what accounting and tax software is currently in use. An interview with the assistant is required to determine if we are building an ERP from scratch or simply integrating with existing tools (e.g., QuickBooks, SAP, Xero).
+2. **"Reservations" Ambiguity:** It is unclear what a "reservation" entails. Does this mean hotel/lodging rooms, ski lift tickets, equipment rentals, or all of the above? 
+3. **"Hiring" vs. "Rental":** In some regions, "hiring" means "renting equipment" (e.g., ski hire). The interviewer steered the conversation toward HR (job listings), which the stakeholder agreed to, but the team should verify if *equipment rental* is also needed.
+4. **Design Guidelines:** The stakeholder ran out of time before answering the question about branding guidelines and competitor examples. A follow-up is needed with their marketing/design team to define "aesthetically pleasing."
+5. **Payment Gateway Details:** Need to clarify supported payment methods (Credit Card, PayPal, Apple Pay), currencies, and refund/cancellation policies.

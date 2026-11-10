@@ -1,0 +1,93 @@
+# Software Requirements: Cool Ski Resorts Online System
+
+## 1. Purpose and scope
+
+The system will support Cool Ski Resorts’ three US resorts through a customer-facing website and centralized business information management. It will enable online reservations, equipment and clothing hire, training-class bookings, and payments, while improving business visibility and reporting.
+
+Implementation must minimize disruption to existing resort operations.
+
+## 2. Users
+
+- **Customers:** View resort services and availability, make bookings and hire arrangements, pay online, and view weather and snow conditions.
+- **Resort staff:** Manage customer service, reservations, bookings, hires, and inventory.
+- **Accounts staff:** Access booking-related financial information to support accounting and taxation work.
+- **Owner/management:** Review operations and reports for individual resorts and the business as a whole.
+
+Detailed access permissions remain to be defined.
+
+## 3. Functional requirements
+
+### 3.1 Resort information and online transactions
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The website shall present information about each of the three resorts, including available services and contact information. |
+| FR-02 | The system shall allow customers to view availability for hotel accommodation, ski equipment and clothing hire, and ski training classes at each resort. |
+| FR-03 | The system shall allow customers to reserve hotel accommodation online. |
+| FR-04 | The system shall allow customers to arrange ski equipment and clothing hire online. |
+| FR-05 | The system shall allow customers to book ski training classes online. |
+| FR-06 | The system shall support online payments for reservations, hires, and class bookings. |
+
+### 3.2 Operational data and inventory
+
+| ID | Requirement |
+|---|---|
+| FR-07 | The system shall maintain a centralized SQL database containing reservations, bookings, hires, and inventory information for all three resorts. |
+| FR-08 | The system shall associate operational records with the relevant resort. |
+| FR-09 | The system shall enable authorized staff to manage reservations, bookings, hires, and inventory for each resort. |
+| FR-10 | The system shall retain booking-related financial information needed by accounts staff. The required financial fields and accounting functions remain to be defined. |
+| FR-11 | The system shall support scheduled synchronization between resort data sources and the centralized database. The schedule remains to be agreed; the stakeholder requested infrequent rather than real-time synchronization. |
+
+### 3.3 Reporting
+
+| ID | Requirement |
+|---|---|
+| FR-12 | The system shall generate occupancy-rate reports. |
+| FR-13 | The system shall generate inventory-level reports. |
+| FR-14 | The system shall generate booking-trend reports. |
+| FR-15 | These reports shall support both individual-resort views and consolidated views across all three resorts. |
+
+### 3.4 Weather and snow conditions
+
+| ID | Requirement |
+|---|---|
+| FR-16 | The website shall display regional weather forecasts relevant to the resorts. |
+| FR-17 | Weather information shall appear on both the main page and during the booking process. |
+| FR-18 | The system shall include snow-condition information alongside weather forecasts. |
+| FR-19 | Weather and snow-condition information shall update in real time, subject to the selected provider’s capabilities. The acceptable refresh interval remains to be defined. |
+| FR-20 | The weather integration shall use the stakeholder’s requested “US weather forecast system.” The exact provider, interface, and availability of snow-condition data require confirmation. |
+
+### 3.5 Social media
+
+| ID | Requirement |
+|---|---|
+| FR-21 | The website shall provide connections to Cool Ski Resorts’ Twitter, Facebook, and Instagram presences. The form of connection—such as links, embedded feeds, or publishing integration—requires confirmation. |
+
+The stakeholder plans for internal staff to produce weekly social media posts containing resort updates, weather information, and pictures. The system is not required to provide internal content-planning or team-coordination tools.
+
+Automatic sharing, user-generated content, reviews, and testimonials were mentioned together and received a general “yes.” Their individual scope is not sufficiently confirmed to treat them as committed requirements.
+
+## 4. Quality requirements and constraints
+
+| ID | Requirement |
+|---|---|
+| QR-01 | The customer-facing website shall be aesthetically pleasing and intuitive to use. Visual design and usability acceptance criteria remain to be agreed. |
+| QR-02 | Deployment and transition shall minimize disruption to existing resort operations. Acceptable downtime and transition arrangements remain to be defined. |
+| TC-01 | The centralized database shall use SQL technology. A specific database product has not been selected. |
+| TC-02 | The solution shall support all three existing resorts. |
+
+## 5. Outstanding decisions and requirements gaps
+
+The following must be resolved before implementation or acceptance criteria can be finalized:
+
+- **Booking rules:** Prices, deposits, cancellations, refunds, booking amendments, hire durations, class capacity, and room-allocation rules.
+- **Payments:** Payment methods, provider, transaction handling, and the relationship to existing on-site payments.
+- **Synchronization and availability:** Synchronization frequency, direction, conflict handling, and how to prevent double bookings when resort information is not synchronized in real time.
+- **Existing systems and migration:** Which local databases will remain in use, what historical data must be migrated, and how telephone and fax bookings will enter the new system.
+- **Staff access:** Authentication, roles, permissions, and whether staff access is restricted by resort.
+- **Reporting:** Reporting periods, calculations, filters, output formats, and financial-reporting scope.
+- **Weather:** Exact US provider, refresh frequency, regional mapping, snow-data source, and behavior when external data is unavailable.
+- **Social media:** Required integration depth and whether any automated publishing is needed. The transcript’s ambiguous word “jews,” subsequently interpreted by the interviewer as “news,” should be confirmed as resort news or updates.
+- **Operational quality:** Measurable targets for security, privacy, performance, availability, backup, recovery, and accessibility.
+
+These unresolved points are not confirmed requirements and should not be silently assumed.

@@ -1,0 +1,174 @@
+# Software Requirements Specification: Cool Ski Resorts Online Reservation & Operations System
+
+**Source:** Requirements elicitation interview with Jim Smith (co-owner, Cool Ski Resorts)
+**Status:** Draft. The interview ended early, so several items need stakeholder validation (see Section 9).
+
+---
+
+## 1. Background and Context
+
+Cool Ski Resorts is a small chain of three U.S.-based ski resorts run by Jim Smith and his wife. The current operations work as follows:
+
+- **Reservations:** Customers book by phone or fax, contacting each resort directly.
+- **Local recording:** Each resort records room bookings, ski equipment rentals, and training class registrations in its own simple local system.
+- **Payments:** Guests pay manually on arrival or departure, and staff enter payment details into a local database.
+- **Separate teams:** Each resort has its own assistants who manage reservations, payments, taxation, and financial records independently.
+- **Coordination:** Inventory and customer data are coordinated across resorts manually, which takes significant effort and causes errors.
+
+**Problem statement:** The current approach limits operational efficiency, increases errors, restricts scalability, and limits customer reach.
+
+## 2. Business Goals
+
+| ID | Goal |
+|----|------|
+| BG-1 | Improve customer experience through 24/7 self-service booking and payment. |
+| BG-2 | Increase online visibility and customer reach. |
+| BG-3 | Improve operational efficiency and reduce manual errors through centralization. |
+| BG-4 | Enable the business to scale. |
+| BG-5 | Achieve these goals with minimal disruption to current operations. |
+
+## 3. Stakeholders and User Classes
+
+| User Class | Description |
+|------------|-------------|
+| **Guests / Customers** | Prospective and returning visitors who browse, book, and pay online. |
+| **Resort Staff / Assistants** | Staff at each of the three resorts who manage reservations, check-in, payments, and records. |
+| **Owners / Management** | Jim Smith and his wife, who need a consolidated view of reservations, inventory, and financials across all resorts. |
+
+## 4. Scope and Priorities
+
+The stakeholder explicitly prioritized six core features in this order:
+
+| Priority | Feature |
+|----------|---------|
+| 1 | Online Reservations and Bookings |
+| 2 | Centralized Database |
+| 3 | Integrated Payment System |
+| 4 | Inventory Management |
+| 5 | Social Media Integration |
+| 6 | Real-Time Weather and Snow Conditions |
+
+**Future features:** Customer reviews and testimonials, a loyalty program, and mobile optimization are out of scope for the initial release. The system must be designed so they can be added later without major rework.
+
+---
+
+## 5. Functional Requirements
+
+### 5.1 Online Reservations and Bookings (Priority 1)
+
+| ID | Requirement |
+|----|-------------|
+| FR-1.1 | The system shall allow customers to book hotel rooms online at any of the three resorts. |
+| FR-1.2 | The system shall allow customers to reserve ski equipment rentals online. |
+| FR-1.3 | The system shall allow customers to register for ski training classes online. |
+| FR-1.4 | The system shall be available for self-service bookings 24 hours a day, 7 days a week. |
+| FR-1.5 | The system shall send a booking confirmation email to the customer when a booking is completed. |
+| FR-1.6 | Each confirmation email shall include a unique booking number and/or QR code identifying the booking. |
+| FR-1.7 | Resort staff shall be able to scan the booking QR code (or enter the booking number) with a mobile phone to retrieve the booking and check in the guest. *(Stated by the stakeholder. Not formally confirmed due to the interview ending.)* |
+| FR-1.8 | The check-in process via QR code/booking number shall remove the need for guests to repeat a manual entry or registration process on arrival. |
+| FR-1.9 | The system shall only allow bookings for rooms, equipment, and classes that are available at the requested time (see 5.4). |
+
+### 5.2 Centralized Database (Priority 2)
+
+| ID | Requirement |
+|----|-------------|
+| FR-2.1 | The system shall maintain a single centralized database shared by all three resorts. |
+| FR-2.2 | The database shall store reservations, customer data, inventory data, and financial/payment records for all resorts. |
+| FR-2.3 | Authorized staff and management shall be able to view and manage reservations across all resorts in real time. |
+| FR-2.4 | The system shall let management monitor financials across all resorts in real time. |
+| FR-2.5 | The system shall support each resort's handling of taxation and financial records. *(Derived. The level of accounting/tax functionality needs clarification.)* |
+| FR-2.6 | The system shall support migrating existing data from the three local resort databases. *(Derived from the "minimal disruption" goal.)* |
+
+### 5.3 Integrated Payment System (Priority 3)
+
+| ID | Requirement |
+|----|-------------|
+| FR-3.1 | The system shall allow customers to pay online for rooms, equipment rentals, and training classes. |
+| FR-3.2 | The system shall support both deposit payments and full payments at the time of booking. |
+| FR-3.3 | Online payments shall be automatically recorded in the centralized database and linked to the corresponding booking. |
+| FR-3.4 | The system shall eliminate the need for staff to manually enter payment details at the resorts. |
+
+### 5.4 Inventory Management (Priority 4)
+
+| ID | Requirement |
+|----|-------------|
+| FR-4.1 | The system shall track ski equipment availability in real time across all resorts. |
+| FR-4.2 | The system shall track room occupancy in real time across all resorts. |
+| FR-4.3 | The system shall track other bookable resources (e.g., training class capacity) in real time. |
+| FR-4.4 | The system shall prevent overbooking of rooms, equipment, and classes. |
+| FR-4.5 | Inventory levels shall update automatically when bookings are created, modified, or cancelled. |
+
+### 5.5 Social Media Integration (Priority 5)
+
+| ID | Requirement |
+|----|-------------|
+| FR-5.1 | The website shall provide links to the company's Facebook, Instagram, and Twitter accounts. |
+| FR-5.2 | The system shall support promotion of the resorts and interaction with potential guests via these platforms. *(The extent of "direct interaction", such as embedded feeds or sharing, needs clarification.)* |
+
+### 5.6 Real-Time Weather and Snow Conditions (Priority 6)
+
+| ID | Requirement |
+|----|-------------|
+| FR-6.1 | The website shall display real-time weather conditions for each resort. |
+| FR-6.2 | The website shall display current snow conditions for each resort. |
+| FR-6.3 | The website shall display weather and snow forecasts to help guests plan trips. |
+
+---
+
+## 6. Future / Extensibility Requirements
+
+These features are not part of the initial release. The architecture shall accommodate them to save time and effort later, as the stakeholder requested.
+
+| ID | Future Feature |
+|----|----------------|
+| FUT-1 | **Customer Reviews and Testimonials:** Guests can leave feedback and reviews on the website. |
+| FUT-2 | **Loyalty Program:** Repeat customers can sign up for rewards or discounts. |
+| FUT-3 | **Mobile Optimization:** The website is fully responsive and easy to use on mobile devices. |
+| FUT-4 | The system architecture, data model, and customer account structure shall support adding FUT-1 to FUT-3 without significant redesign. |
+
+---
+
+## 7. Non-Functional Requirements
+
+| ID | Category | Requirement |
+|----|----------|-------------|
+| NFR-1 | Usability | The booking and payment process shall be simple and highly usable, without unnecessary complexity. |
+| NFR-2 | Availability | Customer-facing booking functions shall be available 24/7. |
+| NFR-3 | Security | Online payments shall be processed securely. *(Derived: implies compliance with payment industry standards such as PCI DSS.)* |
+| NFR-4 | Data Consistency | Reservation and inventory data shall stay consistent across all resorts in real time to prevent errors and overbooking. |
+| NFR-5 | Scalability | The system shall support business growth, such as more customers and potentially more resorts. |
+| NFR-6 | Transition | Deployment shall cause minimal disruption to current resort operations. |
+| NFR-7 | Maintainability | The system shall be modular so the future features in Section 6 can be added efficiently. |
+| NFR-8 | Privacy | Customer personal data shall be stored and handled in line with applicable U.S. privacy regulations. *(Derived.)* |
+
+---
+
+## 8. Constraints and Assumptions
+
+- **C-1:** The business consists of three resorts, all located in the U.S.
+- **C-2:** Staff will use mobile phones to scan booking QR codes.
+- **A-1:** Weather and snow data will come from a third-party service. *(Assumed.)*
+- **A-2:** Online payment processing will use a third-party payment provider. *(Assumed.)*
+- **A-3:** Customers must provide a valid email address to receive booking confirmations.
+
+---
+
+## 9. Open Issues Requiring Stakeholder Validation
+
+The interview ended before detailed requirements were gathered for most features. The following items should be clarified in a follow-up session:
+
+1. **Confirm the booking recap.** The interviewer's summary (simple booking, confirmation email with number/QR code, staff scanning at entry) was never confirmed.
+2. **Payment vs. booking focus.** When asked about bookings, the stakeholder spoke of "facilitating the payment process". Confirm whether booking and payment should be a single combined flow.
+3. **On-site payment.** Should guests still be able to pay on arrival or departure, or will all payments move online?
+4. **Deposit rules.** What deposit amounts apply? What are the cancellation and refund policies?
+5. **Booking modifications.** Can customers modify or cancel bookings online?
+6. **Customer accounts.** Are user accounts required, or is guest checkout acceptable? This affects the future loyalty program.
+7. **Package bookings.** Can customers combine room, equipment, and class in one booking?
+8. **QR code usage points.** Where exactly will codes be scanned: hotel check-in, equipment rental desk, class registration, lift access?
+9. **Phone and fax channel.** Will phone and fax bookings continue? If so, staff need a way to enter them into the new system.
+10. **Taxation and financials.** What accounting, tax, and reporting functions are needed? Is integration with existing accounting tools required?
+11. **Staff roles and permissions.** What access levels are needed for resort staff versus management?
+12. **Social media scope.** Are simple links enough, or are embedded feeds, sharing, or messaging required?
+13. **Weather data.** What sources should be used, how often should data refresh, and what level of detail is needed?
+14. **Business constraints.** What are the budget, timeline, and phasing for the prioritized features?
+15. **Mobile priority.** Mobile optimization was listed as a future feature, but customer booking from phones is likely. Consider moving it into the initial release.

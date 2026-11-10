@@ -1,0 +1,72 @@
+Based on the requirements elicitation interview transcript, here is the Software Requirements Specification (SRS) for the **Cool Ski Resorts Online System**. 
+
+Because the stakeholder had to leave the interview abruptly, some low-level details for the secondary features were not fully explored. These are noted in the final section for future follow-up.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Cool Ski Resorts Modernization Project  
+**Stakeholder:** Jim Smith (Co-owner, Cool Ski Resorts)  
+
+## 1. Project Overview & Business Goals
+Cool Ski Resorts, a chain of three U.S.-based ski resorts, currently relies on manual, localized processes (phone/fax reservations, on-site manual payments, and isolated local databases). The goal of this project is to develop a centralized, web-based system that allows customers to book services and pay online, while enabling staff to manage inventory, reservations, and financials across all three resorts in real-time. 
+
+---
+
+## 2. Prioritized Functional Requirements
+
+The requirements are ordered below based on the implementation priority defined by the stakeholder.
+
+### Priority 1: Online Reservations and Bookings (Core Feature)
+*   **FR-1.1 Self-Service Booking:** The system shall provide a web-based interface allowing customers to book hotel rooms, rent ski equipment, and register for training classes across any of the three resorts.
+*   **FR-1.2 Email Confirmations:** Upon completing a booking, the system shall automatically generate and send a confirmation email to the customer.
+*   **FR-1.3 Digital Check-in Credentials:** The confirmation email shall include a unique booking reference number and a scannable QR code.
+*   **FR-1.4 Mobile QR Scanning (Staff):** The system shall provide a capability for resort staff to scan customer QR codes using mobile phones at resort entry points to streamline the check-in process.
+
+### Priority 2: Centralized Database
+*   **FR-2.1 Unified Data Storage:** The system shall replace the three isolated local databases with a single centralized database shared across all three resort locations.
+*   **FR-2.2 Real-Time Synchronization:** The database shall update and synchronize customer data, reservation records, inventory levels, and financial/taxation records in real-time across all locations.
+
+### Priority 3: Integrated Payment System
+*   **FR-3.1 Online Payment Processing:** The system shall allow customers to pay for their bookings (rooms, rentals, classes) online at the time of reservation.
+*   **FR-3.2 Payment Options:** The system shall support both partial payments (booking deposits) and full payments.
+*   **FR-3.3 Financial Tracking:** The system shall automatically log online payments into the centralized database for financial and taxation tracking, eliminating manual staff data entry.
+
+### Priority 4: Inventory Management
+*   **FR-4.1 Real-Time Resource Tracking:** The system shall track the real-time availability of hotel rooms, ski equipment, and training class capacities across each specific resort.
+*   **FR-4.2 Overbooking Prevention:** The system shall automatically deduct booked items/rooms from available inventory to prevent overbooking and resource shortages.
+
+### Priority 5: Social Media Integration
+*   **FR-5.1 Social Media Links:** The website shall integrate links to Cool Ski Resorts' social media platforms, specifically Facebook, Instagram, and Twitter (X), to support marketing and customer interaction.
+
+### Priority 6: Weather and Snow Conditions
+*   **FR-6.1 Real-Time Forecasts:** The website shall display real-time weather forecasts and snow conditions for the resorts to assist guests in trip planning.
+
+---
+
+## 3. Non-Functional Requirements (Quality Attributes)
+
+*   **NFR-1 Usability:** The online booking and payment workflows must be simple, intuitive, and possess high usability so as not to overcomplicate the process for customers.
+*   **NFR-2 Availability:** The online booking system shall be available to customers 24/7.
+*   **NFR-3 Security:** The integrated payment system must process customer payment details securely.
+*   **NFR-4 Extensibility/Scalability:** The software architecture must be designed to easily accommodate planned future enhancements (specifically Loyalty Programs, Customer Reviews, and Mobile Optimization) to save time and effort during future development phases.
+*   **NFR-5 Operational Continuity:** Deployment of the new system must cause minimal disruption to current resort operations.
+
+---
+
+## 4. Future Enhancements (Out of Current Scope, Plan for Architecture)
+The stakeholder identified the following features as desirable for future phases. They are lower priority than the core 6 features, but the system should be designed with them in mind:
+*   **FE-1 Customer Reviews and Testimonials:** A section on the website for guests to leave feedback and reviews.
+*   **FE-2 Loyalty Programs:** Functionality allowing repeat customers to sign up for rewards or discounts.
+*   **FE-3 Mobile Optimization:** Ensuring the customer-facing website is fully responsive and optimized for mobile phone browsers.
+
+---
+
+## 5. Reviewer Notes & Open Questions (For Next Elicitation Session)
+Because the stakeholder had to leave the interview right as detailed elicitation began, the following areas require clarification before development begins:
+
+1.  **Legacy Data Migration:** Do the existing local databases (customer records, historical financials, taxation records) need to be migrated into the new centralized database?
+2.  **Cancellations and Modifications:** What are the business rules for customers canceling or modifying a reservation online? Are deposits refundable?
+3.  **Payment Gateways:** Which payment methods (Credit Card, PayPal, Apple Pay, etc.) need to be supported?
+4.  **Manual/Walk-in Bookings:** Will resort assistants still take phone/walk-in reservations? If so, they will need an administrative portal to input these into the centralized system so inventory remains accurate.
+5.  **Equipment Specifics:** Does the inventory system need to track ski equipment by size/skill level, or just total quantity?

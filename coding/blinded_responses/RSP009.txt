@@ -1,0 +1,151 @@
+# Software Requirements Specification: Ski Resort Chain Website and Management System
+
+## 1. Background and Goals
+
+The stakeholder runs a chain of **three ski resorts**. The resorts are mostly new, and the business wants to grow its customer base. It needs a website that will:
+
+- **G1:** Promote the resorts and attract new customers.
+- **G2:** Let customers make reservations and book training classes online.
+- **G3:** Support hiring, through job listings and application management.
+- **G4:** Streamline operations by managing data for all three resorts in one central system.
+
+## 2. Users
+
+| User | Description |
+|---|---|
+| Visitor | Prospective customer browsing the website without an account |
+| Customer | Registered user who makes reservations and class bookings |
+| Job Applicant | Person who views job listings and applies |
+| Resort Staff / Manager | Internal user who manages bookings, availability, classes and applications |
+| Central Administration | Internal user who manages accounts, taxes and other data for all resorts (e.g., the stakeholder's assistant) |
+
+## 3. Functional Requirements
+
+**Priority key:**
+- **M (Must):** Explicitly requested by the stakeholder.
+- **S (Should):** Agreed to when the interviewer proposed it, but not elaborated.
+- **F (Future):** Not needed now, but the design must allow it later.
+
+### 3.1 Public Website and Marketing
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-01 | The website shall present information about each of the three ski resorts to attract new customers. | M |
+| FR-02 | The website shall let visitors browse resort information without creating an account. | M |
+
+### 3.2 Reservations and Availability Calendar
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-03 | Customers shall be able to make reservations online for a visit to any of the three resorts. | M |
+| FR-04 | The system shall show a public calendar with each resort's opening days and times. | M |
+| FR-05 | The calendar shall show availability in real time, reflecting current bookings and capacity. | M |
+| FR-06 | The system shall prevent bookings that exceed available capacity. | M |
+| FR-07 | The booking calendar shall support synchronization with external calendars, for example letting customers add a booking to their personal calendar. *The exact scope is to be confirmed.* | S |
+| FR-08 | Customers shall be able to view their existing reservations. | S |
+| FR-09 | Customers shall be able to modify or cancel their existing reservations. *Rules are to be confirmed.* | S |
+
+### 3.3 Training Classes
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-10 | Customers shall be able to view the training classes offered at each resort. | M |
+| FR-11 | Customers shall be able to book training classes online, with real-time availability. | M |
+| FR-12 | Resort staff shall be able to create, edit and remove classes, schedules and capacities. | M |
+
+### 3.4 Customer Profiles
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-13 | Customers shall be able to create and manage a personal profile. | S |
+| FR-14 | A customer's profile shall store their booking history and contact details. | S |
+
+### 3.5 Payments
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-15 | The system shall integrate a payment gateway so customers can pay for reservations and classes online. | S |
+| FR-16 | The system shall send customers a booking and payment confirmation. | S |
+
+### 3.6 Weather Forecast
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-17 | The system shall display a weather forecast for each resort during the booking process. | M |
+| FR-18 | The forecast shall cover the date(s) the customer is booking, where the forecast range allows. | M |
+| FR-19 | The forecast shall be fetched fresh from a third-party weather service each time a customer requests it, rather than shown from stale cached data. | M |
+| FR-20 | The weather service provider shall be chosen by the development team and approved by the stakeholder. *The stakeholder is open to suggestions.* | M |
+
+### 3.7 Hiring
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-21 | The website shall publish job listings for each resort. | M |
+| FR-22 | Applicants shall be able to submit applications online. | M |
+| FR-23 | Internal users shall be able to review applications, track their status and manage them. | M |
+| FR-24 | Internal users shall be able to create, edit and close job listings. | M |
+
+### 3.8 Central Internal Management Database
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-25 | The system shall provide one central database covering all three resorts. | M |
+| FR-26 | The central database shall support management of accounts and taxes for all resorts from one central location. | M |
+| FR-27 | The central database shall be for internal use only. The single exception is that opening and availability calendar data shall be exposed to the public booking calendar. | M |
+| FR-28 | The system shall integrate with, or migrate data from, the existing accounting and tax software. *The software is currently unknown.* | M |
+
+### 3.9 Special Events
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-29 | The architecture shall allow special events to be added to the calendar and booking system later without major redesign. | F |
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement |
+|---|---|---|
+| NFR-01 | Usability | The website shall be easy to use for customers without technical knowledge. |
+| NFR-02 | Aesthetics | The website shall have a visually appealing, modern design. *Branding guidelines are to be provided.* |
+| NFR-03 | Real-time performance | Availability shown to customers shall reflect the actual booking state at the moment it is viewed. |
+| NFR-04 | Performance | Fetching the weather forecast on demand shall not noticeably slow down the booking process. |
+| NFR-05 | Security and access control | Internal data, such as accounts, taxes and applications, shall be accessible only to authorized internal users, with role-based permissions. |
+| NFR-06 | Security | Payment processing shall comply with applicable standards, such as PCI-DSS, through the payment gateway. |
+| NFR-07 | Data protection | Personal data of customers and applicants shall be handled under applicable privacy law, such as GDPR if the resorts operate in the EU. |
+| NFR-08 | Extensibility | The system shall be modular, so it can support new features (such as special events) and additional resorts. |
+| NFR-09 | Reliability | The system shall handle external services being unavailable without blocking bookings. For example, the weather service may be down. |
+
+## 5. Constraints
+
+- **C-01:** The website shall be completed in about **one year**. The stakeholder stressed that meeting this timeline is important.
+- **C-02:** The system shall support **three resorts** from launch.
+- **C-03:** The weather service and payment gateway shall be third-party services.
+
+## 6. Assumptions
+
+- **A-01:** "Reservations" means visit or lift-pass bookings. Lodging and equipment rental are not in scope unless confirmed.
+- **A-02:** One central system will serve all three resorts, rather than a separate system for each resort.
+- **A-03:** Hiring covers all three resorts through one shared job portal.
+
+## 7. Open Issues
+
+These questions must be resolved with the stakeholder before or during design.
+
+| # | Open question | Who to ask |
+|---|---|---|
+| OI-01 | Which accounting and tax software is currently in use? Should the system integrate with it or replace it? | Stakeholder's assistant |
+| OI-02 | What exactly can be reserved: day visits, lift passes, accommodation, equipment rental? | Stakeholder |
+| OI-03 | What does "calendar synchronization" mean? Customer calendars, internal staff calendars, or both? | Stakeholder |
+| OI-04 | Are there branding guidelines or design preferences? | Stakeholder |
+| OI-05 | Are there competitor or reference websites the stakeholder admires? The interviewer asked this, but it was not answered. | Stakeholder |
+| OI-06 | What are the project milestones and budget? The interviewer asked about milestones, but they were not provided. | Stakeholder |
+| OI-07 | What are the cancellation and refund rules, and which payment methods and currencies are needed? | Stakeholder |
+| OI-08 | Does the system need to support multiple languages? | Stakeholder |
+| OI-09 | Which internal roles exist, and what may each role access? | Stakeholder / assistant |
+| OI-10 | What does "accounts" cover in FR-26: financial accounts, user accounts, or both? | Stakeholder's assistant |
+| OI-11 | Which weather provider should be used? A recommendation needs to be prepared for approval. | Development team |
+
+## 8. Review Notes on the Elicitation
+
+- **Weak confirmation of some features.** Payments, customer profiles and calendar synchronization were accepted with a single "Yes all of them" in response to the interviewer's suggestions. They were not described by the stakeholder, so they are marked "Should" and need detailed follow-up.
+- **Inaccurate summary.** The interviewer asked a final question about competitors and then summarized immediately, without waiting for an answer. The summary filled the gap with "akin to admired industry examples yet unspecified," which the stakeholder never said.
+- **Short session.** The interview was cut short for time. A follow-up session with the stakeholder and their assistant is recommended, mainly to cover the accounting and tax area and the reservation scope.

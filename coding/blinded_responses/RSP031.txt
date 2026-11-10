@@ -1,0 +1,225 @@
+# Software Requirements Specification: Multi-Resort Ski Website and Booking System
+
+**Stakeholder:** Jim (Owner)
+**Source:** Requirements elicitation interview (single session, ended early)
+**Status:** Draft. Requires validation with the stakeholder (see Section 7, Open Issues).
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements for a new, unified website for Jim's business, which operates three ski resorts. It also flags the gaps, ambiguities and contradictions found in the interview transcript.
+
+### 1.2 Background / Current State
+- Each of the three ski resorts has its own separate website.
+- Room bookings are made only by **fax or telephone**.
+- Payments are handled **semi-manually at the resort**.
+- Reservation data is not shared across resorts, which creates a risk of **double reservations**.
+- No system currently provides weather or snow information.
+
+### 1.3 Scope
+The system will replace the three resort websites with a single website. It will provide:
+- centralized online room reservations across all three resorts
+- online payment
+- resort information and availability
+- social media promotion
+- inventory management
+- training class bookings
+- customer reviews
+- weather and snow condition forecasts
+
+### 1.4 Business Goal
+The stakeholder's stated overarching goal is **"happy customers."** The main business driver is eliminating double reservations by centralizing booking data.
+
+### 1.5 Requirement Source Legend
+| Tag | Meaning |
+|---|---|
+| **[S]** | Explicitly stated by the stakeholder |
+| **[C]** | Proposed by the interviewer and confirmed by the stakeholder |
+| **[D]** | Derived/inferred by the reviewer. Needs confirmation. |
+
+---
+
+## 2. Stakeholders and Users
+
+| Role | Description |
+|---|---|
+| Owner (Jim) | Business owner and primary decision-maker |
+| Customers | Members of the public who browse resorts, book rooms and classes, pay, leave reviews, and check conditions |
+| Resort staff [D] | Staff at each resort who manage reservations, phone/fax bookings, payments and inventory |
+| Administrators [D] | Staff who maintain website content, prices, promotions and classes |
+
+---
+
+## 3. Feature Priorities
+
+Centralized booking was stated unambiguously as the **most important** feature.
+
+The ranking of the remaining features is **unresolved** (see Open Issue OI-1). The interviewer's confirmed list omitted "Training Class Booking," and the stakeholder confirmed it hesitantly ("Yeees"). The working priority below follows the most literal reading of the stakeholder's answer ("1, 2, 5, 3, 6, 4") as a reordering of the list the interviewer presented:
+
+| Priority | Feature |
+|---|---|
+| 1 (Critical) | F1 Centralized Booking System (incl. payment) |
+| 2 | F2 Aesthetically Pleasing and Intuitive Website |
+| 3 | F3 Social Media Promotion and Advertisement |
+| 4 | F4 Training Class Booking |
+| 5 | F5 Weather and Snow Condition Forecasts |
+| 6 | F6 Customer Feedback / Reviews |
+| 7 | F7 Inventory Management |
+
+**Note:** The interviewer's version ranked these differently (Inventory 3rd, Social Media 4th, Feedback 5th, Weather 6th, Training omitted). The priority must be re-confirmed before release planning.
+
+---
+
+## 4. Functional Requirements
+
+### F1: Centralized Booking System (Priority: Critical)
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-1.1 | The system shall store reservation data for all three resorts in a single, centralized data store. | [S] |
+| FR-1.2 | The system shall prevent double reservations, so that no room can be booked by more than one party for overlapping dates. | [S] |
+| FR-1.3 | The system shall prevent double reservations even when two customers try to book the same room at the same time. | [D] |
+| FR-1.4 | Customers shall be able to view the rooms available at each resort. | [S] |
+| FR-1.5 | Customers shall be able to select a specific room to reserve. | [S] |
+| FR-1.6 | Customers shall be able to view room availability for chosen dates. | [D] |
+| FR-1.7 | The system shall display room prices that differ by season. | [S] |
+| FR-1.8 | Customers shall be able to compare prices for a room across seasons. | [S] |
+| FR-1.9 | Administrators shall be able to define seasons (date ranges) and set prices per room or room type for each season. | [D] |
+| FR-1.10 | Staff shall be able to enter reservations received by telephone or fax into the same centralized system, so that offline bookings also count toward double-booking prevention. | [D] (see OI-4) |
+| FR-1.11 | Staff shall be able to view, modify and cancel reservations for their resort. | [D] |
+| FR-1.12 | The system shall send the customer a reservation confirmation. | [D] |
+| FR-1.13 | The system shall support cancellation or modification of bookings according to a policy still to be defined. | [D] (see OI-7) |
+
+#### F1a: Payment
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-1.14 | The system shall integrate with PayPal to process customer payments for reservations. | [C] |
+| FR-1.15 | The system shall send the customer a payment confirmation once PayPal confirms a payment. | [C] |
+| FR-1.16 | The system shall automatically generate and send the customer a receipt for each payment. | [C] |
+| FR-1.17 | The system shall record payment status (e.g., pending, paid, failed, refunded) against each reservation and show it to staff. | [D] |
+| FR-1.18 | The system shall define what happens to a reservation hold if payment is not completed (e.g., release the room after a time limit). | [D] (see OI-2) |
+| FR-1.19 | The system may support bank wire transfer as a payment method. | [S] (conflicts with FR-1.14; see OI-2) |
+
+### F2: Aesthetically Pleasing and Intuitive Website
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-2.1 | The system shall provide a single website covering all three resorts, replacing the existing three websites. | [S] |
+| FR-2.2 | The website shall present what is available at each resort (e.g., rooms, facilities, classes). | [S] |
+| FR-2.3 | Customers shall be able to navigate between resorts and compare their offerings. | [D] |
+| FR-2.4 | Administrators shall be able to update website content (text, images, offerings) without developer involvement. | [D] |
+
+*Quality aspects of this feature are covered in Section 5 (NFR-1, NFR-2).*
+
+### F3: Social Media Promotion and Advertisement
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-3.1 | The system shall support promotion and advertisement of the resorts through social media. | [S] |
+| FR-3.2 | The website shall provide links to the business's social media accounts. | [D] |
+| FR-3.3 | Customers shall be able to share resort pages or promotions to social media. | [D] |
+| FR-3.4 | Administrators shall be able to create and publish promotions (e.g., special offers) on the website. | [D] |
+
+*The specific platforms and the integration depth (sharing, feeds, ads, automated posting) are undefined. See OI-5.*
+
+### F4: Training Class Booking
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-4.1 | Customers shall be able to view available training classes at each resort. | [S] |
+| FR-4.2 | Customers shall be able to book a training class. | [S] |
+| FR-4.3 | The system shall prevent overbooking of classes beyond their capacity. | [D] |
+| FR-4.4 | Administrators shall be able to create and manage classes (schedule, capacity, price, resort). | [D] |
+| FR-4.5 | Class bookings shall be paid through the same payment mechanism as room bookings. | [D] |
+
+*The class types, whether a room booking is required, and pricing are undefined. See OI-6.*
+
+### F5: Weather and Snow Condition Forecasts
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-5.1 | The system shall display weather forecasts for each resort. | [S] |
+| FR-5.2 | The system shall display snow condition information and forecasts for each resort. | [S] |
+| FR-5.3 | Customers shall be able to query conditions "and so on." This may cover other on-mountain information such as lift or slope status. | [S] (vague; see OI-8) |
+| FR-5.4 | Weather and snow data shall be obtained from an external data provider or entered by staff. | [D] |
+
+*It is unclear whether this information is public or restricted to guests ("for customers staying at the resort"). See OI-8.*
+
+### F6: Customer Feedback / Reviews
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-6.1 | Customers shall be able to submit feedback or reviews. | [C] |
+| FR-6.2 | The website shall display customer reviews. | [D] |
+| FR-6.3 | Administrators shall be able to moderate reviews (e.g., approve or remove them). | [D] |
+| FR-6.4 | Only customers with a completed stay may submit a review. | [D] (to confirm) |
+
+*This feature was suggested by the interviewer. The stakeholder only answered "Yes."*
+
+### F7: Inventory Management
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-7.1 | The system shall provide inventory management for the resorts. | [S] |
+| FR-7.2 | Staff shall be able to record and update inventory items and their quantities per resort. | [D] |
+
+*What "inventory" means (rooms, ski rental equipment, supplies) is undefined. See OI-3.*
+
+---
+
+## 5. Non-Functional Requirements
+
+| ID | Requirement | Source |
+|---|---|---|
+| NFR-1 | **Aesthetics:** The website shall have a visually appealing, modern design consistent with the business's brand. Acceptance criteria must be agreed with the stakeholder (e.g., design mock-up approval). | [S] |
+| NFR-2 | **Usability:** The website shall be intuitive. A first-time customer should be able to complete a room reservation without assistance. A measurable target (e.g., task completion within N minutes in user testing) is to be agreed. | [S]/[D] |
+| NFR-3 | **Data consistency:** Reservation availability shall be consistent across all channels and resorts at all times. | [D] |
+| NFR-4 | **Security:** Payment processing shall be handled by PayPal. The system shall not store full payment card details. Customer personal data shall be protected according to applicable data-protection law. | [D] |
+| NFR-5 | **Responsiveness:** The website shall be usable on both desktop and mobile devices. | [D] |
+| NFR-6 | **Availability:** The booking function shall be highly available, especially during peak season. A target uptime is to be agreed. | [D] |
+| NFR-7 | **Maintainability:** Non-technical staff shall be able to manage prices, seasons, content, classes and promotions. | [D] |
+| NFR-8 | **Language/Currency:** The languages and currencies to support are undefined and need to be clarified. | [D] |
+
+---
+
+## 6. Constraints and Assumptions
+
+**Constraints**
+- C-1: The system must cover **three ski resorts**.
+- C-2: PayPal is the named payment provider (subject to OI-2).
+
+**Assumptions**
+- A-1: The three existing websites will be retired once the new site goes live.
+- A-2: Telephone and fax bookings may continue during and after the transition.
+- A-3: A data provider for weather and snow information is available.
+
+---
+
+## 7. Open Issues and Clarifications Required
+
+The interview ended early because the stakeholder had to attend to customers, and only F1 was explored in any detail. The following issues need follow-up:
+
+| ID | Issue | Why It Matters |
+|---|---|---|
+| **OI-1** | **Priority ranking is inconsistent.** The stakeholder's answer "1, 2, 5, 3, 6, 4" was misrecorded by the interviewer, and "Training Class Booking" was dropped from the confirmed list. The confirmation ("Yeees") was hesitant. | Determines release planning and MVP scope. |
+| **OI-2** | **Payment method conflict.** The stakeholder first said customers "should wire us the money," then said "PayPal." It is unclear whether both are required, and when payment is due (at booking, as a deposit, or at the resort). | Core to the most critical feature. |
+| **OI-3** | **Meaning of "inventory management."** It could mean rooms, rental equipment, retail stock or supplies. | The feature cannot be scoped without this. |
+| **OI-4** | **Continuation of phone/fax bookings.** If offline bookings continue, staff must enter them centrally, or double reservations will still occur. | Directly affects the main business goal. |
+| **OI-5** | **Social media scope.** Which platforms, and what kind of integration (share buttons, embedded feeds, paid ads, automated posts)? | Effort varies widely. |
+| **OI-6** | **Training classes.** What types (ski/snowboard lessons?), who teaches them, capacity, pricing, and whether they can be booked without a room. | The feature cannot be scoped without this. |
+| **OI-7** | **Booking policies.** Cancellation and modification rules, refunds, minimum stay, and check-in/out rules. | Required for booking and payment logic. |
+| **OI-8** | **Weather/snow access and scope.** "For customers staying at the resort" suggests guests only, while "customers should be able to query" suggests anyone. "And so on" may imply further data such as lift status or avalanche warnings. | Affects access control and data sources. |
+| **OI-9** | **Customer accounts.** Do customers need user accounts (e.g., to manage bookings or post reviews), or is guest checkout enough? | Affects F1, F6 and security. |
+| **OI-10** | **Migration of existing data.** Do existing reservations from the three current sites or the manual records need to be migrated? | Needed for go-live without double bookings. |
+| **OI-11** | **Room types and pricing model.** Are prices set per room or per room type, and are there per-person or per-night rules, packages or discounts? | Required for FR-1.7 to FR-1.9. |
+| **OI-12** | **Acceptance criteria for "looks good" and "intuitive."** | NFR-1 and NFR-2 cannot be verified without them. |
+| **OI-13** | **Other stakeholders.** Resort managers, front-desk staff and ski instructors were not consulted. | Staff-facing requirements are largely inferred. |
+
+---
+
+## 8. Recommendation
+
+Schedule a short follow-up session with Jim, ideally at a time that does not conflict with customer duties, to resolve OI-1 through OI-4 first. These issues affect the critical booking feature. In addition, interview resort staff to validate the derived [D] staff and administrative requirements.

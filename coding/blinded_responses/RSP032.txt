@@ -1,0 +1,89 @@
+# Software Requirements: Ski Resort Website and Management System
+
+## 1. Purpose and Scope
+
+The system shall provide a website and centralized management capabilities for a chain of three ski resorts.
+
+Its business objectives are to:
+- Attract new customers and increase the customer base.
+- Enable customers to make reservations and book training classes.
+- Support recruitment.
+- Streamline resort operations through centralized information management.
+
+The requirements below reflect the stakeholder’s confirmed needs. Details not established in the interview are listed for clarification rather than assumed.
+
+## 2. Functional Requirements
+
+### 2.1 Resort Information and Customer Outreach
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The website shall present information about the three ski resorts to prospective customers. |
+| FR-02 | The website shall provide customers with access to resort opening schedules and booking availability. |
+
+### 2.2 Reservations and Customer Profiles
+
+| ID | Requirement |
+|---|---|
+| FR-03 | The system shall allow customers to make reservations for visits to the resorts. |
+| FR-04 | The system shall provide functionality for resort staff to manage reservations. |
+| FR-05 | The system shall display real-time booking availability for each resort. |
+| FR-06 | The system shall support booking-calendar synchronization. The calendars and synchronization rules remain to be defined. |
+| FR-07 | The system shall integrate with a payment gateway to support payments associated with bookings. |
+| FR-08 | The system shall support customer profiles. The profile data and supported profile-management operations remain to be defined. |
+| FR-09 | The system shall allow customers to book training classes. |
+
+### 2.3 Weather Forecasts
+
+| ID | Requirement |
+|---|---|
+| FR-10 | The website shall display weather forecasts for the ski resorts so customers can consider expected conditions when booking. |
+| FR-11 | The system shall update weather information on each customer weather inquiry. |
+| FR-12 | The system shall obtain weather information through a third-party weather service. The service provider is to be selected. |
+
+### 2.4 Recruitment
+
+| ID | Requirement |
+|---|---|
+| FR-13 | The system shall support publishing job listings on the website. |
+| FR-14 | The system shall support management of job applications. The application submission process and recruitment workflow remain to be defined. |
+
+### 2.5 Centralized Resort Administration
+
+| ID | Requirement |
+|---|---|
+| FR-15 | The system shall provide a centralized database for internal management information across all three resorts. |
+| FR-16 | The system shall support centralized management of accounting and tax information for the resorts. The specific functions and data requirements remain to be defined. |
+| FR-17 | Internal users shall be able to manage information for all three resorts from one central location. |
+| FR-18 | The system shall make opening-calendar and booking-availability information available to customers without exposing other internal management information. |
+
+## 3. Nonfunctional Requirements
+
+| ID | Category | Requirement |
+|---|---|---|
+| NFR-01 | Usability | The customer-facing website shall be easy to use. Usability acceptance criteria must be agreed with the stakeholder. |
+| NFR-02 | Visual design | The website shall be aesthetically pleasing. Design approval criteria and branding guidelines remain to be defined. |
+| NFR-03 | Access control | Access to internal management information shall be restricted to authorized internal users, except for information explicitly intended for public display. |
+| NFR-04 | Extensibility | The system design shall accommodate future special-event functionality. Special-event features are not required for the initial release. |
+
+## 4. Delivery Constraint
+
+| ID | Constraint |
+|---|---|
+| DC-01 | The website is targeted for completion approximately one year after the interview. An exact delivery date and project milestones must be agreed. |
+
+## 5. Outstanding Clarifications
+
+The following matters require further elicitation before implementation and acceptance criteria can be finalized:
+
+- **Reservations:** Types of reservations, capacity rules, booking details, and cancellation or modification policies.
+- **Training classes:** Class schedules, instructors, participant limits, pricing, and relationship to resort reservations.
+- **Calendar synchronization:** Which calendars or systems must be synchronized, synchronization direction, and acceptable delay for “real-time” availability.
+- **Payments:** Gateway provider, payment methods, currencies, refunds, and payment-security responsibilities.
+- **Customer profiles:** Required information, account creation, authentication, and customer self-service capabilities.
+- **Weather:** Provider selection, forecast range, the meaning of “each inquiry,” and behavior when forecasts are unavailable.
+- **Recruitment:** Job-listing administration, application submission, applicant data, and application-management workflow.
+- **Accounting and taxes:** Required operations, applicable tax jurisdictions, reporting, and any existing tools or integrations. The stakeholder’s assistant should be consulted about current software.
+- **Internal access:** Staff roles and permissions across the three resorts.
+- **Design and quality:** Branding, accessibility expectations, supported devices, performance targets, and measurable usability criteria.
+- **Future events:** Expected event functionality and whether it will affect calendars, availability, or reservations.

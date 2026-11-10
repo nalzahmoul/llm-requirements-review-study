@@ -1,0 +1,199 @@
+# Software Requirements Specification: Cool Ski Resorts Digital Management System
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document specifies the requirements for a system that digitalizes the operations of Cool Ski Resorts. The requirements come from an elicitation interview with the owner, Mary Smith. Each requirement is labeled with its source:
+
+- **[S]** Stated directly by the stakeholder.
+- **[D]** Derived or inferred by the reviewer from stated needs. These need stakeholder confirmation.
+
+### 1.2 Business Context
+Cool Ski Resorts operates three ski resorts in different mountain locations in the US. Each resort offers:
+
+- hotel room bookings,
+- ski equipment and clothing hire, and
+- ski training classes.
+
+**Current state:**
+- Reservations are taken by telephone or fax.
+- Bookings are handled semi-manually in a local database at each resort. Resorts do not share data.
+- Financial records are maintained by assistants.
+
+### 1.3 Business Objectives
+| ID | Objective | Source |
+|---|---|---|
+| BO-1 | Digitalize all resort operations. | [S] |
+| BO-2 | Carry out the transition with minimal disruption to ongoing operations. | [S] |
+| BO-3 | Make data from every resort accessible at every resort. | [S] |
+| BO-4 | Let customers book services online. | [S] |
+| BO-5 | Improve the company's online presence and promotion. | [S] |
+
+### 1.4 Scope and Priorities
+The stakeholder ranked the features as follows:
+
+| Priority | Feature |
+|---|---|
+| **High** | Online customer portal |
+| **High** | Centralized, cross-resort data access |
+| **High** | Digitalization of operations |
+| **Lower** | Customer website design |
+| **Lower** | Weather forecast |
+| **Lower** | Social media promotion |
+
+The requirements below use MoSCoW priorities: Must, Should, Could, Won't.
+
+---
+
+## 2. Stakeholders and User Roles
+
+| Role | Description | Source |
+|---|---|---|
+| Owner (Mary Smith) | Business owner. Needs a cross-resort overview, including financial and payment data. | [S] |
+| Resort Lead | Manager of a single resort. Has full edit rights over that resort's data. | [S] |
+| Receptionist | Front-desk staff. Can view data and create or edit bookings. | [S] |
+| Other Staff (e.g., rental desk, ski instructors, finance assistants) | Can view data. Cannot edit. | [S]/[D] |
+| Customer | Books rooms, classes and equipment hire through the portal. | [S] |
+| System Administrator | Maintains the system, user accounts and roles. | [D] |
+
+---
+
+## 3. Functional Requirements
+
+### 3.1 Customer Portal (Priority: High)
+
+| ID | Requirement | Priority | Source |
+|---|---|---|---|
+| FR-CP-01 | The system shall provide an online customer portal accessible through the company website. | Must | [S] |
+| FR-CP-02 | The portal shall allow customers to search for hotel room availability by resort, date range, and number of guests. | Must | [S]/[D] |
+| FR-CP-03 | The portal shall allow customers to reserve a hotel room at any of the three resorts. | Must | [S] |
+| FR-CP-04 | The portal shall allow customers to view available ski training classes by resort, date, and time, and to book a place in a class. | Must | [S]/[D] |
+| FR-CP-05 | The portal shall allow customers to reserve ski equipment and ski clothing for hire for a specified period. | Must | [S] |
+| FR-CP-06 | The portal shall show only availability that reflects current, live inventory and capacity, so that rooms, class places and equipment are not overbooked. | Must | [D] |
+| FR-CP-07 | The portal shall allow customers to book several services (room, class, equipment) in a single transaction. | Should | [D] |
+| FR-CP-08 | The portal shall allow customers to create an account and log in. | Must | [D] |
+| FR-CP-09 | The portal shall allow customers to view, modify, and cancel their existing bookings. | Must | [D] (the interviewer proposed "managing reservations" and the stakeholder agreed) |
+| FR-CP-10 | The system shall send customers a booking confirmation, for example by email, after each successful booking, change, or cancellation. | Should | [D] |
+| FR-CP-11 | The portal shall support online payment, or capture payment details, for bookings. | Must | [D] (follows from the need for payment data) |
+| FR-CP-12 | The portal shall display prices for each service before the customer confirms a booking. | Must | [D] |
+
+*Note: The stakeholder delegated the details of the customer interaction to the development team ("that's up to you"). Requirements FR-CP-07 to FR-CP-12 are proposals and should be validated, for example through prototypes.*
+
+### 3.2 Centralized Data Management (Priority: High)
+
+| ID | Requirement | Priority | Source |
+|---|---|---|---|
+| FR-DB-01 | The system shall maintain a single centralized database covering all three resorts. | Must | [S] |
+| FR-DB-02 | The database shall store hotel room reservations for each resort. | Must | [S] |
+| FR-DB-03 | The database shall store ski class bookings for each resort. | Must | [S] |
+| FR-DB-04 | The database shall store equipment and clothing hire transactions for each resort. | Must | [S] |
+| FR-DB-05 | The database shall store the inventory of hire equipment and clothing for each resort, including availability status. | Must | [S] |
+| FR-DB-06 | The database shall store payment data associated with reservations, bookings, and hires. | Must | [S] |
+| FR-DB-07 | Changes made at any resort or through the customer portal shall be visible to all authorized users at all resorts in real time. | Must | [S] ("live updates") |
+| FR-DB-08 | Authorized staff at any resort shall be able to view the data of every resort. | Must | [S] |
+| FR-DB-09 | Users shall be able to filter and search data by resort, date range, service type, and customer. | Should | [D] |
+| FR-DB-10 | The system shall provide an overview of payment and financial data per resort and across all resorts. | Should | [S]/[D] |
+| FR-DB-11 | The system shall allow existing data from each resort's current local database to be migrated into the centralized database. | Must | [D] |
+
+### 3.3 Access Control
+
+| ID | Requirement | Priority | Source |
+|---|---|---|---|
+| FR-AC-01 | The system shall require staff to authenticate before accessing internal data. | Must | [D] |
+| FR-AC-02 | The system shall assign each staff user a role (Owner, Resort Lead, Receptionist, Staff) and a home resort. | Must | [D] |
+| FR-AC-03 | All authenticated staff shall have read-only access to the data of all resorts. | Must | [S] |
+| FR-AC-04 | A Resort Lead shall be able to create, edit, and delete all data (reservations, bookings, hires, inventory, payments) for their own resort. | Must | [S] |
+| FR-AC-05 | A Receptionist shall be able to create, edit, and cancel bookings and reservations. | Must | [S] |
+| FR-AC-06 | Users without edit rights shall be prevented from modifying data. | Must | [S] |
+| FR-AC-07 | Customers shall only be able to view and manage their own bookings and personal data. | Must | [D] |
+| FR-AC-08 | The system shall log every data modification, recording the user, timestamp, and change made. | Should | [D] |
+| FR-AC-09 | An administrator shall be able to create and deactivate user accounts and assign roles. | Must | [D] |
+
+### 3.4 Digitalized Internal Operations (Priority: High)
+
+| ID | Requirement | Priority | Source |
+|---|---|---|---|
+| FR-OP-01 | The system shall replace the telephone and fax reservation process with digital workflows. | Must | [S] |
+| FR-OP-02 | Receptionists shall be able to enter bookings on behalf of customers who contact the resort by phone or in person. | Must | [D] |
+| FR-OP-03 | Staff shall be able to record check-in and check-out of hotel guests. | Should | [D] |
+| FR-OP-04 | Rental staff shall be able to record the issue and return of hire equipment and clothing, updating inventory status. | Must | [D] |
+| FR-OP-05 | Resort Leads shall be able to create and schedule ski training classes, including date, time, level, instructor, and capacity. | Must | [D] |
+| FR-OP-06 | Staff shall be able to view class participant lists. | Should | [D] |
+| FR-OP-07 | The system shall record payments digitally, replacing the manual financial tracking currently done by assistants. | Must | [S]/[D] |
+| FR-OP-08 | The system shall allow financial and payment data to be exported, for example to CSV or accounting software. | Could | [D] |
+
+### 3.5 Customer Website and Marketing (Priority: Lower)
+
+| ID | Requirement | Priority | Source |
+|---|---|---|---|
+| FR-WEB-01 | The system shall include a public website with an attractive, modern design presenting the three resorts and their services. | Should | [S] |
+| FR-WEB-02 | The website shall display a weather forecast for each resort location. | Should | [S] |
+| FR-WEB-03 | The website shall integrate with social media platforms to support promotion, for example through share buttons, links to company profiles, and embedded feeds. | Could | [S] |
+| FR-WEB-04 | The website shall provide entry points into the customer portal for booking. | Must | [D] |
+
+---
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement | Source |
+|---|---|---|---|
+| NFR-01 | Usability | The customer portal shall be user-friendly and allow a customer to complete a booking without assistance. | [D] (the interviewer committed to "user-friendly and efficient") |
+| NFR-02 | Usability | The website and portal shall work on desktop and mobile devices. | [D] |
+| NFR-03 | Performance | Data updates shall propagate to all resorts and the portal within a few seconds (exact threshold to be agreed). | [S]/[D] |
+| NFR-04 | Availability | The customer portal and internal system shall be available 24/7, with planned maintenance outside peak booking periods. Target uptime to be agreed. | [D] |
+| NFR-05 | Concurrency | The system shall prevent double booking of rooms, class places, or equipment when several users book at the same time. | [D] |
+| NFR-06 | Security | Payment processing shall comply with PCI DSS. Card data should be handled by a certified payment provider. | [D] |
+| NFR-07 | Security / Privacy | Personal customer data shall be protected and handled in line with applicable US privacy laws. | [D] |
+| NFR-08 | Security | All communication shall be encrypted (HTTPS/TLS). | [D] |
+| NFR-09 | Reliability | Data shall be backed up regularly and be recoverable after a failure. | [D] |
+| NFR-10 | Scalability | The system shall support the three current resorts and allow more resorts to be added. | [D] |
+| NFR-11 | Accessibility | The public website and portal should follow WCAG accessibility guidelines. | [D] |
+
+---
+
+## 5. Transition and Implementation Constraints
+
+| ID | Requirement | Source |
+|---|---|---|
+| TR-01 | The system shall be introduced through phased implementation, not a single cut-over. | [S] |
+| TR-02 | The transition shall not disrupt ongoing resort operations, including the ability to take and honor bookings. | [S] |
+| TR-03 | During transition, existing bookings from the legacy systems shall be migrated without loss. | [D] |
+| TR-04 | Staff shall receive training appropriate to each phase. | [D] |
+| TR-05 | Phases and rollout order (e.g., central database first, then internal operations, then customer portal, then website features; or one pilot resort first) shall be agreed with the stakeholder. | [D] |
+
+---
+
+## 6. Assumptions
+
+1. "Viewing is fine for everybody" refers to all staff, not customers or the public.
+2. A Resort Lead's edit rights apply to their own resort only. The phrase "lead of each resort" suggests this, but it was not confirmed.
+3. "Bookings" covers hotel reservations, class bookings, and equipment hire reservations.
+4. Customers will pay online through the portal.
+5. Customers may still contact resorts by telephone, and staff will enter those bookings into the new system.
+6. The weather forecast will come from a third-party weather service.
+
+---
+
+## 7. Open Issues and Questions for the Stakeholder
+
+The interview left several areas undefined. These should be resolved before design begins:
+
+1. **Access scope:** Can Resort Leads edit data from other resorts? Can Receptionists edit bookings at any resort or only their own? What rights does the Owner have?
+2. **Receptionist rights:** Can Receptionists record payments and refunds, or only bookings?
+3. **Payments:** Is payment taken at booking, as a deposit, or on arrival? Which payment methods are needed? What is the refund and cancellation policy?
+4. **Reporting:** Beyond payment data, which reports are needed (e.g., occupancy, revenue per resort, equipment utilization)?
+5. **Financial integration:** Do the finance assistants use accounting software the system must integrate with?
+6. **Legacy data:** How much historical data exists in the local databases, and must all of it be migrated?
+7. **Fax and phone:** Should phone and fax reservations be phased out completely, or kept as staff-assisted channels?
+8. **Social media:** Which platforms? Is the goal passive integration (links and sharing) or active marketing features such as promotions and campaigns?
+9. **Additional features:** Are loyalty programs, discounts or packages, multiple languages, or multiple currencies needed?
+10. **Constraints:** What are the budget, timeline, and preferred launch date (e.g., before the next ski season)?
+11. **Other stakeholders:** Resort Leads, receptionists, rental staff, instructors, and finance assistants were not interviewed. Interviewing them is strongly recommended, because they will use the internal system daily and will be most affected by the transition.
+
+---
+
+## 8. Reviewer Notes on the Elicitation
+
+- The stakeholder provided clear high-level goals and priorities but delegated most detailed decisions. Many requirements here are therefore derived and should be validated, ideally with mock-ups or prototypes of the customer portal and staff screens.
+- The stakeholder did not elaborate on the lower-priority features (website design, weather, social media). Those requirements are kept intentionally broad.
+- Non-functional requirements, especially security, privacy, and payment compliance, were not discussed. They are added here as necessary for a system that handles customer and payment data.

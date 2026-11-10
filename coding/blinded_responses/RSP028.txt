@@ -1,0 +1,90 @@
+Based on the transcript of the requirements elicitation interview, here is the Software Requirements Specification (SRS) for the Resort Online Management System.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Multi-Resort Online Management System and Website
+
+## 1. Introduction & Business Objectives
+Currently, the organization operates three ski resorts utilizing manual processes (telephone/fax for bookings, semi-manual local databases for payments, and multiple assistants for accounting and coordination). 
+
+The primary objective of this project is to centralize and digitize operations across all three resorts. The system aims to:
+*   Reduce the number of administrative staff required.
+*   Streamline coordination across the three resorts by centralizing data.
+*   Increase transparency in the booking and financial processes.
+*   Improve customer acquisition and experience through an intuitive website and social media presence.
+
+## 2. Prioritized Feature List
+The stakeholder agreed to the following implementation priority:
+1.  Website Development
+2.  Online Reservations and Bookings
+3.  Payment Processing System
+4.  Social Media Integration for Promotion
+5.  Weather and Snow Forecast Integration
+6.  Inventory Management
+7.  Feedback System
+8.  Logo Design (Non-software deliverable, can run concurrently)
+
+---
+
+## 3. Functional Requirements
+
+### 3.1. Website & User Interface (Priority 1)
+*   **FR-1.1:** The system shall provide a public-facing website that displays real-time availability of accommodations, rentals, and classes across all three resorts.
+*   **FR-1.2:** The website shall feature distinct, clearly labeled Call-to-Action (CTA) buttons separating "Information/Offers" from "Booking" actions.
+
+### 3.2. Online Reservations and Bookings (Priority 2)
+*   **FR-2.1:** The system shall replace the legacy telephone/fax system by allowing customers to book accommodations (hotels/hostels), equipment hire, and training classes online.
+*   **FR-2.2:** The booking engine shall utilize a step-by-step (wizard) interface to guide the user through the reservation process.
+*   **FR-2.3:** The system shall allow users to customize their bookings with specific add-ons or exclusions, including:
+    *   Flights
+    *   Bus tickets
+    *   Breakfast inclusion
+    *   Restaurant vouchers
+    *   Travel/Ski insurance
+    *   Option to book accommodation (e.g., hostel) *without* a ski pass.
+*   **FR-2.4:** The system shall provide instant booking confirmation to the user.
+
+### 3.3. Payment Processing & Financial Management (Priority 3)
+*   **FR-3.1:** The system shall process payments entirely online, replacing the semi-manual on-site payment system.
+*   **FR-3.2:** The payment gateway shall support multiple payment methods (e.g., major credit/debit cards, PayPal, and other popular digital wallets).
+*   **FR-3.3:** The system shall centralize financial and booking data from all three resorts into a single database to assist with accounting and taxation work.
+
+### 3.4. Social Media Integration (Priority 4)
+*   **FR-4.1:** The system shall integrate with Facebook, Instagram, and Twitter (X) for promotional and advertising purposes. *(Note: Specifics on whether this is via social links, embedded feeds, or ad-tracking pixels will need further technical definition).*
+
+### 3.5. Weather and Snow Forecast Integration (Priority 5)
+*   **FR-5.1:** The website shall allow users to query and view current weather and snow condition forecasts for the resorts.
+*   **FR-5.2:** The weather data shall be fetched automatically via API from the most accurate local weather services.
+
+### 3.6. Inventory Management (Priority 6)
+*   **FR-6.1:** The system shall include a back-end inventory management module covering all three resorts.
+*   **FR-6.2:** The inventory system shall track rental equipment availability (updating dynamically as items are hired online).
+*   **FR-6.3:** The inventory system shall track internal resort supplies, "in-house" utilities, and operational assets.
+
+### 3.7. Customer Feedback System (Priority 7)
+*   **FR-7.1:** The website shall integrate with **Google Reviews** to allow customers to leave feedback and to display existing reviews on the resort website.
+
+---
+
+## 4. Non-Functional Requirements (NFRs)
+
+*   **NFR-1 (Usability):** The website and booking process must be intuitive and easy to navigate for end-users.
+*   **NFR-2 (Aesthetics):** The website UI must be aesthetically pleasing and adhere to a "Ski and Winter Resort" theme.
+*   **NFR-3 (Performance):** Bookings must be processed and confirmed "instantly" with minimal latency.
+*   **NFR-4 (Architecture):** The system must transition from local, isolated databases at each resort to a centralized cloud/online database accessible by management.
+
+---
+
+## 5. Non-Software Deliverables
+*   **NSD-1 (Branding):** The project includes the creation of a new company logo. Designers have full creative freedom to propose fresh concepts that fit the ski resort theme.
+
+---
+
+## 6. Reviewer’s Notes: Gaps & Ambiguities for Follow-up
+*As a requirements reviewer, I must point out several areas where the stakeholder was vague due to time constraints. The development team will need clarification on the following before building:*
+
+1.  **Third-Party Integrations (Add-ons):** How will the system book flights, bus tickets, and insurance? Does the resort own the buses, or do we need APIs for third-party airlines/bus companies/insurers?
+2.  **Accounting/Taxation:** The stakeholder mentioned assistants currently manage accounts and taxation. Does the new system need to generate specific tax reports, or integrate with existing accounting software (e.g., QuickBooks, Xero, SAP)?
+3.  **"Best Local Services" (Weather):** The exact local meteorological service needs to be named, and we must verify if they have a public API available for integration.
+4.  **"As many as possible" (Payments):** We need a definitive list of supported payment gateways (e.g., Stripe, PayPal, Apple Pay) as each carries different transaction fees the stakeholder must approve.
