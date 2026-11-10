@@ -1,0 +1,25 @@
+RQ1 (not fully elicited, mean over interviews)
+  asks: 25.9%
+  assumes: 19.4%
+  supports: 24.7%
+  omits: 30.0%
+RQ3 (assumption codes, pooled counts)
+  All: 115 assumptions, 55 implicit (47.8%)
+  Elicited: 79 assumptions, 38 implicit (48.1%)
+  Not fully elicited: 36 assumptions, 17 implicit (47.2%)
+  claude: 85 assumptions, 29 implicit (34.1% implicit)
+  gemini: 30 assumptions, 26 implicit (86.7% implicit)
+  gpt: 0 assumptions, 0 implicit (no assumptions)
+RQ2
+  assumes: t = -5.34, p = 0.000, dz = -1.61
+  asks: t = -2.58, p = 0.028, dz = -0.78
+RQ4 Friedman
+  assumes: chi2(2) = 18.54, p = 0.000, Kendall's W = 0.84
+  asks: chi2(2) = 10.24, p = 0.006, Kendall's W = 0.47
+RQ4 pairwise (assumes)
+  claude vs gemini: t = 5.41, p = 0.000, dz = 1.63
+  claude vs gpt: t = 7.31, p = 0.000, dz = 2.20
+  gemini vs gpt: t = 3.96, p = 0.003, dz = 1.19
+  claude vs gemini: Holm-adjusted p = 0.001
+  claude vs gpt: Holm-adjusted p = 0.000
+  gemini vs gpt: Holm-adjusted p = 0.003
