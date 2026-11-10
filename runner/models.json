@@ -1,0 +1,32 @@
+{
+  "_note": "The three reviewer models: the latest general-purpose model of each provider as of October 2026, all through OpenRouter (one key). Dated model IDs where OpenRouter offers them (Gemini 4 Argon has none; the returned version is logged). GPT-4o is not used: it ran the LLMREI interviews. Up to 32,000 output tokens, including reasoning tokens; a request that reaches this limit is repeated. Provider default sampling settings, no system prompt.",
+  "models": [
+    {
+      "alias": "claude",
+      "provider": "openai_compatible",
+      "model": "anthropic/claude-opus-5.5-20260921",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "max_tokens": 32000,
+      "enabled": true
+    },
+    {
+      "alias": "gpt",
+      "provider": "openai_compatible",
+      "model": "openai/gpt-6.1-sol-20260929",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "max_tokens": 32000,
+      "enabled": true
+    },
+    {
+      "alias": "gemini",
+      "provider": "openai_compatible",
+      "model": "google/gemini-4-argon",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "max_tokens": 32000,
+      "enabled": true
+    }
+  ]
+}

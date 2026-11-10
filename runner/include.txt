@@ -1,0 +1,13 @@
+# The 11 English-language Ski interviews with LLMREI labels (12 predefined requirements each = 132 pairs).
+# Not used: the 8 Salon interviews (left out to keep the coding feasible) and Ski_ba13038b (mainly German).
+Ski_3a6077fa-20e9-4eb9-b590-00e5dde74ca3.txt
+Ski_3cca3e81-59a7-4543-97dc-5b4f945d3326.txt
+Ski_447f8927-ecf4-4fe5-8396-f3ed2cf84f75.txt
+Ski_46515d9e-58ad-487d-9eb9-23584a9c987b.txt
+Ski_4fdb024f-c213-4091-9567-bcb80e822990.txt
+Ski_5012efc8-c30a-4922-b54e-d9fe8ef3356e.txt
+Ski_5267f55a-9337-49b3-9747-d05c69c877f0.txt
+Ski_5ef11a7f-45af-4e3a-8399-2cfb469c5253.txt
+Ski_9b79199f-6e38-4234-8be6-1bfa7068bfa1.txt
+Ski_ed345832-0cec-4695-8f89-7eeb230076bd.txt
+Ski_ef90e0df-81db-44b1-a004-c3c5287eff60.txt
