@@ -1,0 +1,221 @@
+# Software Requirements Specification: Cool Ski Resorts Digital Platform
+
+**Source:** Elicitation interview with Mary (Owner, Cool Ski Resorts)
+**Status:** Draft. Requires stakeholder validation (see Section 8, Open Issues).
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements for a centralized web platform. The platform will replace the current semi-manual, per-resort processes at Cool Ski Resorts.
+
+### 1.2 Business Context
+- Cool Ski Resorts is a chain of **three ski resorts** in the US.
+- **Current state:**
+  - A static website shows services and contact information.
+  - Reservations and equipment hires are taken by telephone and fax.
+  - Payments are handled semi-manually on site.
+  - Data is stored in a **separate local database at each resort**.
+  - Assistants compile accounting and tax reports for the owner by hand.
+- **Desired state:** A single website and centralized system for reservations, class bookings, equipment hire, payments, inventory, and reporting across all three resorts.
+
+### 1.3 Business Goals
+| ID | Goal | Source |
+|----|------|--------|
+| BG-1 | Streamline business operations across all three resorts | Success criteria |
+| BG-2 | Increase revenue by reaching customers across the whole US | Centralized DB discussion |
+| BG-3 | Compete more effectively with other resorts through innovative features | Inventory discussion, success criteria |
+| BG-4 | Simplify the generation of financial, accounting, and tax reports | Current-state and reporting discussion |
+| BG-5 | Transition to the digital solution without significantly disrupting current business | Success criteria |
+
+### 1.4 Stakeholders and User Classes
+| User Class | Description |
+|-----------|-------------|
+| **Customer** | Member of the public who browses, registers, books, hires, and pays online |
+| **Owner (Mary)** | Views consolidated reports and oversees all resorts |
+| **Assistant** | Generates reports. May maintain website content in future |
+| **Resort Staff** *(derived)* | On-site personnel who check in customers, hand out equipment, and record maintenance. Not named by the stakeholder, but implied by "show on site" and the inventory tracking needs. **Needs confirmation.** |
+| **System Administrator** *(derived)* | Manages user accounts, roles, and configuration |
+
+---
+
+## 2. Feature Priorities
+
+The stakeholder ranked online reservations, bookings, and hiring as most important. The other priorities are inferred from the interview and should be confirmed.
+
+| Priority | Feature Area |
+|----------|-------------|
+| **Must** | Online reservations, class bookings, and equipment hire; centralized multi-resort database; online payment; customer registration and login (email); inventory integrated with bookings |
+| **Should** | Financial reporting; inventory maintenance tracking and alerts; content management for assistants; modern, visually appealing website |
+| **Could** | Weather information for the customer's stay; social media promotion |
+
+---
+
+## 3. Functional Requirements
+
+### 3.1 Centralized Multi-Resort Management
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-1.1 | The system shall maintain a single centralized database containing reservations, bookings, hires, payments, and inventory for all three resorts. | Must |
+| FR-1.2 | Every reservation, booking, hire, and inventory item shall be associated with exactly one resort. | Must |
+| FR-1.3 | Authorized internal users shall be able to view data for one resort, several resorts, or all resorts combined. | Must |
+| FR-1.4 | The system shall support adding further resorts without structural redesign. *(derived, supports growth)* | Should |
+
+### 3.2 Customer Registration and Accounts
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-2.1 | Customers shall be able to register an account using an email address and password. | Must |
+| FR-2.2 | The system shall verify a customer's email address before the account is activated. | Must |
+| FR-2.3 | Registered customers shall be able to log in, log out, and reset a forgotten password by email. | Must |
+| FR-2.4 | Logged-in customers shall be able to view their current and past reservations, bookings, and hires across all resorts. | Must |
+| FR-2.5 | The system shall provide each confirmed reservation with a confirmation (e.g., booking reference or QR code). Customers shall be able to present it on site at the resort. | Must |
+| FR-2.6 | Customers shall be able to update their profile details (name, contact information). | Should |
+
+### 3.3 Reservations, Class Bookings, and Equipment Hire
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-3.1 | Customers shall be able to browse each resort's offerings (reservable services, classes, and rental equipment), including descriptions, prices, and availability. | Must |
+| FR-3.2 | Customers shall be able to make a reservation at a selected resort for selected dates. | Must |
+| FR-3.3 | Customers shall be able to book classes (e.g., ski lessons) at a selected resort, date, and time, subject to available capacity. | Must |
+| FR-3.4 | Customers shall be able to reserve rental equipment in advance for specific dates at a selected resort. | Must |
+| FR-3.5 | The system shall show availability in real time and prevent overbooking of classes, reservations, and equipment. | Must |
+| FR-3.6 | Customers shall be able to combine a reservation, classes, and equipment hire in a single checkout. | Should |
+| FR-3.7 | The system shall send an email confirmation after each successful booking, modification, or cancellation. | Must |
+| FR-3.8 | Customers shall be able to modify or cancel bookings according to a configurable cancellation policy. *(policy TBD)* | Should |
+| FR-3.9 | Resort staff shall be able to create, modify, and cancel bookings on behalf of customers (e.g., telephone or walk-in requests) in the same central system. *(derived, supports BG-5)* | Must |
+| FR-3.10 | Resort staff shall be able to look up a booking by reference or customer name and mark it as checked in or fulfilled on site. | Must |
+
+### 3.4 Payments
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-4.1 | The system shall integrate with a third-party payment gateway to accept online payments (at minimum, major credit and debit cards) in USD. | Must |
+| FR-4.2 | The system shall link each payment to its corresponding booking(s) and resort. | Must |
+| FR-4.3 | The system shall support refunds according to the cancellation policy. | Should |
+| FR-4.4 | Staff shall be able to record on-site payments (e.g., cash or card terminal) against a booking. *(derived)* | Should |
+| FR-4.5 | The system shall issue an electronic receipt or invoice to the customer for each payment. | Must |
+
+### 3.5 Inventory Management
+These requirements are based on the interviewer's proposal, which the stakeholder accepted.
+
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-5.1 | The system shall maintain an inventory of rental equipment per resort, including item type, size, condition, and status (available, reserved, rented, in maintenance, retired). | Must |
+| FR-5.2 | The system shall update equipment availability in real time as items are reserved, issued, returned, or sent to maintenance. | Must |
+| FR-5.3 | Inventory shall be integrated with booking so that only available equipment can be reserved online (see FR-3.4). | Must |
+| FR-5.4 | The system shall record the rental history of each equipment item. | Should |
+| FR-5.5 | The system shall support maintenance schedules for equipment (e.g., by date or by number of rentals) and record completed maintenance. | Should |
+| FR-5.6 | The system shall generate automatic alerts to designated staff when an item is due for service. | Should |
+| FR-5.7 | The system shall generate automatic alerts when available stock of an equipment category at a resort falls below a configurable threshold. | Should |
+| FR-5.8 | Authorized staff shall be able to add, edit, transfer between resorts, and retire inventory items. | Must |
+
+### 3.6 Reporting
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-6.1 | The system shall generate financial reports on bookings covering at minimum revenue and expenses. | Should |
+| FR-6.2 | Reports shall be filterable by resort (individual or all combined), time period, and service type (reservation, class, hire). | Should |
+| FR-6.3 | Reports shall be exportable in a common format (e.g., PDF, CSV/Excel) to support accounting and tax preparation. | Should |
+| FR-6.4 | The system shall allow authorized users to record expenses so they can be included in reports. *(derived, needed for FR-6.1)* | Should |
+| FR-6.5 | Booking and inventory reports (e.g., occupancy, class utilization, equipment utilization) should be available. *(derived from "reports on reservations, bookings, hires, and inventory")* | Could |
+
+### 3.7 Website and Content Management
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-7.1 | The public website shall present each resort's services, prices, and contact information, replacing the current static website. | Must |
+| FR-7.2 | Authorized assistants shall be able to update website content (text, images, prices, offerings) through a content management interface without programming knowledge. | Should |
+
+### 3.8 Weather Information
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-8.1 | The website shall display current weather and the forecast for each resort, sourced from a third-party weather service. | Could |
+| FR-8.2 | For an upcoming booking, the customer's account view should display the forecast for the resort during the booked dates, where forecast data is available. | Could |
+
+### 3.9 Social Media Promotion
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-9.1 | The website shall provide links to the company's social media profiles. | Could |
+| FR-9.2 | The website shall allow visitors to share resort pages and offers on common social media platforms. | Could |
+
+### 3.10 User Roles and Access Control
+| ID | Requirement | Priority |
+|----|------------|----------|
+| FR-10.1 | The system shall provide role-based access control with at least these roles: Customer, Resort Staff, Assistant, Owner, and Administrator. | Must |
+| FR-10.2 | Resort Staff access shall be limitable to their own resort. | Should |
+| FR-10.3 | Only Owner and Assistant roles (and others explicitly authorized) shall have access to financial reports. | Must |
+
+---
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement |
+|----|----------|------------|
+| NFR-1 | Security | The system shall follow standard industry security practices. These include encrypted transport (HTTPS/TLS), salted password hashing, and protection against common web vulnerabilities (e.g., OWASP Top 10). |
+| NFR-2 | Security / Compliance | Card payments shall be processed by a PCI-DSS-compliant payment provider. The system shall not store full card details. |
+| NFR-3 | Privacy | Personal data shall be handled in line with applicable US privacy laws (e.g., CCPA for California residents), with a published privacy policy. |
+| NFR-4 | Usability | The website shall be visually appealing, modern, and easy to use for customers booking without assistance. |
+| NFR-5 | Usability | The website shall be responsive and usable on desktop, tablet, and mobile devices. |
+| NFR-6 | Accessibility | The public website should meet WCAG 2.1 Level AA. |
+| NFR-7 | Availability | The system shall be available 24/7 for online booking, with high availability during the ski season. *(target uptime TBD)* |
+| NFR-8 | Performance / Scalability | The system shall handle peak-season and promotion-driven traffic from a nationwide (US) customer base without significant degradation. *(load targets TBD)* |
+| NFR-9 | Data Integrity | Concurrent bookings shall not result in double-booking of the same class place or equipment item. |
+| NFR-10 | Backup and Recovery | Data shall be backed up regularly, with a defined recovery procedure. *(RPO/RTO TBD)* |
+| NFR-11 | Maintainability | Routine content updates shall be possible for non-technical assistants (see FR-7.2). |
+| NFR-12 | Localization | The system shall use USD and US date, time, and address formats, and handle the time zone of each resort. |
+
+---
+
+## 5. Transition and Support Requirements
+
+| ID | Requirement |
+|----|------------|
+| TR-1 | Existing data from the three local resort databases (reservations, customers, inventory, historical payments) shall be migrated into the central database. *(scope of historical data TBD)* |
+| TR-2 | The rollout shall minimize disruption to ongoing operations, e.g., through a phased rollout per resort or outside peak season, and a parallel-run period. *(derived from BG-5)* |
+| TR-3 | Training shall be provided for assistants (reporting, content management) and resort staff (booking handling, check-in, inventory). |
+| TR-4 | User documentation shall be provided for each internal role. |
+| TR-5 | Telephone bookings shall remain possible during and after the transition, entered by staff directly into the new system (see FR-3.9). The future of fax handling is TBD. |
+
+---
+
+## 6. External Interfaces
+
+| Interface | Purpose |
+|-----------|---------|
+| Payment gateway | Online payment and refund processing |
+| Email service | Account verification, password reset, booking confirmations, alerts |
+| Weather data API | Current conditions and forecasts per resort |
+| Social media platforms | Profile links and content sharing |
+| Export formats (PDF/CSV) | Hand-over of reports to accounting and tax processes |
+
+---
+
+## 7. Assumptions and Constraints
+
+- **A-1:** "Hires" refers to **equipment rental** (skis, boards, boots, etc.), not staff recruitment.
+- **A-2:** "Classes" refers to ski or snowboard lessons offered at the resorts.
+- **A-3:** "Show on sight" means customers show their booking confirmation **on site** at the resort.
+- **A-4:** All three resorts are in the US and operate in USD.
+- **A-5:** The stakeholder accepted "standard security protocols" and did not specify additional security requirements.
+- **C-1:** The solution must not significantly disrupt current business operations.
+
+---
+
+## 8. Open Issues and Gaps Identified in Review
+
+The interview left several areas under-specified. These should be resolved in a follow-up session with the stakeholder.
+
+1. **"Reservations" vs. "bookings":** What exactly is reserved? Accommodation, lift passes, restaurant tables, or something else? The difference between a reservation and a booking was never defined.
+2. **Offering catalogue:** What services, class types, and equipment categories does each resort offer? Do the resorts differ?
+3. **Pricing rules:** Seasonal or peak pricing, packages, discounts, group or family rates, promo codes?
+4. **Cancellation, modification, and refund policy:** Deadlines, fees, deposits vs. full prepayment?
+5. **Guest checkout:** Must customers register to book, or is guest booking allowed? Registration was described as "preferable."
+6. **Reporting detail:** Required report types, frequency, tax-specific outputs, and whether integration with existing accounting software is needed.
+7. **Expense data:** Where do expense figures come from (manual entry or another system)?
+8. **Other stakeholders:** Only assistants were named. Resort staff, instructors, customers, and the accountant or tax advisor should be consulted.
+9. **Assistants' website maintenance role:** Scope and required skills, and the training they "probably" need.
+10. **Weather feature:** Forecasts cover only a limited horizon. What should be shown for stays booked far in advance? Should snow or slope conditions be included?
+11. **Social media:** The stakeholder said "No" to further detail. Confirm whether this is a website feature or a separate marketing activity.
+12. **Existing data:** Structure and quality of the three local databases, and how much history to migrate.
+13. **Fax channel:** Is fax still required in the future?
+14. **Non-functional targets:** Expected user volumes, uptime, response times, and backup targets.
+15. **Budget, timeline, and launch date:** Not discussed. These are critical for planning and scoping (e.g., before the next ski season).
+16. **Measurable success criteria:** "Streamline" and "compete" need measurable indicators, e.g., percentage of bookings made online, reduction in report preparation time, or revenue growth.

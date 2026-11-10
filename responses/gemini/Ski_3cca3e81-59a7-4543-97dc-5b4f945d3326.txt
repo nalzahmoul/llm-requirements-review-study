@@ -1,0 +1,53 @@
+Based on the requirements elicitation interview transcript, here is a review and a structured Software Requirements Specification (SRS) for the stakeholder's system. 
+
+### 1. Project Overview
+The stakeholder owns three ski resorts and currently manages all customer bookings, inventory, and payments manually (via phone, fax, and in-person payments). The objective of this project is to develop a centralized, web-based Customer Management and Booking System to automate reservations, payments, and inventory tracking across the resorts, while also providing marketing integrations to attract more customers.
+
+---
+
+### 2. Functional Requirements (FR)
+
+#### **2.1. Reservation & Booking System (High Priority)**
+*   **FR-1.1 (Room Booking):** The system shall allow customers to view availability and book resort rooms online.
+*   **FR-1.2 (Equipment Reservation):** The system shall allow customers to reserve ski equipment online.
+*   **FR-1.3 (Class Registration):** The system shall allow customers to sign up and book ski training classes online.
+*   **FR-1.4 (Multi-Resort Support):** *(Implied)* The system shall support booking functionalities across all three ski resorts owned by the stakeholder.
+
+#### **2.2. Payment System (High Priority)**
+*   **FR-2.1 (Online Payments):** The system shall allow customers to pay for their bookings (rooms, equipment, classes) online at the time of reservation, replacing the current in-person payment process.
+*   **FR-2.2 (Payment Methods):** The payment gateway shall support major Credit Cards and PayPal.
+
+#### **2.3. Inventory Management System**
+*   **FR-3.1 (Equipment Tracking):** The system shall track the total and available inventory of ski equipment.
+*   **FR-3.2 (Real-Time Updates):** The system shall update equipment availability in real-time.
+*   **FR-3.3 (Booking Integration):** The inventory system shall be integrated with the reservation system to automatically deduct available equipment when a customer completes a booking.
+
+#### **2.4. Weather Forecast Feature**
+*   **FR-4.1 (Daily Weather):** The website shall display a daily weather forecast for the ski resort(s) to the customers.
+
+#### **2.5. Social Media & Marketing**
+*   **FR-5.1 (Social Media Connectivity):** The website shall integrate with major social media platforms to allow general sharing and connectivity, aimed at advertising the resorts and acquiring a larger customer base.
+
+---
+
+### 3. Non-Functional Requirements (NFR)
+
+*   **NFR-1 (Architecture/Database):** The system shall utilize a centralized database to store and manage all customer data, reservations, inventory, and payment records across the resorts.
+*   **NFR-2 (Usability):** The customer-facing booking and payment user interface (UI) must be highly intuitive and easy to navigate.
+*   **NFR-3 (Platform):** The system shall be accessible as a web application (Website).
+
+---
+
+### 4. Out of Scope (Exclusions)
+*   **Customer Reviews/Feedback:** The stakeholder explicitly stated they do *not* want a customer review or feedback feature on the website; social features should strictly focus on advertising.
+
+---
+
+### 5. Requirements Reviewer Notes & Gaps (For Follow-up)
+As a requirements reviewer, I noticed several ambiguities during the interview that will need to be clarified with the stakeholder before development begins:
+
+1.  **Multi-Resort Logic:** The stakeholder owns *three* resorts. Should this be a single website where the user selects a resort location first, or three separate websites connected to one centralized backend database? 
+2.  **Room & Class Inventory:** The stakeholder asked for inventory management for *equipment*. However, rooms and ski classes also have limited capacities (e.g., number of rooms, maximum students per instructor). We need to confirm if the inventory system should also manage room availability and class sizes.
+3.  **Cancellation/Refund Policy:** Moving from in-person payments to online pre-payment requires logic for cancellations, modifications, and refunds. How should the system handle these?
+4.  **Weather Data Source:** If the three resorts are in different geographical locations, the daily weather forecast will need to display data specific to each resort's location.
+5.  **"Yes" Traps:** The interviewer asked a few compound questions (e.g., offering Credit Card, PayPal, *or others*) to which the stakeholder simply replied "Yes." A formal sign-off on the exact payment gateways and specific social media platforms (e.g., Instagram, Facebook, X/Twitter) is required.

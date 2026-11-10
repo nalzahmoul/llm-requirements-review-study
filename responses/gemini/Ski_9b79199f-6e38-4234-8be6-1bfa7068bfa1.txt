@@ -1,0 +1,62 @@
+Based on the transcript of the requirements elicitation interview, here is the Software Requirements Specification (SRS) for the **Cool Ski Resorts Online Management & Booking System**. 
+
+---
+
+# 1. Project Overview
+**Client:** Cool Ski Resorts (Owner: Mary/Jim Smith)  
+**Scope:** Cool Ski Resorts operates three ski resorts across the US. Currently, they use a static website, handle bookings via phone/fax, process payments semi-manually, and store data in isolated local databases. The goal of this project is to replace the static site with an interactive, centralized web application to increase customer visibility, allow online bookings and payments, manage inventory across all three locations, and streamline reporting.
+
+# 2. User Roles
+*   **Customers:** Prospective and current guests looking to view resort availability, check weather, book rooms/classes, rent equipment, and make payments.
+*   **Resort Staff:** Employees at each of the three resorts managing customer service, inventory, and local operations.
+*   **Accounting/Admin Staff:** Assistants and the owner who manage accounts, taxation, financial tracking, and generate cross-resort business reports.
+
+---
+
+# 3. Functional Requirements
+
+### 3.1. Customer Portal & Online Booking
+*   **FR-1.1 Service Catalog:** The website must display available services for each of the three resorts, including hotel rooms, ski equipment/clothing for hire, and ski training classes.
+*   **FR-1.2 Hotel Reservations:** Customers must be able to search for room availability by resort and date, and book hotel rooms online.
+*   **FR-1.3 Equipment & Clothing Hire:** Customers must be able to view available ski equipment/clothing and reserve them online for their stay.
+*   **FR-1.4 Ski Class Booking:** Customers must be able to view schedules and book ski training classes online.
+*   **FR-1.5 Online Payments:** The system must include a secure payment gateway allowing customers to pay for reservations, hires, and classes online at the time of booking.
+
+### 3.2. Weather & Snow Forecast Integration
+*   **FR-2.1 API Integration:** The system must integrate with the US Weather Forecast System (e.g., National Weather Service API).
+*   **FR-2.2 Real-Time Updates:** The system must query and display real-time regional weather and snow condition forecasts for each resort.
+*   **FR-2.3 Display Locations:** The weather and snow condition widget must be displayed on both the website’s **Main Page** and on the **Booking Pages**.
+
+### 3.3. Social Media & Marketing Integration
+*   **FR-3.1 Platform Linking:** The website must be linked to the company's Twitter, Facebook, and Instagram accounts.
+*   **FR-3.2 Content Integration:** The system must support the integration/display of promotions, user-generated content from the resorts, and customer reviews/testimonials via social media.
+*   *Note on Exclusions:* Content creation and weekly posting (resort news, weather, pictures) will be handled internally by staff outside of the software; no internal team-coordination or automated scheduling tools are required within the system.
+
+### 3.4. Inventory, Accounting, & Reporting (Admin Portal)
+*   **FR-4.1 Inventory Management:** Staff must be able to track and manage inventory levels for ski equipment, clothing, and room availability across all three resorts.
+*   **FR-4.2 Financial Tracking:** The system must record financial data related to bookings to assist accounting staff with accounts and taxation work.
+*   **FR-4.3 Reporting Engine:** The system must generate reports for individual resorts as well as aggregated reports across all three locations. Required reports include:
+    *   Occupancy rates.
+    *   Equipment/Clothing inventory levels.
+    *   Booking and financial trends.
+
+### 3.5. Database & Synchronization
+*   **FR-5.1 Centralized Database:** The web application must connect to a centralized SQL database that tracks all reservations, bookings, equipment hires, and inventory.
+*   **FR-5.2 Scheduled Synchronization:** The system must support scheduled (non-real-time, low-frequency) data synchronization between the individual resorts' local operations and the centralized SQL database. 
+
+---
+
+# 4. Non-Functional Requirements
+*   **NFR-1 Usability & Design:** The website must be aesthetically pleasing and intuitive for customers to navigate.
+*   **NFR-2 Technology Stack:** The centralized database must be an **SQL-based** relational database.
+*   **NFR-3 Business Continuity:** The deployment and transition to the new digital system must be executed with minimal disruption to the current day-to-day operations of the resorts.
+
+---
+
+# 5. Reviewer’s Notes: Ambiguities & Risks (To be clarified)
+As a requirements reviewer, I must highlight several areas where the stakeholder was vague or ended the interview before critical technical details could be gathered. **The development team will need follow-up clarification on the following before building:**
+
+1.  **Data Synchronization Conflict Resolution:** The stakeholder requested "infrequent, scheduled" synchronization between the resorts and the central database, while also having live online bookings. **Risk:** If the database only syncs infrequently, a customer online and a staff member at the resort might double-book the same room or piece of ski equipment. *Recommendation: Clarify what "not frequently" means (e.g., nightly?) and propose real-time cloud access for staff instead of local-to-central syncing.*
+2.  **Payment Gateway Specifics:** The stakeholder wants online payments, but did not specify supported payment methods (Credit Card, PayPal, etc.), refund/cancellation policies, or how "semi-manual" resort payments will be reconciled with online payments.
+3.  **Equipment Hire Specifics:** Ski equipment requires specific parameters (boot size, height/weight for skis, clothing sizes). These data fields need to be defined for the inventory database.
+4.  **Legacy Data Migration:** It is unclear if historical data from the current "local databases" at the three resorts needs to be migrated into the new centralized SQL database.

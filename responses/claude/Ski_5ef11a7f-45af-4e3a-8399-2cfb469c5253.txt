@@ -1,0 +1,272 @@
+# Software Requirements Specification
+## Cool Ski Resorts: Integrated Online Booking & Resort Management System
+
+---
+
+## 1. Introduction
+
+### 1.1 Background
+Cool Ski Resorts operates three ski resorts in different mountain locations in the US. Customers can book rooms, rent ski equipment and clothing, and book ski training classes.
+
+The current setup has several problems:
+- A single informational website lists services and contact details. It has no booking capability.
+- Each resort has its own booking and rental process, handled by telephone or fax.
+- Each resort processes payments semi-manually and separately.
+- Each resort stores its data in its own local database.
+- Assistants and accounts staff at each resort run these processes manually, and the workload is "growing out of hand."
+
+### 1.2 Purpose and Goals
+The new system will:
+1. Give customers one modern website where they can find information and book or rent all services directly.
+2. Consolidate all bookings, rentals and accounting data for all resorts into one central database.
+3. Automate as much routine work as possible so staff can focus on customers and the business.
+4. Support reporting for all resorts combined or for each resort individually.
+5. Support growth through promotions, social media, partner integrations and customer feedback.
+6. Be extensible to more resorts and new service types in the future.
+
+### 1.3 Scope
+- **In scope (initial release):** the three existing resorts and their existing services (rooms, equipment rental, clothing rental, ski classes).
+- **Out of scope for now, but must be accommodated architecturally:** additional resorts, non-ski services (e.g., hiking trips), loyalty programs, virtual tours, and possibly a messaging service.
+
+### 1.4 Priority Scheme
+| Priority | Meaning |
+|---|---|
+| **Must** | Required for the initial release |
+| **Should** | Important; expected in the initial release unless constrained |
+| **Could** | Desirable; include if feasible |
+| **Future** | Not in initial release; the architecture must allow adding it later |
+
+---
+
+## 2. Stakeholders and User Roles
+
+| Role | Description |
+|---|---|
+| **Customer / Visitor** | Browses information, books and pays for services, gives feedback and reviews. Uses mobile and desktop devices. |
+| **Resort Staff (front desk, rental, instructors)** | Handles exceptions, walk-in customers, equipment handover and returns, and customer issues. |
+| **Accounting Staff** | Reviews and corrects financial records and generates reports. |
+| **Marketing / Promotions Staff** | Creates and runs promotions and evaluates campaign success. |
+| **Owner / Management** | Views cross-resort reports and analytics and configures report templates. |
+| **System Administrator** | Manages users, roles, configuration and integrations. *(Assumed role; not explicitly discussed.)* |
+| **External Partners** | Travel agencies, tourism networks, social media platforms, equipment suppliers, ski lift systems and weather services. |
+
+---
+
+## 3. Functional Requirements
+
+### 3.1 Public Website & Information
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-1.1 | The system shall provide a single public website presenting information about all three resorts, their services and contact information. | Must |
+| FR-1.2 | The website shall display high-quality images of each resort and its facilities. | Must |
+| FR-1.3 | The website shall display live weather and snow conditions for each resort, sourced from an external weather service. | Must |
+| FR-1.4 | The website shall display real-time ski lift operating status and wait times for each resort, using data from the existing ski lift systems where available. | Should |
+| FR-1.5 | The website shall provide an events calendar showing special events and seasonal activities per resort. Staff shall be able to create, edit and remove events. | Should |
+| FR-1.6 | The website shall provide a help section with clear instructions and tutorials for customers. | Should |
+| FR-1.7 | The website shall support a virtual tour of each resort. | Future |
+
+### 3.2 Online Booking & Rentals
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-2.1 | Customers shall be able to search availability and book **rooms** at any of the three resorts online. | Must |
+| FR-2.2 | Customers shall be able to rent **ski equipment** online for a selected resort and date range. | Must |
+| FR-2.3 | Customers shall be able to rent **ski clothing** online for a selected resort and date range. | Must |
+| FR-2.4 | Customers shall be able to book **ski training classes** online for a selected resort, date and time. | Must |
+| FR-2.5 | Customers shall be able to combine multiple services (e.g., room, equipment and class) in a single booking and checkout. | Should |
+| FR-2.6 | The system shall show real-time availability based on current bookings, rentals and inventory. | Must |
+| FR-2.7 | The system shall prevent overbooking of rooms, classes and rental items. | Must |
+| FR-2.8 | The system shall send customers a booking confirmation (e.g., by email) with the booking details. | Must |
+| FR-2.9 | Customers shall be able to view their existing bookings. | Should |
+| FR-2.10 | Customers shall be able to modify or cancel their existing bookings, subject to resort policies. | Should |
+| FR-2.11 | Customers shall be able to create an account to manage their bookings and preferences. *(Assumption: implied by recommendations, feedback and booking history.)* | Should |
+
+### 3.3 Payments
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-3.1 | The system shall process online payments through a secure payment gateway. | Must |
+| FR-3.2 | The system shall support common payment methods (e.g., major credit/debit cards and popular digital wallets). | Must |
+| FR-3.3 | The system shall record every payment in the central database, linked to the corresponding booking and resort. | Must |
+| FR-3.4 | Staff shall be able to record payments made on-site (e.g., by walk-in customers). | Must |
+| FR-3.5 | The system shall support refunds for cancellations and corrections. | Should |
+
+### 3.4 Automated Processing & Exception Handling
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-4.1 | The system shall automatically accept and confirm bookings and rentals without staff intervention when no problems are detected. | Must |
+| FR-4.2 | When the system detects a problem, it shall flag the booking for staff review and notify the responsible staff. Problems include payment failure, availability conflicts, data inconsistencies and special requests. | Must |
+| FR-4.3 | Staff shall be able to view, resolve, approve or reject flagged bookings. | Must |
+| FR-4.4 | The system shall automate other routine tasks wherever feasible, such as confirmations, reminders, inventory updates and scheduled reports. | Should |
+
+### 3.5 Equipment & Inventory Management
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-5.1 | The system shall track the inventory of rental equipment and clothing per resort, including total quantity, quantity available and quantity currently rented out. | Must |
+| FR-5.2 | The system shall update inventory automatically when items are booked, handed out and returned. | Must |
+| FR-5.3 | Staff shall be able to add, edit and remove inventory items. | Must |
+| FR-5.4 | Staff shall be able to mark items as damaged, unavailable or under maintenance. | Should |
+| FR-5.5 | The system shall support swapping or replacing a rented item for a customer, for example after a complaint (see 3.10). | Should |
+| FR-5.6 | The system shall support connecting to external equipment suppliers or rental services when in-house stock is insufficient. | Could |
+
+### 3.6 Manual Administration & Walk-ins
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-6.1 | Authorized staff shall be able to manually create, modify and delete bookings and rentals, for example for walk-in customers who do not use the online system. | Must |
+| FR-6.2 | Authorized staff shall be able to manually add, correct and remove accounting entries. | Must |
+| FR-6.3 | The system shall keep an audit trail of all manual changes, recording who made the change, when, and what changed. *(Recommended to safeguard data integrity.)* | Should |
+| FR-6.4 | The system shall enforce role-based permissions so only authorized staff can make manual changes. | Must |
+
+### 3.7 Central Data & Reporting
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-7.1 | All bookings, rentals, payments, inventory and customer data for all resorts shall be stored in a single central database. | Must |
+| FR-7.2 | The system shall generate accounting reports automatically at configurable intervals (e.g., daily, monthly). | Must |
+| FR-7.3 | Authorized users shall be able to generate accounting reports on demand. | Must |
+| FR-7.4 | Reports shall be available for all resorts combined and for each resort individually. | Must |
+| FR-7.5 | Reports shall be filterable by date range and by service type (rooms, equipment, clothing, classes). | Should |
+| FR-7.6 | Reports shall be exportable in common formats (e.g., PDF, spreadsheet). | Should |
+
+### 3.8 Promotions, Social Media & Partner Integration
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-8.1 | Marketing staff shall be able to create promotions, including discounts, promo codes, time-limited offers and package deals. | Must |
+| FR-8.2 | The system shall integrate with social media platforms so promotions and advertisements can be published and shared easily. | Must |
+| FR-8.3 | The system shall support joint promotions with travel agencies. | Should |
+| FR-8.4 | The system shall support participation in promotion events run by tourism networks. | Should |
+| FR-8.5 | The system shall support integration with online travel booking platforms and partners. | Could |
+| FR-8.6 | Each booking shall record its source (e.g., promotion, partner, social media campaign, direct) to support success tracking. | Must |
+
+### 3.9 Promotion Analytics
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-9.1 | The system shall compare booking volumes during a promotion with comparable periods without it. | Must |
+| FR-9.2 | The system shall report promotion reach, such as impressions, clicks and visits from social media and partner channels. | Should |
+| FR-9.3 | The system shall report promotion reception, such as engagement, conversion rates and related customer feedback. | Should |
+| FR-9.4 | Users shall be able to define report templates for promotion evaluation. | Should |
+| FR-9.5 | The system shall automatically generate a promotion report from the selected template when a promotion ends. | Should |
+
+### 3.10 Customer Feedback, Reviews & Recommendations
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-10.1 | The system shall offer customers an optional post-stay feedback mechanism, such as a short survey at checkout or a follow-up email. | Must |
+| FR-10.2 | Feedback requests shall be non-intrusive. The system shall limit the frequency of requests and allow customers to opt out. | Must |
+| FR-10.3 | Customers shall be able to submit real-time feedback or issue reports during their stay (e.g., "The equipment wasn't optimal"). | Must |
+| FR-10.4 | When submitting real-time feedback, customers shall be able to request a specific remedy, such as replacement equipment. | Must |
+| FR-10.5 | Customers shall be able to submit suggestions for future features or services through the feedback system. | Should |
+| FR-10.6 | Customers shall be able to post reviews of resorts and services. | Should |
+| FR-10.7 | The system shall provide personalized recommendations based on customer history and preferences. | Should |
+| FR-10.8 | Staff shall be able to view, categorize and analyze collected feedback and suggestions. | Should |
+
+### 3.11 Staff Alerts & Issue Handling
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-11.1 | Real-time feedback shall trigger alerts to available staff at the relevant resort or department, via email and/or a staff dashboard. | Must |
+| FR-11.2 | The system shall provide a staff dashboard listing open feedback items and issues, with status (open, in progress, resolved). | Should |
+| FR-11.3 | Staff shall be able to claim an issue so that others can see it is being handled. | Should |
+| FR-11.4 | The system shall suggest appropriate actions or guidelines to staff based on the type of feedback or issue. | Should |
+| FR-11.5 | The system shall include a staff resource section with guidelines, help and tutorials. | Should |
+
+### 3.12 Future Features (architecture must allow adding these)
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-12.1 | Loyalty program | Future |
+| FR-12.2 | Customer messaging or notification service (to be decided based on customer demand or feedback after launch) | Future |
+| FR-12.3 | Virtual tours (see FR-1.7) | Future |
+| FR-12.4 | Additional resorts | Future |
+| FR-12.5 | Additional service types, including non-ski services (e.g., hiking trips) | Future |
+
+---
+
+## 4. Non-Functional Requirements
+
+### 4.1 Usability & Design
+| ID | Requirement |
+|---|---|
+| NFR-1.1 | The customer interface shall have a modern, aesthetically pleasing design. |
+| NFR-1.2 | The system shall be easy to use for customers, staff and the owner, with intuitive navigation and clear instructions. |
+| NFR-1.3 | The website shall be responsive and fully usable on smartphones, tablets and desktop computers. |
+| NFR-1.4 | Staff interfaces shall support efficient handling of common tasks, such as walk-in bookings, equipment handouts and issue resolution. |
+| NFR-1.5 | Usability shall be validated through user testing (see 5.2). |
+
+### 4.2 Security & Privacy
+| ID | Requirement |
+|---|---|
+| NFR-2.1 | Customer personal data shall be protected using industry best practices, including encryption in transit and at rest. |
+| NFR-2.2 | Payment processing shall comply with PCI DSS. Card data should be handled by a certified payment provider rather than stored by the system. |
+| NFR-2.3 | The system shall comply with applicable privacy laws, such as US state privacy laws (e.g., CCPA) and GDPR for EU customers. |
+| NFR-2.4 | The system shall comply with any other applicable hospitality or tourism industry regulations. These are to be identified during analysis (see open issues). |
+| NFR-2.5 | The system shall be protected against common attacks (e.g., OWASP Top 10) and include safeguards against service disruption (e.g., DDoS mitigation). |
+| NFR-2.6 | Staff access shall require authentication and be restricted by role. |
+| NFR-2.7 | Security-relevant events shall be logged. |
+
+### 4.3 Availability & Reliability
+| ID | Requirement |
+|---|---|
+| NFR-3.1 | The system shall be highly available, since customers book online at any time. A target uptime (e.g., 99.9%) is to be confirmed. |
+| NFR-3.2 | Data shall be backed up regularly and be recoverable after failure. |
+| NFR-3.3 | Failure of an external integration (weather, lift data, social media, partners) shall not prevent core booking functions from working. |
+
+### 4.4 Scalability & Extensibility
+| ID | Requirement |
+|---|---|
+| NFR-4.1 | The architecture shall be modular, so new features (e.g., loyalty, messaging, virtual tours) can be added without major rework. |
+| NFR-4.2 | New resorts shall be addable through configuration rather than redevelopment. |
+| NFR-4.3 | New service types, including non-ski services, shall be addable without redesigning the booking model. |
+| NFR-4.4 | The system shall handle increased load as the customer base grows, including peak-season and promotion-driven traffic spikes. |
+
+### 4.5 Integration
+| ID | Requirement |
+|---|---|
+| NFR-5.1 | The system shall integrate with external services through well-defined interfaces (APIs). These include payment gateways, weather services, ski lift systems, social media, travel agencies, tourism networks and equipment suppliers. |
+
+---
+
+## 5. Implementation & Transition Constraints
+
+### 5.1 Business Continuity
+| ID | Requirement |
+|---|---|
+| CON-1.1 | Implementation and rollout shall not interrupt day-to-day business at any resort. |
+| CON-1.2 | Existing data from the three local resort databases shall be migrated into the central database. *(Implied.)* |
+| CON-1.3 | Existing processes shall remain usable until the new system is fully operational, for example through a parallel run or phased rollout. |
+
+### 5.2 Testing & Rollout
+| ID | Requirement |
+|---|---|
+| CON-2.1 | Before public launch, the owner, selected employees and selected customers shall test the system. |
+| CON-2.2 | Rollout should be phased or include a beta period so feedback can be gathered and adjustments made. |
+
+### 5.3 Training
+| ID | Requirement |
+|---|---|
+| CON-3.1 | Staff will receive onboarding sessions, organized by the company. The system shall support these with built-in help, tutorials and action guidelines (FR-11.4, FR-11.5). |
+
+---
+
+## 6. Open Issues & Items Requiring Clarification
+
+1. **Applicable regulations:** The stakeholder does not know which industry regulations apply. A compliance review is needed (PCI DSS, state privacy laws, accessibility standards such as ADA/WCAG, and lodging tax rules).
+2. **Reviews & recommendations scope:** The stakeholder called these "pretty standard" and said they "want to be able to add" them. It must be confirmed whether they belong in the initial release or only need to be supported later.
+3. **Exception rules:** The conditions that count as a "problem" requiring staff review (FR-4.2) need to be defined.
+4. **Ski lift data:** It must be confirmed whether the lift systems provide accessible real-time status and wait-time data, and in what format.
+5. **Equipment supplier integration:** It is unclear whether "connect to other services" means suppliers, partner rental shops, or something else. The intended use cases need to be defined.
+6. **Promotion analytics depth:** "Full insights if possible" needs concrete metrics and must be checked against what social media and partner platforms actually expose.
+7. **Report schedules and contents:** The required accounting report types, contents and frequencies must be specified.
+8. **Payment methods:** The specific payment methods to support must be confirmed.
+9. **Booking policies:** Cancellation, modification, deposit and refund policies must be defined.
+10. **Staff availability for alerts:** It must be defined how the system determines which staff are "available" to receive feedback alerts (e.g., shift schedules or manual status).
+11. **Feedback frequency limits:** The acceptable number and timing of feedback requests to customers must be defined.
+12. **Messaging service:** This is deferred. Decision criteria for adding it after launch are needed.
+13. **Languages and currency:** It should be confirmed whether multilingual support or multiple currencies are needed for international visitors.
+14. **Budget, timeline and hosting:** These were not discussed and need to be determined.

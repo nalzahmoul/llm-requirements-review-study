@@ -1,0 +1,66 @@
+Based on the interview transcript provided, here is the Software Requirements Specification (SRS) for the **Cool Ski Resorts Management System**. 
+
+---
+
+# Software Requirements Specification: Cool Ski Resorts System
+
+## 1. Project Overview
+Cool Ski Resorts operates a chain of three ski resorts across the US. Currently, operations rely on telephone/fax reservations, semi-manual local databases, and manual financial tracking. The objective of this project is to fully digitalize the resort operations, unify the local databases into a centralized system accessible across all locations, and provide a customer-facing web portal for online bookings.
+
+## 2. User Roles and Permissions
+Based on the stakeholder's requirements for data security and operational management, the system must support Role-Based Access Control (RBAC):
+*   **Customers:** Access to the public website and their personal customer portal to make and manage bookings.
+*   **General Staff:** Read-only (viewing) access to the centralized database across all resorts.
+*   **Receptionists:** Read-only access to the general database, with **Edit** permissions specifically for reservations and bookings.
+*   **Resort Leads (Managers) & Owner:** Full Read and Edit access to all data (inventory, financials, bookings, classes, equipment) across all resorts.
+
+---
+
+## 3. Functional Requirements
+
+### 3.1. Online Customer Portal (High Priority)
+The system shall provide a web-based interface for customers to self-manage their resort experience.
+*   **FR-1.1 Hotel Reservations:** Customers shall be able to view room availability across the three resorts and book hotel accommodations online.
+*   **FR-1.2 Ski Class Bookings:** Customers shall be able to view schedules and book ski training classes.
+*   **FR-1.3 Equipment & Clothing Hire:** Customers shall be able to browse available ski equipment and clothing and reserve them for hire.
+*   **FR-1.4 Reservation Management:** Customers shall be able to view and manage their existing bookings through the portal.
+
+### 3.2. Centralized Database & Data Management (High Priority)
+The system shall replace the separate local databases with a single, centralized database accessible from any of the three resort locations.
+*   **FR-2.1 Multi-Resort Access:** Staff at any resort (and the owner) shall be able to view data from all three resorts in one unified system.
+*   **FR-2.2 Inventory Tracking:** The database shall track the inventory of hotel rooms, ski equipment, and clothing for each resort.
+*   **FR-2.3 Booking & Hire Tracking:** The database shall log all hotel reservations, class bookings, and equipment hires.
+
+### 3.3. Digitalization of Internal Operations (High Priority)
+The system shall transition semi-manual, fax, and telephone-based workflows into digital workflows.
+*   **FR-3.1 Financial & Payment Tracking:** The system shall digitally track financial data and customer payments, replacing the current manual tracking done by assistants.
+*   **FR-3.2 Financial Reporting:** The system shall generate reports on payment data for the owner and Resort Leads.
+*   **FR-3.3 Manual Entry Interface:** Receptionists shall have an interface to manually input bookings into the digital system (for walk-ins or phone calls, if still applicable during the transition).
+
+### 3.4. Website & Marketing Features (Medium/Secondary Priority)
+*   **FR-4.1 Weather Forecast Integration:** The customer-facing website shall display a live weather forecast for the resort locations.
+*   **FR-4.2 Social Media Integration:** The website shall include features to support promotion via social media (e.g., share buttons, embedded social feeds, or promotional landing pages).
+
+---
+
+## 4. Non-Functional Requirements
+
+*   **NFR-1 Real-Time Synchronization:** The centralized database must update **live (in real-time)** to prevent double-booking of rooms, equipment, or classes across the customer portal and receptionist desks.
+*   **NFR-2 Usability:** The customer portal and website must have an appealing, user-friendly design. (Note: The stakeholder has delegated the specific UX/UI workflow design to the development team).
+*   **NFR-3 Security & Access Control:** The system must strictly enforce the viewing vs. editing permissions outlined in Section 2.
+
+---
+
+## 5. Implementation & Transition Requirements
+
+*   **IMP-1 Phased Rollout:** To meet the stakeholder's strict requirement of "digitalizing without much disruption" to current business operations, the system must be deployed using a **phased implementation strategy** (e.g., rolling out by resort location, or rolling out module by module).
+*   **IMP-2 Data Migration:** Legacy data from the existing local databases must be migrated to the new centralized system during the phased rollout without data loss.
+
+---
+
+## 6. Reviewer Notes & Gaps (For Follow-up)
+As a requirements reviewer, I noticed a few areas where the stakeholder was vague. These will need to be clarified in future sessions or decided by the system architects:
+1.  **Payment Processing:** The stakeholder mentioned tracking "payment data." Does the customer portal require an integrated **online payment gateway** (e.g., Stripe, PayPal) to take payments upfront, or do customers pay at the resort?
+2.  **Legacy Data:** What format are the current "local databases" in (e.g., Excel, Access, SQL)? This will impact the migration effort.
+3.  **"Potential Hiring" Ambiguity:** When discussing the customer portal, the stakeholder mentioned "hotel reservations, booking classes and *potential hiring*." In context, this likely refers to "equipment/clothing hire," which was mentioned earlier. However, the team should confirm she did not mean a "Job Board/Careers page" for hiring new resort staff.
+4.  **Social Media Scope:** "More promotion via social media" is a marketing goal, not a software feature. The team needs to define whether this means building social-sharing features into the website or if the stakeholder expects an active social media marketing campaign (which may be out of scope for a software team).

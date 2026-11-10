@@ -1,0 +1,175 @@
+# Software Requirements Specification: Resort Online Management System
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements for an online management system for a group of three ski resorts. It is based on a single elicitation interview with one stakeholder, the resort staff member responsible for implementing the system.
+
+### 1.2 Background and Current State
+- All three resorts take reservations and equipment hire by **telephone and fax**.
+- Payments are handled **semi-manually** at each resort and stored in a **separate local database per resort**.
+- Assistants manage accounts, taxation, and the financial side of bookings for each resort.
+- Coordinating the three resorts is becoming increasingly burdensome.
+
+### 1.3 Business Goals
+| ID | Goal |
+|----|------|
+| BG-1 | Reduce the staff effort needed for reservations, bookings, and payments ("less staff"). |
+| BG-2 | Make the booking process more transparent. |
+| BG-3 | Streamline coordination across the three resorts. |
+| BG-4 | Increase the resorts' visibility and promotion through social media. |
+| BG-5 | Strengthen the brand, including a new logo. |
+
+### 1.4 Stakeholders and Users
+- **Resort management and implementation lead** (the interviewee).
+- **Resort staff and assistants** handling accounts, taxation, bookings, and inventory.
+- **Customers** booking stays, rentals, and training classes.
+
+*Note:* The stakeholder named no other stakeholders. This is a risk (see Section 7).
+
+### 1.5 Feature Priority (agreed in interview)
+1. Website
+2. Online reservations and bookings
+3. Payment processing
+4. Social media integration
+5. Weather and snow forecasts
+6. Inventory management
+7. Customer feedback (Google Reviews)
+8. Logo design (can run alongside the other features)
+
+---
+
+## 2. Functional Requirements
+
+Each requirement is labelled by source:
+- **[S]** stated directly by the stakeholder
+- **[C]** proposed by the interviewer and confirmed by the stakeholder
+- **[D]** derived or implied by the reviewer and needing validation
+
+### 2.1 Public Website (Priority 1)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-WEB-1 | The system shall provide a public website presenting the offerings of each of the three resorts. | S |
+| FR-WEB-2 | The website shall show customers what is available at each resort, including accommodation, rentals, and training classes. | S |
+| FR-WEB-3 | The website shall show clearly labelled buttons that distinguish (a) where to find information about the offer and (b) where to book. | S |
+| FR-WEB-4 | The website shall use a ski-themed visual design. | S |
+| FR-WEB-5 | The website shall show the resort's new logo once it is available. | D |
+
+### 2.2 Online Reservations and Bookings (Priority 2)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-BK-1 | The system shall allow customers to reserve hotel/hostel accommodation online at any of the three resorts. | S |
+| FR-BK-2 | The system shall allow customers to book equipment rentals ("hire") online. | S |
+| FR-BK-3 | The system shall allow customers to book training classes (e.g., ski lessons) online. | S |
+| FR-BK-4 | The booking process shall be a step-by-step (wizard-style) flow. | S |
+| FR-BK-5 | The booking flow shall let customers add optional add-ons and customizations, including at least: flights, breakfast, accommodation-only (no ski pass), bus tickets, restaurant vouchers, and insurance. | S |
+| FR-BK-6 | Bookings shall be confirmed instantly, without manual staff processing. | S |
+| FR-BK-7 | The system shall show real-time availability so customers know what can be booked before they commit. | D (supports BG-2 transparency) |
+| FR-BK-8 | The system shall send the customer a booking confirmation with the full itemized booking and price. | D (supports BG-2) |
+| FR-BK-9 | The system shall keep all three resorts' bookings in a single central system, replacing the separate local databases. | D (supports BG-3) |
+| FR-BK-10 | Resort staff shall be able to view and manage bookings for all resorts through a back-office interface. | D |
+
+### 2.3 Payment Processing (Priority 3)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-PAY-1 | The system shall accept online payment at the time of booking. | S |
+| FR-PAY-2 | The system shall support as many payment methods as practical, including at least credit/debit cards and PayPal. | S (minimum set to be confirmed) |
+| FR-PAY-3 | The system shall record all payments centrally and link each payment to its booking. | D (replaces semi-manual local process) |
+| FR-PAY-4 | The system shall give assistants financial records and reports that support accounting and taxation for each resort. | D (based on current assistant duties) |
+
+### 2.4 Social Media Integration (Priority 4)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-SM-1 | The system shall support promotion of the resorts on Twitter (X), Facebook, and Instagram. | S |
+| FR-SM-2 | The website shall link to the resorts' Twitter, Facebook, and Instagram profiles. | D |
+| FR-SM-3 | The website shall let visitors share resort offers on those platforms. | D |
+
+### 2.5 Weather and Snow Forecasts (Priority 5)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-WX-1 | The system shall let customers query weather forecasts for the resort they are staying at. | S |
+| FR-WX-2 | The system shall let customers query snow-condition forecasts for the resort they are staying at. | S |
+| FR-WX-3 | Forecast data shall come from reputable local weather and snow services. | S (provider to be selected) |
+
+### 2.6 Inventory Management (Priority 6)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-INV-1 | The system shall track all rental items, such as skis, boards, and other equipment. | S |
+| FR-INV-2 | The system shall track utilities and household inventory in the accommodation ("in the house"). | S |
+| FR-INV-3 | Rental inventory shall be linked to online rental bookings so that availability shown to customers reflects actual stock. | D |
+| FR-INV-4 | Inventory shall be tracked separately for each resort and viewable centrally. | D |
+
+### 2.7 Customer Feedback (Priority 7)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-FB-1 | The system shall collect customer feedback through Google Reviews. | C/S |
+| FR-FB-2 | The website shall display or link to the resorts' Google Reviews. | D |
+| FR-FB-3 | The system should invite customers to leave a Google review after their stay. | D |
+
+### 2.8 Branding (Priority 8)
+| ID | Requirement | Source |
+|----|-------------|--------|
+| BR-1 | A new logo shall be designed; designers have creative freedom (no existing elements need to be kept). | S |
+
+*Note:* This is a project deliverable rather than a software requirement.
+
+---
+
+## 3. Non-Functional Requirements
+
+| ID | Category | Requirement | Source |
+|----|----------|-------------|--------|
+| NFR-1 | Usability | The website and booking flow shall be intuitive for customers with no prior instruction. | S |
+| NFR-2 | Aesthetics | The website shall be visually appealing and consistently ski-themed. | S |
+| NFR-3 | Performance | Booking confirmation shall be returned instantly (target to be defined, e.g., within a few seconds of payment). | S |
+| NFR-4 | Efficiency | The system shall reduce manual staff effort for reservations, payments, and coordination. | S (success metric to be defined) |
+| NFR-5 | Transparency | Prices, availability, add-ons, and booking status shall be clearly visible to customers. | S |
+| NFR-6 | Security | Payment processing shall comply with applicable payment card security standards (e.g., PCI DSS). | D |
+| NFR-7 | Privacy | Customer personal data shall be handled under applicable data protection law (e.g., GDPR if the resorts operate in the EU). | D |
+| NFR-8 | Availability | The booking website should be available 24/7, since it replaces phone and fax booking. | D |
+| NFR-9 | Compatibility | The website should work on desktop and mobile devices. | D |
+
+---
+
+## 4. External Interfaces
+| Interface | Purpose |
+|-----------|---------|
+| Payment gateway(s) | Card, PayPal, and other online payments |
+| Social media platforms | Twitter/X, Facebook, Instagram |
+| Local weather/snow service APIs | Forecast and snow-condition data |
+| Google Reviews / Google Business Profile | Customer feedback |
+| Third-party add-on providers | Flights, bus tickets, insurance, restaurant vouchers (integration approach to be confirmed) |
+
+---
+
+## 5. Constraints and Assumptions
+- **A-1:** The system will serve all three resorts from one shared platform.
+- **A-2:** Existing data in each resort's local database will need to be migrated.
+- **A-3:** "Hire" refers to equipment rental, and "training classes" refers to ski/snowboard lessons.
+- **A-4:** "Hostel" accommodation is offered alongside or in place of hotel accommodation.
+- **C-1:** The stakeholder has limited time for elaboration, so requirements must be validated in short review sessions.
+
+---
+
+## 6. Out of Scope (unless confirmed otherwise)
+- Full accounting and tax software. The system provides financial data, but filing and accounting may remain with the assistants or existing tools.
+- Staff payroll and HR.
+
+---
+
+## 7. Open Issues and Questions for Follow-up
+
+**Several key requirements are vague or unconfirmed and should be resolved before design begins:**
+
+1. **Payment methods:** "As many as possible" needs a confirmed minimum list and any target customer regions or currencies.
+2. **Add-on fulfilment:** Are flights, bus tickets, and insurance sold by the resort, by partners, or through third-party integrations or redirects?
+3. **Weather provider:** Which specific local services count as "the best"? Are there licensing costs?
+4. **Social media scope:** Should the system only link to profiles, or also schedule and post content and run promotions?
+5. **Back-office needs:** What do staff and assistants need, such as reports, roles, and permissions? Who will use the system internally?
+6. **Cancellations and refunds:** What are the policies, and should they be handled online?
+7. **Languages and currencies:** Do international customers require these?
+8. **Data migration:** How should historical bookings and payments move from the local databases?
+9. **Success metrics:** How will "less staff" and "more transparency" be measured?
+10. **Inventory detail:** Is maintenance tracking, damage reporting, or reordering of supplies needed?
+11. **Additional stakeholders:** Resort assistants, front-desk staff, and instructors have not been consulted, though they will be directly affected. Interviewing them is strongly recommended.
+12. **Budget and timeline:** Neither was discussed.

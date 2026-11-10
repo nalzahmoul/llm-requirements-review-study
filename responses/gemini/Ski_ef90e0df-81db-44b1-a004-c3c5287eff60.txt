@@ -1,0 +1,74 @@
+Based on the requirements elicitation interview transcript, here is the Software Requirements Specification (SRS) for the **Cool Ski Resorts Digitalization Project**.
+
+---
+
+# Software Requirements Specification: Cool Ski Resorts System
+
+## 1. Project Overview
+The objective of this project is to digitalize, centralize, and standardize the booking, payment, and customer service processes across all hotel entities within "Cool Ski Resorts." Additionally, the project aims to modernize the resort's marketing efforts by implementing automated social media management and transitioning the current static website into a dynamic platform featuring social media content and live weather updates.
+
+## 2. Stakeholders
+*   **Primary:** Resort Owners, Hotel Employees, Customers (Guests), Software Developers.
+*   **Secondary:** External Tool Providers (CMS, Payment Gateways, Social Media Platforms).
+
+## 3. Prioritized Project Phases
+1.  **Phase 1:** Identify and standardize shared processes (Reservations, Customer Service, Payments) across hotel entities.
+2.  **Phase 2:** Digital implementation of the centralized booking and process management system.
+3.  **Phase 3:** Social media automation setup.
+4.  **Phase 4:** Website modernization and integration with social media and weather data.
+
+---
+
+## 4. Functional Requirements
+
+### 4.1. Centralized Database & Core Processes (Priority 1 & 2)
+*   **FR-1.1 Centralization:** The system shall utilize a single, centralized database to manage customer data, room inventory, and bookings across all "Cool Ski Resorts" hotel entities.
+*   **FR-1.2 Standardized Processes:** The system shall enforce standardized workflows for reservations, customer service, and payments across all hotel locations.
+*   **FR-1.3 Room Availability & Pricing:** The system shall display real-time room availability and corresponding pricing to both customers and staff.
+*   **FR-1.4 Dynamic Promotions:** The system shall allow administrators to highlight specific dates and apply discounts to rooms during periods of low demand.
+*   **FR-1.5 Search Analytics:** The system shall track, log, and report on customer search behaviors (e.g., dates searched, room types viewed) to provide insights into what potential customers are looking for.
+*   **FR-1.6 Payment Processing:** The system shall process customer payments online via an integrated third-party payment gateway (e.g., Stripe).
+
+### 4.2. Social Media Automation (Priority 3)
+*   **FR-2.1 Multi-Platform Integration:** The system (via an integrated tool) shall connect to as many major social media platforms as possible.
+*   **FR-2.2 Post Scheduling:** The system shall allow users to plan and schedule social media posts in advance.
+*   **FR-2.3 Automated Publishing:** The system shall automatically publish scheduled posts to all connected social media platforms at the designated times.
+*   **FR-2.4 Audience Insights:** The social media tool should provide analytics to help understand customer demographics and engagement to aid in brand building and customer acquisition.
+
+### 4.3. Website Integration (Priority 4)
+*   **FR-3.1 Headless CMS Integration:** The system shall use a Headless CMS (e.g., Contentful) as a single source of truth for content, streamlining data simultaneously to the social media automation tool and the resort’s website.
+*   **FR-3.2 Blog-like Social Feed:** The website shall dynamically fetch and display social media posts (including text and images) from the CMS in a blog-like format.
+*   **FR-3.3 Live Weather Display:** The website shall integrate with an external Weather API to display current local weather conditions at the resort.
+
+---
+
+## 5. Non-Functional Requirements (NFRs)
+
+*   **NFR-1 Usability (Simplicity):** The user interface for both the customer-facing booking engine and the employee-facing back-office must be highly intuitive and simple to use, minimizing the learning curve and reducing training costs for new employees.
+*   **NFR-2 Maintainability & Modularity:** The core system must be lightweight ("as small as possible") and highly adjustable to minimize the time and cost required to implement future features or process adjustments.
+*   **NFR-3 Cost-Efficiency (Payments):** The chosen third-party payment gateway's transaction fees over a 10-year operational period (evaluated via Discounted Cash Flow or similar financial methods) must not exceed the estimated cost of building and maintaining a custom, self-implemented payment solution.
+
+---
+
+## 6. Technical & Architectural Constraints
+*   **TC-1 Build vs. Buy:** The development team must **not** build the reservation, customer service, or payment systems from scratch.
+*   **TC-2 Source Code Access:** For the core booking/process system, the team must procure an existing system that is either **Open Source** or allows for the **purchase of the source code**, ensuring the system can be customized to fit the resort's exact processes.
+*   **TC-3 Third-Party Services:** 
+    *   Payment processing should utilize an established provider like **Stripe**.
+    *   Content management should utilize a headless CMS like **Contentful**.
+    *   Weather data must be sourced via an external **Weather API**.
+
+---
+
+## 7. Success Criteria
+The project will be deemed successful when:
+1.  All standardized processes (reservations, payments, customer service, and social media workflows) are fully operational across all hotel entities.
+2.  All key stakeholders (customers, owners, employees, and developers) report satisfaction with the system's usability and performance.
+
+---
+
+## 8. Reviewer's Notes (Gaps & Recommendations for Follow-up)
+*As a requirements reviewer, I noticed a few areas in the transcript that lack specificity and will require follow-up before development begins:*
+1.  **"Customer Service" Scope:** The stakeholder mentioned standardizing "customer service," but no specific features were elicited during the interview. *Follow-up needed: Does this mean a ticketing system, live chat, CRM, or email management?*
+2.  **Social Media Platforms:** "As many as possible" is not testable. *Follow-up needed: Define the exact list of target platforms (e.g., Instagram, Facebook, TikTok, X, LinkedIn).*
+3.  **Legacy Data Migration:** The hotels currently manage customers themselves. *Follow-up needed: In what format is the current data stored (Excel, paper, legacy software), and does historical data need to be migrated to the new centralized database?*

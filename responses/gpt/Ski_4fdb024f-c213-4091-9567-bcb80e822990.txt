@@ -1,0 +1,106 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and Scope
+
+The system shall digitalize the operations of Cool Ski Resorts, a chain of three ski resorts in the United States. It shall support hotel reservations, ski equipment and clothing hire, ski class bookings, inventory management, and financial tracking.
+
+The system shall provide an online customer portal and shared access to data across all three resorts. Implementation shall be phased to avoid disrupting ongoing operations.
+
+## 2. Users
+
+- **Customers:** Book and manage resort services through the customer portal.
+- **Resort staff:** View resort data.
+- **Resort leads:** View and edit operational data, subject to the resort-level scope to be confirmed.
+- **Receptionists:** View data and edit bookings.
+- **Owner and financial assistants:** Require access to operational and financial information; their specific permissions remain to be confirmed.
+
+## 3. Functional Requirements
+
+### 3.1 Customer Portal
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide an online customer portal for the three resorts. |
+| FR-02 | The portal shall allow customers to make hotel reservations at a selected resort. |
+| FR-03 | The portal shall allow customers to book ski training classes at a selected resort. |
+| FR-04 | The portal shall support booking ski equipment and clothing hire at a selected resort. |
+| FR-05 | The portal shall allow customers to manage their reservations. The permitted changes and cancellation rules require clarification. |
+
+### 3.2 Resort Operations
+
+| ID | Requirement |
+|---|---|
+| FR-06 | The system shall maintain hotel reservation records for each resort. |
+| FR-07 | The system shall support digital management of ski training classes and their bookings. |
+| FR-08 | The system shall maintain inventory records for ski equipment and clothing at each resort. |
+| FR-09 | The system shall maintain equipment and clothing hire records for each resort. |
+| FR-10 | The system shall support financial tracking, including recording and viewing payment data associated with resort operations. |
+
+### 3.3 Shared Data and Updates
+
+| ID | Requirement |
+|---|---|
+| FR-11 | The system shall provide a shared database containing reservation, inventory, class booking, hire, and payment data for all three resorts. |
+| FR-12 | The system shall associate operational records with the relevant resort. |
+| FR-13 | Authorized staff at any resort shall be able to access data for all three resorts. |
+| FR-14 | Changes to shared data shall be reflected live across resort locations. The maximum acceptable update delay requires definition. |
+
+### 3.4 Access Control
+
+| ID | Requirement |
+|---|---|
+| FR-15 | The system shall enforce access permissions based on staff roles. |
+| FR-16 | All resort staff shall have permission to view shared resort data. Any restrictions on sensitive customer or payment information require confirmation. |
+| FR-17 | Resort leads shall have permission to edit operational records. Whether this permission applies only to their own resort or across all resorts requires confirmation. |
+| FR-18 | Receptionists shall have permission to edit booking records. |
+| FR-19 | Staff who are neither resort leads nor receptionists shall have view-only access. Receptionists’ editing rights shall be limited to bookings. |
+
+### 3.5 Website and Promotion
+
+| ID | Requirement |
+|---|---|
+| FR-20 | The system shall provide a customer-facing website with a visually appealing design. Design acceptance criteria shall be agreed with the stakeholder. |
+| FR-21 | The website shall display weather forecasts relevant to the resort locations. |
+| FR-22 | The solution shall support promotion through social media. The required platforms and promotional capabilities require further elicitation. |
+
+## 4. Quality and Transition Requirements
+
+| ID | Requirement |
+|---|---|
+| QR-01 | The customer portal shall be easy for customers to use when booking and managing services. Measurable usability criteria require agreement. |
+| QR-02 | The system shall support access to shared operational data from each of the three resorts. |
+| TR-01 | The system shall be introduced through phased implementation. |
+| TR-02 | The transition shall preserve continuity of resort operations and avoid disruption to existing services. Cutover arrangements and acceptance criteria require agreement. |
+| TR-03 | The implementation shall replace the current semi-manual workflows and local-database approach for the operations identified in scope. |
+
+## 5. Priorities
+
+**Highest priority, as identified by the stakeholder:**
+1. Customer portal.
+2. Cross-resort access to live data.
+3. Digitalization of resort operations.
+
+**Additional requested capabilities:**
+- Attractive customer-facing website.
+- Weather forecasts.
+- Social media promotion support.
+
+The stakeholder did not specify a relative implementation order among these additional capabilities.
+
+## 6. Outstanding Clarifications
+
+The following details are not established by the interview and should not be treated as agreed requirements:
+
+- Booking workflows, required customer information, availability checks, and overbooking prevention.
+- Reservation modification, cancellation, refund, and no-show policies.
+- Equipment hire availability, collection, return, and stock-management rules.
+- Ski class schedules, capacities, and instructor management.
+- Whether the system must process online payments or only record payment information.
+- Required financial reports and accounting integrations.
+- Customer identification or account requirements.
+- Owner and financial-assistant permissions, and the resort scope of editing rights.
+- Privacy, security, and payment-data access restrictions.
+- Required response times, availability targets, and the meaning of “live” updates.
+- Migration of existing local database records and treatment of telephone and fax bookings during transition.
+- Weather data sources and social media functionality.
+- Implementation phases and measurable criteria for a disruption-free transition.

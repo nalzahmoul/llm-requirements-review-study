@@ -1,0 +1,70 @@
+Based on the requirements elicitation interview with Jim (the business owner), here is the review of the transcript followed by the structured software requirements specification.
+
+### 1. Project Overview
+The stakeholder owns three ski resorts that currently operate on separate websites with manual/semi-manual booking (via fax and telephone) and on-site payment processing. The goal of this project is to consolidate the three websites into a single, aesthetically pleasing, and centralized web platform. This new system will allow customers to book rooms and training classes, process payments online, view weather/snow conditions, and leave reviews, while allowing the business to manage inventory and prevent double bookings.
+
+---
+
+### 2. Prioritized Feature List
+During the interview, the features were prioritized. *(Note: There was a slight miscommunication during the interview's ranking phase where "Booking Training Classes" was accidentally dropped by the interviewer during the recap. Both the stakeholder's raw ranking and the confirmed recap have been synthesized below).*
+
+1. **Centralized Booking System** (Highest Priority)
+2. **Aesthetically Pleasing and Intuitive UI/UX**
+3. **Promotion and Advertisement Integration (Social Media)**
+4. **Inventory Management**
+5. **Customer Feedback and Review Features**
+6. **Weather and Snow Condition Forecasts**
+7. **Booking Training Classes**
+
+---
+
+### 3. Functional Requirements (FR)
+
+**FR1: Centralized Room Booking System**
+*   **FR1.1:** The system shall consolidate room availability data across all three ski resorts into a single centralized database.
+*   **FR1.2:** The system shall prevent double reservations by updating room availability in real-time across all resorts.
+*   **FR1.3:** The system shall allow customers to view available rooms at each of the three resorts and select a specific room to reserve.
+*   **FR1.4:** The system shall display seasonal pricing differences for the rooms so customers can compare costs across different times of the year.
+
+**FR2: Online Payment Processing**
+*   **FR2.1:** The system shall replace the current manual payment process by allowing customers to pay for their reservations online.
+*   **FR2.2:** The system shall integrate with PayPal (and potentially support wire transfers, see *Ambiguities* below) to process and track customer payments.
+*   **FR2.3:** The system shall automatically send payment confirmations to the customer and the resort upon a successful transaction.
+*   **FR2.4:** The system shall automatically generate and send receipts to the customer upon payment completion.
+
+**FR3: Training Classes Booking**
+*   **FR3.1:** The system shall allow customers to view and book ski/resort training classes online.
+
+**FR4: Inventory Management**
+*   **FR4.1:** The system shall include an inventory management module for resort staff/owners. *(Details to be elicited in future interviews).*
+
+**FR5: Weather and Snow Condition Forecasts**
+*   **FR5.1:** The system shall allow customers to query and view current weather and snow condition forecasts for each of the three resorts.
+
+**FR6: Social Media and Promotions**
+*   **FR6.1:** The system shall integrate with social media platforms to facilitate resort promotion and advertisement.
+
+**FR7: Customer Feedback and Reviews**
+*   **FR7.1:** The system shall allow customers to submit and view feedback or reviews regarding their stay at the resorts.
+
+---
+
+### 4. Non-Functional Requirements (NFR)
+
+*   **NFR1 (Usability):** The website must be intuitive and easy to navigate for customers looking to view resort availability and book rooms.
+*   **NFR2 (Design/Aesthetics):** The website must have a modern, aesthetically pleasing visual design.
+*   **NFR3 (Data Integrity):** The centralized database must maintain strict concurrency control to ensure zero double-bookings occur.
+
+---
+
+### 5. Reviewer’s Notes: Ambiguities & Missing Requirements
+Because the stakeholder had to leave the interview early, only the **Centralized Booking System** was explored in detail. As a requirements reviewer, I recommend scheduling a follow-up session to resolve the following ambiguities and gaps:
+
+1.  **Ambiguity in Payment Methods:** The stakeholder initially stated, *"The customer should wire us the money,"* and immediately followed up with *"PayPal"* for confirming and tracking payments. It needs to be clarified whether they want traditional bank wire transfers **in addition** to PayPal, or if the stakeholder simply misspoke and meant online payments via PayPal.
+2.  **Discrepancy in Feature Prioritization:** When asked to rank the 6 remaining features (Aesthetics, Social Media, Weather, Inventory, Training Classes, Reviews), the stakeholder replied: `1, 2, 5, 3, 6, 4`. The interviewer mapped this incorrectly in the recap, completely omitting "Booking Training Classes" and shifting the priority of "Weather" and "Inventory". Although the stakeholder said "Yeees" to the recap, the exact priority of the lower-tier features should be re-verified.
+3.  **Unelicited Features (Need Elicitation):**
+    *   **Inventory Management:** Does this refer to room inventory, ski equipment rental inventory, or resort retail/food supplies?
+    *   **Training Classes:** Are these booked per person or per group? Do they require instructor scheduling?
+    *   **Weather Forecasts:** Will this be updated manually by staff (e.g., snow base depth), or should it pull automatically from a third-party weather API?
+    *   **Social Media Integration:** Does the stakeholder want social login, share buttons, embedded feeds, or back-end ad-tracking pixels (e.g., Meta Pixel)?
+    *   **Legacy Data:** Is there existing reservation data from the current 3 websites/manual logs that needs to be migrated to the new system?

@@ -1,0 +1,109 @@
+# Software Requirements — Cool Ski Resorts
+
+## 1. Purpose and scope
+
+The system will provide a customer-facing website and centralized management capabilities for Cool Ski Resorts’ three resorts. It will support hotel reservations, ski equipment hire, training class bookings, online payments, inventory management, social media promotion, and access to weather and snow information.
+
+The business objectives are to reduce reliance on telephone and fax bookings, reduce manual work, improve coordination between resorts, and increase business visibility.
+
+## 2. Users
+
+- **Customers:** View resort offerings and availability, make bookings, pay online, access weather and snow information, and seek support.
+- **Resort staff:** Manage reservations, bookings, and inventory and view inventory history.
+
+Detailed staff roles and permissions remain to be defined.
+
+## 3. Functional requirements
+
+### 3.1 Website and resort information
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide a customer-facing website covering all three resorts. |
+| FR-02 | The website shall allow customers to view the offerings and availability at each resort, including accommodation, hire items, and training classes. |
+
+### 3.2 Online reservations, hire, and class bookings — highest priority
+
+| ID | Requirement |
+|---|---|
+| FR-03 | The system shall allow customers to reserve hotel accommodation online at a selected resort. |
+| FR-04 | The system shall allow customers to arrange ski equipment hire online at a selected resort. |
+| FR-05 | The system shall allow customers to book training classes online at a selected resort. |
+| FR-06 | Customers shall be able to complete these bookings remotely without calling resort staff or waiting in a telephone queue. |
+| FR-07 | The system shall centrally store and manage hotel reservations, equipment hire bookings, and class bookings for all three resorts. |
+
+### 3.3 Online payments
+
+| ID | Requirement |
+|---|---|
+| FR-08 | The system shall support online payment for reservations, equipment hire, and training class bookings. |
+| FR-09 | The system shall support credit card, debit card, and PayPal payments. |
+| FR-10 | The system shall integrate with payment processing services, as no existing online payment integration is available. |
+
+### 3.4 Inventory management
+
+| ID | Requirement |
+|---|---|
+| FR-11 | The system shall provide centralized inventory management across all three resorts. |
+| FR-12 | The inventory shall cover ski equipment, clothing, and other items available for hire. |
+| FR-13 | The system shall track inventory by resort and provide visibility of inventory across all resorts. |
+| FR-14 | The system shall support recording inventory changes associated with items being hired, returned, or maintained. |
+| FR-15 | The system shall update inventory information in real time. |
+| FR-16 | The system shall retain historical inventory data. |
+| FR-17 | The system shall provide staff with a visual dashboard displaying historical inventory data. |
+
+### 3.5 Social media
+
+| ID | Requirement |
+|---|---|
+| FR-18 | The system shall integrate with social media platforms to support promotion and advertising of Cool Ski Resorts. |
+
+The platforms and specific promotional functions have not been defined.
+
+### 3.6 Weather and snow information
+
+| ID | Requirement |
+|---|---|
+| FR-19 | The system shall allow customers to query current weather and snow conditions for the resorts. |
+| FR-20 | The system shall allow customers to view weather and snow-condition forecasts for the resorts. |
+| FR-21 | Current weather and snow information shall be updated in real time. |
+
+### 3.7 Customer support
+
+| ID | Requirement |
+|---|---|
+| FR-22 | The website shall provide an online customer-support capability for customer inquiries and issues. |
+
+The stakeholder accepted online support or chat in principle; the support channel and operating model remain to be confirmed.
+
+## 4. Non-functional requirements
+
+| ID | Requirement | Qualification needed |
+|---|---|---|
+| NFR-01 | The website shall be aesthetically pleasing and intuitive. | Design approval criteria and usability measures are not yet defined. |
+| NFR-02 | The booking experience shall be straightforward and suitable for customers booking independently from home. | Usability acceptance criteria require agreement. |
+| NFR-03 | The system shall use a centralized database to manage reservations, bookings, and inventory across all three resorts. | Hosting, implementation, and migration details remain undefined. |
+| NFR-04 | Inventory updates and current weather and snow information shall be provided in real time. | Maximum acceptable update delays must be agreed. |
+
+## 5. Priorities and delivery expectations
+
+- **Explicit highest priority:** Online hotel reservations, equipment hire, and training class bookings, supported by online payments.
+- **Other requested capabilities:** Inventory management, website presentation, social media integration, weather and snow information, and online customer support. Their relative priorities were not established.
+- **Delivery expectation:** The stakeholder expressed extreme urgency by requesting delivery “tomorrow.” No feasible delivery date or agreed implementation schedule was established.
+
+## 6. Outstanding clarification needs
+
+The transcript does not establish requirements for:
+
+- Booking details, pricing, availability rules, class capacities, or hire periods.
+- Booking changes, cancellations, refunds, or customer notifications.
+- Customer accounts, staff access permissions, and authentication.
+- Payment providers, currencies, payment timing, or failed-payment handling.
+- Inventory dashboard metrics, reporting periods, or maintenance workflows.
+- Social media platforms and integration behavior.
+- Weather data sources, forecast horizons, and refresh intervals.
+- Support channel, staffing, and service hours.
+- Mobile-device support, accessibility, performance, availability, security, and privacy acceptance criteria.
+- Migration of existing local databases and continued handling of telephone or fax bookings.
+
+These items require follow-up and should not be treated as agreed functionality.

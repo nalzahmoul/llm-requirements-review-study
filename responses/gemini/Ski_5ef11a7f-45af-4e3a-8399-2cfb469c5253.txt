@@ -1,0 +1,74 @@
+Based on the interview transcript, here is the comprehensive Software Requirements Specification (SRS) for the **Cool Ski Resorts Online Presence and Booking System**.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Cool Ski Resorts Modernization & Booking System  
+**Stakeholder:** Owner, Cool Ski Resorts  
+
+## 1. Introduction & Business Objectives
+Cool Ski Resorts operates three ski resorts in the US, offering lodging, equipment/clothing rentals, and ski training classes. Currently, bookings are handled via phone/fax, payments are processed semi-manually, and data is siloed in local databases at each resort. 
+**Objective:** To develop a centralized, modern, web-based platform that allows customers to view information and book services online, while automating backend operations, inventory tracking, and reporting for staff across all three resorts.
+
+---
+
+## 2. Functional Requirements
+
+### 2.1. Customer-Facing Portal & Information Services
+*   **REQ-1.1:** The system shall provide information, contact details, and high-quality photo galleries for all three ski resorts.
+*   **REQ-1.2:** The system shall feature an Events Calendar displaying special events and seasonal activities across the resorts.
+*   **REQ-1.3:** The system shall integrate a live weather service to display current weather and snow conditions for each resort.
+*   **REQ-1.4:** The system shall integrate with ski lift systems (where data is available) to display real-time updates on lift operations and wait times.
+*   **REQ-1.5:** The system shall display customer reviews for resorts and services.
+*   **REQ-1.6:** The system shall provide personalized recommendations for services to customers during their browsing/booking experience.
+
+### 2.2. Booking, Rentals, and Payments
+*   **REQ-2.1:** Customers shall be able to book resort rooms, rent ski equipment/clothing, and book ski training classes directly through the website.
+*   **REQ-2.2:** The system shall process reservations and rentals automatically without staff intervention, flagging staff only when an exception or problem occurs.
+*   **REQ-2.3:** The system shall track equipment and clothing inventory in real-time, displaying what is available and what is currently rented out.
+*   **REQ-2.4:** The system shall integrate a secure payment gateway supporting common online payment options to replace semi-manual payment processing.
+
+### 2.3. Back-Office Administration & Staff Operations
+*   **REQ-3.1:** The system shall allow authorized staff to manually add, edit, or remove bookings, rentals, and accounting entries (e.g., to accommodate walk-in customers or correct errors).
+*   **REQ-3.2:** The system shall automatically generate accounting and operational reports at scheduled intervals.
+*   **REQ-3.3:** The system shall allow staff to generate reports on-demand, with the ability to view data consolidated for all resorts or filtered by an individual resort.
+
+### 2.4. Marketing, Promotions, and External Integrations
+*   **REQ-4.1:** The system shall integrate with social media platforms to allow staff to easily run promotions and advertisements.
+*   **REQ-4.2:** The system shall support integration with external travel agencies, online travel booking sites, and tourism networks to run joint promotional events.
+*   **REQ-4.3:** The system shall be capable of connecting to external equipment suppliers' systems if additional inventory is needed.
+*   **REQ-4.4:** The system shall track promotional campaign analytics, including reach, customer reception, and booking volume comparisons (with vs. without promotions).
+*   **REQ-4.5:** The system shall allow staff to define a report template that automatically generates a performance report once a promotion ends.
+
+### 2.5. Customer Feedback & Issue Resolution
+*   **REQ-5.1:** The system shall provide non-intrusive feedback mechanisms, such as optional checkout surveys or follow-up emails.
+*   **REQ-5.2:** The system shall feature a "Real-Time Feedback" tool allowing customers to instantly report issues during their stay (e.g., sub-optimal equipment) and request immediate action/replacements.
+*   **REQ-5.3:** The Real-Time Feedback tool shall include an option for customers to submit suggestions for future system/resort features.
+*   **REQ-5.4:** Real-time feedback submissions shall trigger an alert (via email or a staff dashboard) so available staff can respond promptly.
+*   **REQ-5.5:** The system shall provide built-in guidelines and suggested actions to assist staff in resolving reported customer issues consistently.
+
+---
+
+## 3. Non-Functional Requirements
+
+### 3.1. Architecture & Data Management
+*   **NFR-1.1 (Centralization):** The system shall consolidate all booking, rental, and accounting data from the three resorts into a single, centralized database.
+*   **NFR-1.2 (Scalability & Modularity):** The system architecture must be modular and scalable to easily accommodate future expansions, including:
+    *   Adding new resort locations.
+    *   Adding new non-ski related services (e.g., hiking trips).
+    *   Adding future software features such as a Customer Loyalty Program, Virtual Tours, and a Customer Messaging Service.
+
+### 3.2. Usability & Design
+*   **NFR-2.1 (Responsive Design):** The web application must be fully responsive, providing optimal functionality and viewing experiences across desktop computers, tablets, and mobile devices.
+*   **NFR-2.2 (Aesthetics & Ease of Use):** The system must feature a modern, aesthetically pleasing, and intuitive user interface for both customers and back-office staff.
+
+### 3.3. Security & Compliance
+*   **NFR-3.1 (Data Protection):** Customer data and payment information must be encrypted and protected against hacking or service disruption.
+*   **NFR-3.2 (Compliance):** The system must comply with relevant hospitality, payment (e.g., PCI-DSS), and data privacy regulations (e.g., GDPR/CCPA as applicable in the US).
+
+---
+
+## 4. Project Constraints & Transition Requirements
+*   **CON-1.1 (Zero Downtime Rollout):** The implementation and deployment of the new system must not interrupt the day-to-day business operations of the resorts.
+*   **CON-1.2 (User Acceptance Testing):** Before the public launch, the system must undergo a beta testing phase involving the company owner, selected resort employees, and a select group of customers to validate usability. 
+*   **CON-1.3 (Data Migration):** *(Implied)* Existing data from the three local resort databases will need to be migrated or reconciled into the new centralized database during the transition.
