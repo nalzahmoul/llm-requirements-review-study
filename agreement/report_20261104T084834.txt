@@ -1,0 +1,21 @@
+Intercoder reliability, 2026-11-04T08:48:34+00:00 UTC
+Sheets: coding_sheet_coderA.xlsx (sha256 d256acaeb88f3a0b), coding_sheet_coderB.xlsx (sha256 083b727e0df4bacb)
+Evaluations coded by both: 396  (responses: 33)
+Five codes:          agreement 82.6%   Cohen's kappa 0.775 (substantial)   Krippendorff's alpha 0.774
+Assumes vs. other:   agreement 89.6%   Cohen's kappa 0.764 (substantial)   Krippendorff's alpha 0.762   (supplementary)
+
+Confusion (rows = coder A, columns = coder B):
+                        Sup    Ask  A-exp  A-imp    Omi   total
+            Supports     75     10      0     25      5     115
+                Asks      3    115      1     10      1     130
+  Assumes explicitly      2      0     48      8      1      59
+  Assumes implicitly      2      0      1     49      0      52
+               Omits      0      0      0      0     40      40
+               total     82    125     50     92     47     396
+
+Extras listed by coder A: 270 (Supported 156, Unsupported 114)
+Extras listed by coder B: 350 (Supported 214, Unsupported 136)
+Responses where the two coders listed a different number of extras: 28
+(Which extras match is settled in consensus.xlsx; the next press of step 5 reports how many were found by both.)
+
+DECISION: alpha 0.774 < 0.80. Below target: discuss the disagreements in agreement/consensus.xlsx, sharpen the codebook (runner/study.py), then recode (see README, 'If alpha is below 0.80').
