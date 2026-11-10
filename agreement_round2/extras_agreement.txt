@@ -1,0 +1,4 @@
+Extras agreement, 2026-11-04T22:07:19+00:00 UTC (from the matches in agreement_round2/consensus.xlsx)
+Listed by A: 165; by B: 277; found by both: 151; only A: 14; only B: 126
+Found by both / found by either: 151/291 = 51.9%
+Same class (Supported/Unsupported) among those found by both: 140/151 = 92.7%

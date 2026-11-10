@@ -1,0 +1,32 @@
+Intercoder reliability, round 2, 2026-11-04T21:37:23+00:00 UTC
+Sheets: coding_sheet_coderA-2.xlsx (sha256 2645096668a206cc), coding_sheet_coderB-2.xlsx (sha256 02ebb03f77d90943)
+Evaluations coded by both: 396  (responses: 33)
+Five codes:          agreement 87.6%   Cohen's kappa 0.839 (almost perfect)   Krippendorff's alpha 0.839
+Assumes vs. other:   agreement 93.7%   Cohen's kappa 0.846 (almost perfect)   Krippendorff's alpha 0.846   (supplementary)
+Asks vs. other:      agreement 93.2%   Cohen's kappa 0.850 (almost perfect)   Krippendorff's alpha 0.850   (supplementary)
+
+Confusion (rows = coder A, columns = coder B):
+                        Sup    Ask  A-exp  A-imp    Omi   total
+            Supports     74      4      1      2      0      81
+                Asks     11    125      1      1      1     139
+  Assumes explicitly      1      3     53      3      1      61
+  Assumes implicitly      8      6      3     42      0      59
+               Omits      2      0      1      0     53      56
+               total     96    138     59     48     55     396
+
+Extras listed by coder A: 165 (Supported 118, Unsupported 47)
+Extras listed by coder B: 277 (Supported 170, Unsupported 107)
+Responses where the two coders listed a different number of extras: 27
+(Which extras match is settled in consensus.xlsx; the next press of step 5 reports how many were found by both.)
+
+Round 1 vs round 2 (each measured on its own independent codes, before its consensus):
+                                 Round 1                   Round 2          
+                           agree    kappa    alpha   agree    kappa    alpha
+Five codes                 82.6%    0.775    0.774   87.6%    0.839    0.839
+Assumes vs. other          89.6%    0.764    0.762   93.7%    0.846    0.846
+Asks vs. other             93.7%    0.855    0.856   93.2%    0.850    0.850
+Disagreements                                   69                        49
+Extras listed (A / B)                    270 / 350                 165 / 277
+Responses, extras differ                        28                        27
+
+DECISION: alpha 0.839 >= 0.80. Target reached: resolve the disagreements in agreement_round2/consensus.xlsx, then press step 5 again.
