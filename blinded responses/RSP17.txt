@@ -1,0 +1,101 @@
+# Software Requirements: Cool Ski Resorts Online System
+
+## 1. Purpose and Scope
+
+The system shall provide a customer-facing website and centralized operational management for Cool Ski Resorts’ three resorts. It will support hotel reservations, ski equipment hire, training-class bookings, online payments, inventory management, social media promotion, weather and snow information, and online customer support.
+
+The primary business objectives are to:
+- Enable customers to book independently without telephone assistance.
+- Improve coordination and visibility across the three resorts.
+- Reduce manual administrative work.
+- Expand the business’s online visibility and customer reach.
+
+## 2. Functional Requirements
+
+### 2.1 Resort Information and Online Booking — Highest Priority
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall allow customers to view information about each of the three resorts and the accommodation, hire equipment, and training classes available at each resort. |
+| FR-02 | The system shall allow customers to make hotel reservations online for their selected resort. |
+| FR-03 | The system shall allow customers to arrange ski equipment hire online for their selected resort. |
+| FR-04 | The system shall allow customers to book training classes online for their selected resort. |
+| FR-05 | The system shall allow customers to complete reservations, hire arrangements, and class bookings without needing to telephone resort staff. |
+| FR-06 | The system shall store and manage reservations, hire arrangements, and class bookings for all three resorts in a centralized database. |
+
+### 2.2 Online Payments
+
+| ID | Requirement |
+|---|---|
+| FR-07 | The system shall support online payment for hotel reservations, equipment hire, and training-class bookings. |
+| FR-08 | The system shall support credit card, debit card, and PayPal payments. |
+| FR-09 | The system shall integrate with external payment services to provide online payment processing, which is not supported by the current system. |
+
+### 2.3 Centralized Inventory Management
+
+| ID | Requirement |
+|---|---|
+| FR-10 | The system shall centrally manage hire inventory across all three resorts, including ski equipment, clothing, and other hire items. |
+| FR-11 | The system shall track inventory separately for each resort while providing visibility across all three resorts. |
+| FR-12 | The system shall allow staff to record inventory changes associated with items being hired, returned, or maintained. |
+| FR-13 | The system shall update inventory information in real time as inventory changes are recorded. |
+| FR-14 | The system shall retain historical inventory data. |
+| FR-15 | The system shall provide staff with a visual dashboard presenting current inventory information and historical inventory data. |
+
+### 2.4 Social Media Integration
+
+| ID | Requirement |
+|---|---|
+| FR-16 | The system shall integrate with social media platforms to support promotion and advertising of Cool Ski Resorts. |
+
+The specific platforms and integration functions remain to be defined.
+
+### 2.5 Weather and Snow Information
+
+| ID | Requirement |
+|---|---|
+| FR-17 | The system shall allow customers to query current weather and snow conditions for each resort. |
+| FR-18 | The system shall provide weather and snow condition forecasts for each resort. |
+| FR-19 | The system shall provide real-time updates to current weather and snow condition information. |
+
+The information provider and meaning of “real-time” remain to be defined.
+
+### 2.6 Online Customer Support
+
+| ID | Requirement |
+|---|---|
+| FR-20 | The system shall provide an online customer-support facility for customer questions and issues. |
+
+The stakeholder accepted online support or chat, but did not specify whether this should be live chat, automated assistance, messaging, or another mechanism.
+
+## 3. Non-Functional Requirements
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The customer-facing website shall have an aesthetically pleasing design. |
+| NFR-02 | The website shall be intuitive and user-friendly, enabling customers to find resort availability and complete bookings comfortably from home. |
+| NFR-03 | The system shall provide a shared, centralized source of reservation, booking, and inventory information across the three resorts. |
+
+Visual-design approval criteria, usability measures, and measurable update-latency targets require further agreement.
+
+## 4. Priorities and Delivery Expectations
+
+- **Highest priority:** Online hotel reservations, equipment hire, and training-class bookings.
+- **Associated capability:** Online payment using credit cards, debit cards, or PayPal.
+- **Other requested capabilities:** Centralized inventory management, social media integration, weather and snow information, and online customer support. Their relative priorities were not established.
+- **Delivery expectation:** The stakeholder requested implementation “tomorrow,” indicating urgency. No feasible delivery schedule or committed deadline was agreed.
+
+## 5. Open Questions and Unspecified Requirements
+
+The following matters require clarification before implementation:
+
+1. **Booking rules:** Required customer details, date selection, room types, equipment quantities, class schedules and capacity, availability calculation, and handling of conflicting bookings.
+2. **Booking lifecycle:** Confirmation messages, changes, cancellations, refunds, and no-shows.
+3. **Payments:** Payment providers, currencies, deposits versus full payment, failed-payment handling, and applicable security and compliance obligations.
+4. **Staff access:** User roles, permissions, authentication, and which administrative functions staff need.
+5. **Inventory:** Item identification, maintenance status rules, inter-resort transfers, and required dashboard measures and reporting periods.
+6. **Existing data:** Whether and how records from the three local databases will be migrated or integrated.
+7. **External integrations:** Social media platforms, promotional workflows, weather data sources, and update frequency.
+8. **Customer support:** Support channel, staffing, operating hours, and expected response times.
+9. **Quality requirements:** Supported devices and browsers, accessibility, performance, availability, backup, recovery, privacy, and security targets.
+10. **Delivery constraints:** Budget, implementation phases, acceptance criteria, and an achievable launch date.

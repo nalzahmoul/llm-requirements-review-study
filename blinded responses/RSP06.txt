@@ -1,0 +1,62 @@
+Based on the requirements elicitation interview with Mary Smith (Owner of Cool Ski Resorts), below is the Software Requirements Specification (SRS) for the proposed system.
+
+---
+
+# Software Requirements Specification: Cool Ski Resorts Management System
+
+## 1. Project Overview
+Cool Ski Resorts operates a chain of three ski resorts across the US. Currently, operations rely on telephone/fax reservations, semi-manual booking processes, local databases, and manual financial tracking. The objective of this project is to fully digitalize resort operations, unify data across all three locations into a centralized database, and provide an online customer-facing portal to modernize the booking experience. 
+
+## 2. User Roles & Permissions
+Based on the stakeholder's requirements for data security and operational access, the system will support the following roles:
+*   **Customers:** Access to the public website and customer portal to view information and make/manage their own bookings.
+*   **General Staff:** Read-only (view) access to the centralized database across all resorts.
+*   **Receptionists:** Read-only access to the general database, with **Edit/Write** permissions specifically for managing customer bookings.
+*   **Resort Leads (Managers) & Owner:** Full Read and Edit/Write permissions for all data (inventory, reservations, classes, rentals, and financials) across all resorts.
+
+---
+
+## 3. Functional Requirements
+
+### 3.1. Online Customer Portal (High Priority)
+The system shall provide a customer-facing web portal that replaces the need for telephone/fax reservations.
+*   **FR-1.1 Hotel Reservations:** Customers shall be able to search for room availability across the three resorts and book hotel rooms online.
+*   **FR-1.2 Ski Training Classes:** Customers shall be able to view available ski training classes and book spots in those classes.
+*   **FR-1.3 Equipment & Clothing Hire:** Customers shall be able to browse available ski equipment and clothing and reserve items for hire/rental.
+*   **FR-1.4 Reservation Management:** Customers shall be able to view and manage their existing bookings through the portal.
+
+### 3.2. Centralized Database & Operations Management (High Priority)
+The system shall replace the separate local databases with a single, centralized database accessible from any of the three resort locations.
+*   **FR-2.1 Cross-Resort Data Access:** Staff at any resort shall be able to view the operational data of all three resorts.
+*   **FR-2.2 Inventory Management:** The system shall track the inventory of ski equipment and clothing available for hire at each specific resort.
+*   **FR-2.3 Booking & Reservation Tracking:** The system shall log and track all hotel room reservations, class bookings, and equipment rentals.
+*   **FR-2.4 Financial & Payment Tracking:** The system shall digitally track payment data and financial transactions, replacing the current manual tracking done by assistants.
+*   **FR-2.5 Role-Based Access Control (RBAC):** The system shall enforce the viewing and editing restrictions defined in Section 2 (User Roles).
+
+### 3.3. Public Website & Marketing Features (Medium/Low Priority)
+*   **FR-3.1 Weather Forecast:** The public-facing website shall integrate and display a local weather forecast for the resort locations.
+*   **FR-3.2 Social Media Integration:** The system/website shall include features to support promotion via social media (e.g., social sharing buttons, embedded feeds, or promotional landing pages).
+
+---
+
+## 4. Non-Functional Requirements
+
+*   **NFR-1 Real-Time Synchronization:** The centralized database must process and display **live updates** so that inventory, bookings, and payment data are immediately accurate across all three locations to prevent double-booking.
+*   **NFR-2 Usability & Design:** The public website and customer portal must have a modern, appealing design and a user-friendly, intuitive workflow (as the stakeholder delegated the specific UX/UI steps to the design team).
+*   **NFR-3 Availability & Reliability:** The system must be highly reliable to support day-to-day resort operations without disruption.
+
+---
+
+## 5. Implementation & Transition Constraints
+
+*   **CON-1 Phased Implementation:** To meet the stakeholder's strict requirement of "digitalizing everything without much disruption," the system rollout must be conducted using a **phased implementation** approach (e.g., rolling out module-by-module, or resort-by-resort).
+*   **CON-2 Data Migration:** Existing bookings, inventory, and financial data stored in the current local databases must be migrated to the new centralized system prior to going live.
+
+---
+
+## 6. Reviewer's Notes / Areas for Future Clarification
+*As a requirements reviewer, I noted a few areas where the stakeholder gave high-level answers that will require follow-up during the system design phase:*
+1.  **Online Payments:** While the stakeholder mentioned tracking "payment data," it needs to be confirmed if customers will pay directly through the Online Customer Portal via a payment gateway (e.g., Stripe, PayPal) or pay at the resort.
+2.  **Equipment Hire Nuances:** "Potential hiring" of equipment may require tracking specific sizes (boots, skis, clothing) in the inventory database.
+3.  **Social Media Scope:** "More promotion via social media" is partially a marketing service rather than a software feature. The development team should clarify if she simply wants social media links/integrations on the website, or a dedicated marketing campaign. 
+4.  **Assistant Workflows:** We should interview the "assistants who keep track of the financial stuff" and the "receptionists" to ensure the new digital workflows match their daily operational needs.

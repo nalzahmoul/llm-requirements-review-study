@@ -1,0 +1,71 @@
+Based on the requirements elicitation interview, here is the Software Requirements Specification (SRS) for the new Ski Resort Chain Web Platform. 
+
+---
+
+# Software Requirements Specification (SRS)
+
+## 1. Project Overview
+* **Client:** A chain of three ski resorts.
+* **System Type:** Web-based platform (Public-facing customer website + Internal management portal).
+* **Primary Goals:** Increase customer acquisition through online visibility, allow customers to make online bookings, and streamline internal resort operations (hiring, accounting, and scheduling) across all three locations.
+* **Target Timeline:** Launch within 1 year.
+
+---
+
+## 2. Functional Requirements
+
+### 2.1. Customer-Facing Portal (Public Website)
+* **FR-1.1: Resort & General Information**
+  * The system shall serve as a promotional tool to showcase all three ski resorts to prospective customers.
+* **FR-1.2: Customer Profiles**
+  * The system shall allow customers to create, view, and manage personal user profiles.
+* **FR-1.3: Reservation & Booking System**
+  * The system shall allow customers to book general resort visits/reservations.
+  * The system shall allow customers to book training/ski classes.
+* **FR-1.4: Interactive Booking Calendar**
+  * The system shall display a public-facing calendar showing resort opening times and real-time availability for bookings.
+  * The system shall support booking calendar synchronization.
+* **FR-1.5: Payment Processing**
+  * The system shall integrate with a secure payment gateway to allow customers to pay for reservations and training classes online.
+* **FR-1.6: Real-Time Weather Forecast**
+  * The system shall integrate with a third-party weather API to display weather forecasts for each of the three ski resorts during the booking process.
+  * The system shall fetch and update the weather information dynamically upon each customer inquiry/page load.
+
+### 2.2. Recruitment & Hiring Module
+* **FR-2.1: Public Job Board**
+  * The system shall allow internal staff to post job listings across the three resorts to a public "Careers" page.
+* **FR-2.2: Applicant Tracking**
+  * The system shall allow prospective employees to submit job applications through the website.
+  * The system shall provide an internal interface for resort management to view and manage submitted applications.
+
+### 2.3. Internal Operations & Administration
+* **FR-3.1: Centralized Database**
+  * The system shall feature a centralized database connecting all three ski resorts in one location.
+* **FR-3.2: Financial & Account Management**
+  * The system shall manage internal accounts, taxes, and financial data across all three resorts.
+  * *Note: Integration with existing accounting software may be required (pending follow-up).*
+
+---
+
+## 3. Non-Functional Requirements
+
+* **NFR-1: Security & Access Control**
+  * The centralized database (specifically accounting, tax, and HR data) shall be strictly restricted to internal authorized personnel only.
+  * Public users shall only have read-access to the availability/opening calendar data from the central database.
+* **NFR-2: Usability & Design**
+  * The user interface (UI) must be aesthetically pleasing, modern, and intuitive/easy to use for customers.
+* **NFR-3: Scalability & Extensibility**
+  * The system architecture (specifically the calendar and booking engine) must be designed to easily accommodate a "Special Events" feature in future updates, even though it will not be active at launch.
+* **NFR-4: Performance**
+  * Calendar availability must be processed and displayed in real-time to prevent double bookings.
+  * Weather API calls must execute quickly upon customer inquiry without degrading page load speeds.
+
+---
+
+## 4. Open Issues & Action Items (Reviewer Notes)
+As a requirements reviewer, I have identified the following gaps in the transcript that must be resolved before architecture and development can be finalized:
+
+1. **Accounting/Tax Software Integration:** The stakeholder did not know which software is currently used for accounting and taxes. **Action:** Schedule a follow-up interview with the stakeholder's assistant to identify the legacy software and determine if data migration or API integration is required.
+2. **Third-Party Vendor Selection:** The development team needs to research and propose options for the **Weather API** and the **Payment Gateway** for stakeholder approval.
+3. **Design & Branding Guidelines:** The interview ended before the stakeholder could provide branding assets or examples of competitor websites they admire. **Action:** Request brand guidelines (logos, color palettes) and UI inspiration via email.
+4. **Scope of "Reservations":** Clarify what a standard "reservation" entails (e.g., lift tickets, equipment rental, lodging/hotel rooms, or parking) as each has different inventory management logic.

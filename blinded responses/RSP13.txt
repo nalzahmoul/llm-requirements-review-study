@@ -1,0 +1,68 @@
+Based on the requirements elicitation interview with the owner of Cool Ski Resorts, below is the comprehensive Software Requirements Specification (SRS) for the new centralized booking, rental, and management system.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Cool Ski Resorts Online Booking and Management System  
+**Stakeholder:** Owner, Cool Ski Resorts  
+
+## 1. Project Overview
+Cool Ski Resorts operates three ski resorts in the US and seeks to replace its fragmented, semi-manual, local booking and accounting systems with a centralized, modern web-based platform. The system will allow customers to book rooms, rent equipment, and schedule ski classes online, while automating back-office operations, inventory tracking, reporting, and marketing analytics for resort staff.
+
+---
+
+## 2. Functional Requirements
+
+### 2.1. Customer-Facing Portal & Information Display
+* **FR-1.1 Resort Information:** The system shall display general information, contact details, and high-quality photo galleries for all three resorts.
+* **FR-1.2 Events Calendar:** The system shall feature an interactive calendar showcasing special events and seasonal activities at each resort.
+* **FR-1.3 Live Weather & Snow Conditions:** The system shall integrate with a weather service to display real-time weather and snow conditions for each resort location.
+* **FR-1.4 Real-Time Lift Status:** The system shall integrate with ski lift systems to display real-time updates on lift operations and current wait times.
+* **FR-1.5 Reviews & Recommendations:** The system shall allow customers to view and submit public reviews and receive personalized service/activity recommendations.
+
+### 2.2. Booking, Rentals, & Payments
+* **FR-2.1 Online Reservations:** Customers shall be able to browse availability and book resort rooms, ski equipment, ski clothing, and ski training classes directly through the website.
+* **FR-2.2 Automated Processing:** The system shall automatically process and confirm standard reservations and rentals without staff intervention, flagging only exceptions or errors for manual staff review.
+* **FR-2.3 Online Payments:** The system shall integrate with a secure payment gateway to support common online payment methods.
+
+### 2.3. Back-Office & Inventory Management
+* **FR-3.1 Centralized Database:** All bookings, equipment rentals, inventory, and financial data across all three resorts shall be stored in a single, unified database.
+* **FR-3.2 Real-Time Inventory Tracking:** The system shall automatically track ski equipment and clothing inventory, updating available vs. rented stock in real time.
+* **FR-3.3 Manual Overrides & Walk-Ins:** Authorized staff shall have the ability to manually add, edit, or remove bookings, rentals, and accounting entries to accommodate walk-in customers or correct errors.
+
+### 2.4. Reporting & Accounting
+* **FR-4.1 Financial Reporting:** The system shall generate accounting and booking reports both for individual resorts and consolidated across all resorts.
+* **FR-4.2 Scheduled & On-Demand Generation:** The system shall automatically generate accounting reports at predefined intervals and allow staff to generate reports on demand.
+
+### 2.5. Marketing, Promotions, & Integrations
+* **FR-5.1 Social Media Integration:** The system shall connect with social media platforms to facilitate the distribution of promotions and advertisements.
+* **FR-5.2 External Partner Integration:** The system shall support integrations with external equipment suppliers, travel agencies, and tourism networks for joint promotional events and bookings.
+* **FR-5.3 Campaign Analytics:** The system shall track the performance of promotional campaigns, measuring metrics such as reach, customer reception, and booking volume differences (with vs. without promotions).
+* **FR-5.4 Custom Promotion Reports:** Users shall be able to define custom report templates that the system automatically generates upon the conclusion of a promotion.
+
+### 2.6. Customer Feedback & Support
+* **FR-6.1 Post-Stay Feedback:** The system shall provide non-intrusive, optional feedback mechanisms (e.g., checkout surveys or follow-up emails) after a customer's stay.
+* **FR-6.2 Real-Time Issue Reporting:** Customers shall be able to submit instant feedback during their stay (e.g., reporting suboptimal rental equipment to request a replacement).
+* **FR-6.3 Feature Suggestions:** The feedback interface shall include an option for customers to submit suggestions for future resort or website features.
+* **FR-6.4 Staff Alert System:** Real-time feedback/issues shall trigger immediate alerts (via email or a staff dashboard) to available staff members.
+* **FR-6.5 Staff Action Guidelines:** The system shall provide built-in suggestions and guidelines to assist staff in resolving common customer feedback issues consistently.
+
+---
+
+## 3. Non-Functional Requirements
+
+### 3.1. Usability & Design
+* **NFR-1.1 Responsive Design:** The web application shall be fully responsive, providing optimal viewing and interaction across desktop computers, tablets, and mobile devices.
+* **NFR-1.2 User Interface:** The system shall feature a modern, aesthetically pleasing, and intuitive user interface for both customers and staff.
+
+### 3.2. Scalability & Modularity
+* **NFR-2.1 Modular Architecture:** The system shall be built with a modular architecture to allow future enhancements—such as customer loyalty programs, virtual tours, and messaging services—to be added easily.
+* **NFR-2.2 Business Expansion:** The database and system architecture must easily scale to accommodate additional resort locations and non-ski-related services (e.g., summer hiking trips) in the future.
+
+### 3.3. Security & Compliance
+* **NFR-3.1 Data Protection:** The system shall encrypt sensitive customer data and protect against unauthorized access, hacking, or service disruption.
+* **NFR-3.2 Regulatory Compliance:** The system shall comply with relevant hospitality and payment industry standards (e.g., PCI-DSS for payments, GDPR/CCPA for data privacy).
+
+### 3.4. Deployment & Transition
+* **NFR-4.1 Zero-Downtime Cutover:** The transition from the legacy local databases to the new centralized system must not interrupt the day-to-day operations of the resorts.
+* **NFR-4.2 Beta Testing / UAT:** The deployment process must include a staging/beta environment allowing the owner, selected employees, and a test group of customers to conduct User Acceptance Testing (UAT) prior to the public launch.

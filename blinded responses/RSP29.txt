@@ -1,0 +1,85 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and scope
+
+The system shall digitalize the operations of Cool Ski Resorts, a chain of three ski resorts in the United States. It shall support hotel reservations, ski equipment and clothing hire, ski training class bookings, inventory management, and financial tracking.
+
+The system shall provide a customer-facing website and portal, together with shared operational data accessible from all three resorts. It shall replace or modernize the existing semi-manual processes and local databases through a phased implementation that minimizes disruption.
+
+## 2. Functional requirements
+
+### 2.1 Customer website and portal
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide an online customer portal serving all three resorts. |
+| FR-02 | The portal shall allow customers to make hotel room reservations at their chosen resort. |
+| FR-03 | The portal shall allow customers to book ski training classes at their chosen resort. |
+| FR-04 | The portal shall support customer bookings for ski equipment and clothing hire. The precise hire workflow requires confirmation. |
+| FR-05 | The portal shall allow customers to view and manage their reservations. The permitted changes and cancellation rules require clarification. |
+| FR-06 | The customer-facing website shall display weather forecasts relevant to the resorts. |
+| FR-07 | The system shall support promotion through social media. The required promotional capabilities and platforms require clarification. |
+
+### 2.2 Resort operations
+
+| ID | Requirement |
+|---|---|
+| FR-08 | The system shall enable staff to digitally record, view, and maintain hotel reservations. |
+| FR-09 | The system shall enable staff to digitally record, view, and maintain ski training class bookings. |
+| FR-10 | The system shall enable staff to digitally record, view, and maintain equipment and clothing hire records. |
+| FR-11 | The system shall maintain inventory records for each resort, including equipment and clothing available for hire. |
+| FR-12 | The system shall maintain payment data and support financial tracking for each resort. Online payment processing was not explicitly requested and requires confirmation. |
+
+### 2.3 Shared data and updates
+
+| ID | Requirement |
+|---|---|
+| FR-13 | The system shall maintain a shared database covering all three resorts. |
+| FR-14 | The database shall contain reservations, class bookings, hire records, inventory records, and payment data. |
+| FR-15 | Each operational record shall be associated with its relevant resort. |
+| FR-16 | Authorized staff at any resort shall be able to view data for all three resorts. |
+| FR-17 | Changes to shared data shall be reflected across resort locations through live updates. The maximum acceptable update delay requires definition. |
+
+### 2.4 Access control
+
+| ID | Requirement |
+|---|---|
+| FR-18 | The system shall distinguish staff users and enforce role-based viewing and editing permissions. |
+| FR-19 | All staff users shall have viewing access to shared resort data, subject to confirmation of restrictions on sensitive information. |
+| FR-20 | Resort leads shall have permission to edit resort operational data. Whether a lead may edit only their own resort’s data or all resorts’ data requires clarification. |
+| FR-21 | Receptionists shall additionally have permission to edit bookings. The booking types covered by this permission require clarification. |
+| FR-22 | Staff without resort-lead or receptionist editing permissions shall not be permitted to edit operational records. |
+
+## 3. Non-functional requirements and transition constraints
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The customer-facing website shall have an attractive design. Specific design and usability acceptance criteria shall be agreed with the stakeholder. |
+| NFR-02 | The system shall support access to shared resort data from each of the three resort locations. |
+| NFR-03 | The system shall be introduced through phased implementation. |
+| NFR-04 | Implementation shall preserve ongoing resort operations and avoid disruption to reservations, hire services, class bookings, and financial tracking. A measurable continuity target requires agreement. |
+
+## 4. Priorities
+
+The stakeholder identified the following as the highest priorities:
+
+1. Customer portal.
+2. Access to data across all resorts.
+3. Digitalization of resort operations.
+
+Website presentation, weather forecasts, and social media promotion are additional requested capabilities; their relative priority was not specified.
+
+## 5. Outstanding requirements decisions
+
+The following points must be resolved before detailed design and acceptance testing:
+
+- **Booking rules:** availability checks, amendments, cancellations, refunds, and booking confirmations.
+- **Hire workflow:** whether customers reserve items online, request hire, or complete the entire hire transaction.
+- **Customer access:** whether accounts are required and how customers retrieve their bookings.
+- **Inventory scope:** item categories, stock quantities, availability tracking, and any maintenance tracking.
+- **Financial scope:** required payment fields, financial reports, and whether payment collection or accounting integration is needed.
+- **Permissions:** cross-resort editing rights, receptionist booking permissions, owner access, and access to sensitive customer or payment data.
+- **Live updates:** acceptable latency, concurrent-edit handling, and behavior during connectivity failures.
+- **Transition:** migration of existing local databases, treatment of historical records, rollout sequence, and continued handling of telephone and fax reservations.
+- **Website enhancements:** forecast locations and sources, social media platforms, and the promotional functions required.
+- **Quality and security:** performance, availability, accessibility, privacy, backup, and recovery requirements, none of which were specified in the interview.

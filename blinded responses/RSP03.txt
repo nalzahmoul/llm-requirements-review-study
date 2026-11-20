@@ -1,0 +1,169 @@
+# Software Requirements Specification: Cool Ski Resorts Digital Management System
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements gathered from the elicitation interview with Mary Smith, owner of Cool Ski Resorts. Each requirement is labeled as **Stated** (said directly by the stakeholder) or **Derived** (inferred from the discussion and needing confirmation).
+
+### 1.2 Background
+Cool Ski Resorts runs three ski resorts on different mountains in the US. Each resort offers:
+- Hotel room bookings
+- Ski equipment and clothing hire
+- Ski training classes
+
+### 1.3 Current Situation
+- Customers make reservations by telephone or fax.
+- Each resort handles bookings semi-manually in its own local database.
+- Assistants track finances separately.
+- Resorts cannot see each other's data.
+
+### 1.4 Project Goal
+Digitalize all resort operations with minimal disruption. The new system will provide:
+- An online customer portal
+- A shared database across all three resorts
+- A customer-facing website with marketing features
+
+### 1.5 Priorities (Stated by Stakeholder)
+
+| Priority | Feature Area |
+|---|---|
+| **High** | Online customer portal |
+| **High** | Access to all resort data from every resort (centralized database) |
+| **High** | Digitalization of all operations |
+| **Lower** | Attractive customer website design |
+| **Lower** | Weather forecast on website |
+| **Lower** | Social media promotion |
+
+---
+
+## 2. User Classes
+
+| User Class | Description | Source |
+|---|---|---|
+| **Customer** | Books rooms, classes, and equipment/clothing hire online | Stated |
+| **Owner** | Mary Smith; needs a view of all resorts | Stated |
+| **Resort Lead** | Manager of one resort; has editing rights | Stated |
+| **Receptionist** | Front-desk staff; may edit bookings | Stated |
+| **Other Staff** (e.g., instructors, rental staff, financial assistants) | View-only access | Stated ("viewing is fine for everybody") |
+
+---
+
+## 3. Functional Requirements
+
+### 3.1 Customer Portal (Priority: High)
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-CP-01 | The system shall provide an online portal where customers can make hotel room reservations at any of the three resorts. | Stated |
+| FR-CP-02 | The portal shall allow customers to book ski training classes. | Stated |
+| FR-CP-03 | The portal shall allow customers to book ski equipment and clothing hire. | Stated |
+| FR-CP-04 | The portal shall allow customers to view and manage their existing reservations and bookings. | Stated (confirmed as "necessary") |
+| FR-CP-05 | The portal shall show real-time availability of rooms, class places, and hire inventory before a customer confirms a booking. | Derived (from the live-update requirement) |
+| FR-CP-06 | The system shall send customers a confirmation for each booking made or changed. | Derived |
+| FR-CP-07 | The portal shall let customers create an account or otherwise identify themselves so they can retrieve and manage their bookings. | Derived |
+| FR-CP-08 | Customers shall be able to make several bookings (room, class, hire) for the same stay. | Derived |
+
+*Note: The stakeholder delegated the detailed portal workflow and user experience to the development team ("that's up to you").*
+
+### 3.2 Centralized Resort Data (Priority: High)
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-DB-01 | The system shall keep a single central database holding data for all three resorts. | Stated |
+| FR-DB-02 | The database shall record hotel reservations for each resort. | Stated |
+| FR-DB-03 | The database shall record class bookings for each resort. | Stated |
+| FR-DB-04 | The database shall record equipment and clothing hires for each resort. | Stated |
+| FR-DB-05 | The database shall track the equipment and clothing inventory at each resort. | Stated |
+| FR-DB-06 | The database shall record payment data for all reservations, bookings, and hires. | Stated |
+| FR-DB-07 | Authorized users at any resort shall be able to access the data of every resort. | Stated |
+| FR-DB-08 | Changes made at any resort or through the customer portal shall appear immediately (live) to all users at all resorts. | Stated |
+| FR-DB-09 | The system shall provide reports or views of payment data, filterable by resort. | Stated (payment data requested); report details Derived |
+
+### 3.3 Access Control
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-AC-01 | All staff users shall have read-only access to the data of all resorts. | Stated |
+| FR-AC-02 | Only the Resort Lead shall be able to create, edit, or delete data for their resort, except as allowed in FR-AC-03. | Stated (limiting edits to the lead's own resort is Derived) |
+| FR-AC-03 | Receptionists shall be able to create, edit, and cancel bookings (room reservations, class bookings, hire bookings). | Stated |
+| FR-AC-04 | Receptionists shall not be able to edit non-booking data such as inventory or payment records. | Derived |
+| FR-AC-05 | All staff shall log in with individual credentials, and the system shall enforce permissions based on role. | Derived |
+| FR-AC-06 | The system shall record who changed what and when (audit trail). | Derived |
+
+### 3.4 Digitalization of Operations (Priority: High)
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-OP-01 | All reservation, booking, hire, inventory, and financial processes shall be handled digitally in the system. | Stated ("everything should be digital") |
+| FR-OP-02 | Staff shall be able to enter bookings received by telephone, or in person, directly into the system. | Derived |
+| FR-OP-03 | The system shall replace manual financial tracking by recording payments digitally and linking them to their bookings. | Derived (from current assistant-based process) |
+| FR-OP-04 | The system shall support migrating existing data from each resort's local database. | Derived (needed for non-disruptive transition) |
+| FR-OP-05 | Staff shall be able to record equipment hire-out and return, updating inventory automatically. | Derived |
+
+### 3.5 Customer Website and Marketing (Priority: Lower)
+
+| ID | Requirement | Source |
+|---|---|---|
+| FR-WEB-01 | The system shall include a visually appealing public website for customers, presenting all three resorts. | Stated |
+| FR-WEB-02 | The website shall show a weather forecast for each resort location. | Stated |
+| FR-WEB-03 | The website shall support social media promotion, such as links to social media accounts and sharing features. | Stated (specific mechanism Derived) |
+| FR-WEB-04 | The website shall give customers direct access to the customer portal. | Derived |
+
+---
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement | Source |
+|---|---|---|---|
+| NFR-01 | Usability | The customer portal shall be user-friendly and efficient for non-technical customers. | Stated by interviewer, accepted by stakeholder |
+| NFR-02 | Performance / Consistency | Data shall update live across all resorts and the portal, with no double-booking of rooms, class places, or hire items. | Stated (live) / Derived (consistency) |
+| NFR-03 | Availability | The system shall be available to customers online and to staff during resort operating hours at all three sites. | Derived |
+| NFR-04 | Security | Customer personal data and payment data shall be stored and sent securely, following applicable payment and privacy rules. | Derived |
+| NFR-05 | Security | Role-based permissions shall be enforced on the server side. | Derived |
+| NFR-06 | Usability | The staff interface shall need minimal training, to limit disruption. | Derived |
+| NFR-07 | Accessibility | The website and portal shall work on desktop and mobile devices. | Derived |
+
+---
+
+## 5. Implementation Constraints
+
+| ID | Constraint | Source |
+|---|---|---|
+| C-01 | The system shall be introduced in phases, not as a single cutover. | Stated |
+| C-02 | The transition shall not disrupt ongoing resort operations or customer service. | Stated |
+| C-03 | Data from the existing local databases shall remain available during and after migration. | Derived |
+
+**Suggested phasing (for stakeholder confirmation):**
+1. Centralized database and staff booking system, including data migration and access control.
+2. Customer portal for online bookings.
+3. Digital financial and payment tracking and reporting.
+4. Website redesign, weather forecast, and social media features.
+
+---
+
+## 6. Assumptions
+
+- A1: "Bookings" covers room reservations, class bookings, and hire bookings. The receptionist editing right applies to all three.
+- A2: Each Resort Lead may edit only their own resort's data, although they can view all resorts.
+- A3: The owner has at least view access to everything. The owner's editing rights were not discussed.
+- A4: Telephone bookings will continue alongside online bookings. Fax may be phased out.
+- A5: "Payment data" means staff can view payment records and reports. Whether customers pay online was not stated.
+
+---
+
+## 7. Open Issues and Follow-Up Questions
+
+These gaps were not resolved in the interview and should be clarified with Mary Smith:
+
+1. **Online payment:** Should customers pay, or pay a deposit, online through the portal, or only at the resort?
+2. **Cancellation and change policy:** What rules apply to customer cancellations, modifications, and refunds?
+3. **Owner permissions:** Should the owner have editing rights across all resorts?
+4. **Resort Lead scope:** Confirm that leads may edit only their own resort's data.
+5. **Reporting:** Beyond payment data, which reports are needed (e.g., occupancy, revenue per resort, inventory usage)?
+6. **Phasing order:** Confirm or adjust the suggested phase sequence and timeline.
+7. **Existing systems:** What are the details of the current local databases (format, volume) for migration planning?
+8. **Social media:** What exactly is expected, e.g., share buttons, embedded feeds, or campaign management?
+9. **Weather data:** Is there a preferred forecast provider, and should snow and slope conditions also be shown?
+10. **Other stakeholders:** Resort leads, receptionists, and financial assistants were not interviewed. They should be consulted to validate staff workflows.
+11. **Budget, timeline, and hosting:** None of these were discussed.
+12. **Languages and currencies:** Does the portal need more than English and USD?

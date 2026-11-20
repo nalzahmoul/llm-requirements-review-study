@@ -1,0 +1,139 @@
+# Software Requirements Specification: Ski Resort Customer Management & Booking Website
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document states the software requirements for a web-based system that a ski resort owner will use to manage customers and take online bookings and payments across three ski resorts. It is based only on the elicitation interview. Each requirement is labeled as either **stated** by the stakeholder or **inferred** by the reviewer.
+
+### 1.2 Stakeholder
+- **Primary stakeholder:** Owner of three ski resorts. This is the only stakeholder interviewed, and no others were identified.
+
+### 1.3 Current Situation (As-Is)
+- All customer management is done manually.
+- Customers make reservations by phone and fax.
+- Payment is handled in person at the resort through a semi-manual process.
+- There is no centralized record of customers, reservations, payments, or equipment.
+
+### 1.4 Business Goals
+| ID | Goal | Source |
+|----|------|--------|
+| BG-1 | Replace the manual phone/fax reservation and on-site payment process with an online system. | Stated |
+| BG-2 | Centralize customer, reservation, and payment data. | Stated |
+| BG-3 | Attract a larger customer base through social media advertising and sharing. | Stated |
+| BG-4 | Keep track of available equipment. | Stated |
+
+### 1.5 Stakeholder Priorities
+1. **Highest priority:** Reservation system and payment system (stated).
+2. **Other requested features:** Social media integration, daily weather forecast, and inventory management. The stakeholder gave no relative ranking for these.
+
+---
+
+## 2. Functional Requirements
+
+### 2.1 Reservations & Booking (Priority: High)
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-1 | The system shall allow customers to book rooms through the website. | Stated |
+| FR-2 | The system shall allow customers to reserve ski equipment through the website. | Stated |
+| FR-3 | The system shall allow customers to sign up for ski training classes through the website. | Stated |
+| FR-4 | The system shall support bookings at each of the owner's three resorts. Customers shall be able to choose the resort they are booking for. | Inferred (owner has 3 resorts) |
+| FR-5 | The system shall show availability of rooms, equipment, and class places before a customer confirms a booking. | Inferred |
+| FR-6 | The system shall prevent double-booking of the same room, equipment item, or class place. | Inferred |
+| FR-7 | The system shall issue a booking confirmation to the customer when a reservation is completed, for example on screen and by email. | Inferred |
+
+### 2.2 Payment (Priority: High)
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-8 | The system shall let customers pay online for their reservations. | Stated |
+| FR-9 | The system shall accept credit card payments. | Stated (see Open Question Q1) |
+| FR-10 | The system shall accept PayPal payments. | Stated (see Open Question Q1) |
+| FR-11 | The system shall link each payment to its reservation and customer record. | Inferred (centralized database) |
+| FR-12 | The system shall record the status of each payment, such as pending, completed, failed, or refunded. | Inferred |
+
+### 2.3 Centralized Customer Database & Management
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-13 | The system shall store all customer, reservation, and payment data in one centralized database covering all three resorts. | Stated |
+| FR-14 | The system shall let the owner and authorized staff view and search customer records and their booking and payment history. | Inferred ("manage my customers") |
+| FR-15 | The system shall let the owner and authorized staff view, change, and cancel reservations. | Inferred |
+| FR-16 | The system shall let staff enter reservations received by other channels, such as phone, into the same database. | Inferred (see Open Question Q9) |
+
+### 2.4 Inventory Management
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-17 | The system shall track the ski equipment inventory and its availability. | Stated |
+| FR-18 | The system shall update equipment availability in real time. | Stated (confirmed "Yes") |
+| FR-19 | The system shall connect inventory to the booking system. It shall reduce availability automatically when equipment is reserved and restore it when the reservation ends or is cancelled. | Stated (confirmed "Yes") |
+| FR-20 | The system shall track inventory separately for each resort. | Inferred |
+| FR-21 | The system shall let staff add, edit, and remove equipment items. This includes marking items as damaged or under maintenance. | Inferred |
+
+### 2.5 Weather Forecast
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-22 | The website shall show customers a daily weather forecast. | Stated |
+| FR-23 | The forecast shall be shown for the location of each resort. | Inferred |
+| FR-24 | The forecast data shall come from an external weather data provider and update automatically at least once a day. | Inferred |
+
+### 2.6 Social Media Integration
+
+| ID | Requirement | Source |
+|----|-------------|--------|
+| FR-25 | The website shall offer general sharing and connectivity features for major social media platforms, such as share buttons and links to the resort's social media profiles. | Stated |
+| FR-26 | The main purpose of the social media integration shall be advertising and customer acquisition. | Stated |
+
+---
+
+## 3. Non-Functional Requirements
+
+| ID | Category | Requirement | Source |
+|----|----------|-------------|--------|
+| NFR-1 | Usability | The booking and payment process shall be as intuitive as possible for customers. *(This needs a measurable target, e.g., "a first-time user can complete a booking in under N steps or minutes." See Q11.)* | Stated |
+| NFR-2 | Security | Online payments shall be processed securely and in line with applicable payment card standards (e.g., PCI DSS). This will most likely be done through an established payment provider. | Inferred |
+| NFR-3 | Privacy | Customer personal data shall be stored and processed in line with the data protection laws that apply where the resorts operate. | Inferred |
+| NFR-4 | Access Control | Administrative functions, such as customer management, inventory, and reservation changes, shall be available only to authenticated and authorized users. | Inferred |
+| NFR-5 | Consistency | Availability data shall stay consistent between bookings and inventory in real time, with no overselling. | Inferred from FR-18/19 |
+| NFR-6 | Accessibility / Devices | The website shall be usable on both desktop and mobile browsers. | Inferred |
+
+---
+
+## 4. Out of Scope
+
+| Item | Reason |
+|------|--------|
+| Customer feedback and review features | The stakeholder explicitly declined them. Social media is meant for advertising, not reviews. |
+
+---
+
+## 5. Open Questions & Ambiguities
+
+Several stakeholder answers were a single "Yes" or "No" to compound questions. The following points need confirmation:
+
+| ID | Question | Related Req. |
+|----|----------|--------------|
+| Q1 | The stakeholder answered "Yes" to "credit card, PayPal, or others." Which payment methods are actually required? | FR-9, FR-10 |
+| Q2 | Is full payment taken at booking, or a deposit? What are the cancellation and refund policies? | FR-8, FR-12 |
+| Q3 | Should customers create accounts, or can they book as guests? | FR-1–3, FR-14 |
+| Q4 | What room types, equipment categories, and class formats exist? For classes: schedules, capacity, skill levels, and instructor assignment. | FR-1–3 |
+| Q5 | Can a customer combine room, equipment, and class bookings in one transaction or package? | FR-1–3 |
+| Q6 | What does "manage my customers" include beyond bookings? For example, reports, marketing contact lists, or customer communication. | FR-14 |
+| Q7 | Which staff roles need access, and with what permissions? Other stakeholders, such as resort staff, were not identified. | NFR-4 |
+| Q8 | Does inventory management cover only ski equipment, or other resort resources as well? The stakeholder mentioned only equipment. | FR-17 |
+| Q9 | Will phone and fax reservations still be accepted after launch? Should existing manual records be moved into the new database? | FR-16 |
+| Q10 | Which social media platforms count as "major"? Should the system also publish posts or promotions automatically? | FR-25 |
+| Q11 | What measurable criteria define "intuitive"? | NFR-1 |
+| Q12 | Which languages and currencies must the website support? | General |
+| Q13 | Should weather appear only on a dedicated page, or also within the booking flow? | FR-22 |
+| Q14 | Are there any budget, timeline, hosting, or technology constraints? | General |
+
+---
+
+## 6. Reviewer Notes on the Interview
+- The interviewer's closing summary described the payment system as "seamless," but the stakeholder never used that word. The stakeholder's stated quality goal was "intuitive."
+- The interviewer suggested inventory could cover "resort amenities," but the stakeholder only mentioned equipment.
+- The stakeholder did not answer the request for a step-by-step booking scenario. The customer journey should be explored in a follow-up session, possibly with mockups.
+- A follow-up interview with the owner and resort staff is recommended to resolve the open questions above before design begins.

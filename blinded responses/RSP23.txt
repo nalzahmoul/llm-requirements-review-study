@@ -1,0 +1,93 @@
+# Software Requirements: Cool Ski Resorts Online System
+
+## 1. Purpose and scope
+
+The system will provide a customer-facing website and centralized business management capabilities for Cool Ski Resorts’ three US resorts. It will support online reservations, rentals, training bookings, and payments while improving visibility, coordinating resort operations, and supporting reporting.
+
+The transition from existing telephone, fax, and local-database processes should minimize disruption to ongoing operations.
+
+## 2. Functional requirements
+
+### 2.1 Resort information and customer website
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The website shall present information about all three resorts, their services, and contact details. |
+| FR-02 | Customers shall be able to view the services and availability offered at each resort, including hotel accommodation, ski equipment and clothing hire, and ski training classes. |
+
+### 2.2 Reservations, rentals, bookings, and payments
+
+| ID | Requirement |
+|---|---|
+| FR-03 | Customers shall be able to reserve hotel accommodation online at their selected resort. |
+| FR-04 | Customers shall be able to arrange ski equipment and clothing hire online at their selected resort. |
+| FR-05 | Customers shall be able to book ski training classes online at their selected resort. |
+| FR-06 | The system shall support online payments for customer reservations, rentals, and bookings. |
+| FR-07 | The system shall record reservations, bookings, hires, and associated financial information, identifying the relevant resort. |
+
+### 2.3 Inventory and centralized data management
+
+| ID | Requirement |
+|---|---|
+| FR-08 | The system shall maintain inventory records for each resort to support inventory management and rental operations. |
+| FR-09 | The website shall connect to a centralized database containing reservation, booking, hire, and inventory data for all three resorts. |
+| FR-10 | The system shall support scheduled synchronization between resort-level data stores and the centralized system. The synchronization interval remains to be defined; the stakeholder indicated that synchronization should not be frequent. |
+| FR-11 | Authorized resort staff shall be able to access and maintain operational information relevant to their accounts, customer-service, or inventory responsibilities. Detailed permissions remain to be defined. |
+
+### 2.4 Reporting
+
+| ID | Requirement |
+|---|---|
+| FR-12 | The system shall generate occupancy-rate reports for individual resorts and across all resorts. |
+| FR-13 | The system shall generate inventory-level reports for individual resorts and across all resorts. |
+| FR-14 | The system shall generate booking-trend reports for individual resorts and across all resorts. |
+
+### 2.5 Weather and snow information
+
+| ID | Requirement |
+|---|---|
+| FR-15 | The website shall provide regional weather forecasts relevant to each resort. |
+| FR-16 | Weather information shall be displayed on the main page and during the booking process. |
+| FR-17 | The website shall include snow-condition information. |
+| FR-18 | Weather and snow-condition information shall update in real time, subject to clarification of the required refresh interval and the selected provider’s capabilities. |
+| FR-19 | Weather information shall be obtained from a US weather forecasting service. The specific service and interface require confirmation. |
+
+### 2.6 Social media
+
+| ID | Requirement |
+|---|---|
+| FR-20 | The website shall provide connections to the resorts’ Twitter, Facebook, and Instagram accounts to support promotion and advertising. The required integration depth remains to be confirmed. |
+
+## 3. Quality and technical requirements
+
+| ID | Requirement |
+|---|---|
+| QR-01 | The customer-facing website shall be aesthetically pleasing and intuitive to use. Visual and usability acceptance criteria require agreement. |
+| TR-01 | The centralized database shall use SQL technology. The database product has not been specified. |
+| TR-02 | Deployment and transition shall minimize disruption to existing resort operations. Acceptable downtime, migration scope, and rollout arrangements require agreement. |
+
+## 4. Operational decisions and scope boundaries
+
+- Resort staff will create and manage social media content internally.
+- The stakeholder intends to publish social media posts weekly, including weather information and pictures.
+- No additional tools for coordinating the internal social media team were requested.
+- Automated social posting or scheduling is **not yet a confirmed requirement**.
+- Automated taxation or comprehensive accounting functionality was not explicitly requested; existing accounting responsibilities provide context but do not establish this scope.
+
+## 5. Requirements requiring clarification
+
+| Topic | Unresolved question |
+|---|---|
+| Social media functionality | The stakeholder answered “Yes” to a question combining automated promotion sharing, user-generated content, and reviews/testimonials. Which capabilities are actually required? |
+| Weekly post content | The transcript contains the word “jews,” which the interviewer interpreted as “news” without explicit confirmation. Confirm the intended content before specifying it. |
+| Synchronization | What does “not frequently” mean? Define timing, synchronization direction, conflict resolution, failure handling, and whether existing local databases will remain. |
+| Availability accuracy | How will the system prevent conflicting online and locally recorded bookings when synchronization is infrequent? |
+| Payments | Which payment methods, provider, currencies, deposits, refunds, and financial-record requirements apply? |
+| Booking rules | Define pricing, rental periods, class capacities, cancellations, modifications, and confirmation processes. |
+| Staff access | Define user roles, authentication, permissions, and owner-level access across resorts. |
+| Reporting | Define report periods, calculations, filters, presentation, and export needs. |
+| Weather | Confirm the US provider, snow-data source, refresh interval, resort selection behavior, and handling of unavailable or stale data. |
+| Migration | Determine which existing records must be transferred and how telephone and fax bookings will be handled after rollout. |
+| Quality and security | Define measurable requirements for usability, performance, availability, privacy, payment security, backup, and recovery. |
+
+These unresolved items should be agreed before the requirements are treated as a complete, testable implementation baseline.
