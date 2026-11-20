@@ -1,0 +1,77 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and scope
+
+Cool Ski Resorts operates three ski resorts in different mountain locations in the United States. Its services include resort hotels, ski equipment rental, and ski training.
+
+The proposed solution will replace the current fax- and telephone-based booking and administration processes with a new digital system supported by a central database.
+
+### Business objectives
+- Provide guests with a pleasant, seamless stay.
+- Digitize booking and administrative operations across the three resorts.
+- Increase company visibility and attract more customers through a separate social-media initiative.
+
+## 2. Functional requirements
+
+| ID | Requirement | Qualification |
+|---|---|---|
+| FR-01 | The system shall support booking and administrative operations for all three Cool Ski Resorts locations. | Derived from the company-wide digitalization scope; detailed workflows require confirmation. |
+| FR-02 | The system shall allow customers to make reservations online. | Explicitly requested. |
+| FR-03 | The system shall allow customers to make payments online. | Explicitly requested. |
+| FR-04 | The system shall provide digital inventory management covering all resort inventory. | Explicitly requested; inventory categories and operations remain undefined. |
+| FR-05 | The system shall use a central database to support booking, administration, and inventory management across the resorts. | Central database explicitly requested; detailed data scope requires confirmation. |
+| FR-06 | The system shall provide digital workflows that allow booking and administrative activities to be completed without relying on fax or telephone. | Explicitly requested; activities must be identified in follow-up elicitation. |
+
+**Service coverage to confirm:** Hotels, ski rentals, and ski training are the business’s stated services. The stakeholder did not explicitly confirm which of these must support online reservations and payments at launch.
+
+## 3. Solution constraints
+
+| ID | Requirement |
+|---|---|
+| SC-01 | The project shall deliver a completely new solution rather than adapt the existing system. |
+
+No technology platform, hosting model, software vendor, or integration architecture was specified.
+
+## 4. Training and rollout requirements
+
+These are delivery requirements rather than software features.
+
+| ID | Requirement |
+|---|---|
+| TR-01 | The implementation shall include training for staff in the use of the new system. |
+| TR-02 | Staff training shall be delivered by external training providers. |
+| TR-03 | On-site training shall be the preferred delivery format. |
+| TR-04 | Training shall be delivered in staggered groups rather than to all staff simultaneously. |
+
+Training content, duration, participating roles, and scheduling remain to be defined.
+
+## 5. Related social-media initiative
+
+The following requirements concern marketing services and do not establish software functionality:
+
+- Engage an external social-media agency.
+- Require the agency to train internal staff.
+- Prioritize agency expertise; agency size is not important.
+- Favor innovative approaches.
+- Implement the social-media initiative and associated training within the year of the interview. The calendar year is unspecified.
+
+No specific social-media platform was selected. The transcript does not establish a requirement for integration between social media and the new booking system.
+
+## 6. Requirements requiring clarification
+
+Before producing an implementation-ready specification, confirm:
+
+| Area | Open questions |
+|---|---|
+| Reservation scope | Which services can be reserved? What availability, capacity, confirmation, modification, and cancellation rules apply? |
+| Payments | Which payment methods and currencies are required? Are deposits, refunds, or partial payments needed? |
+| Inventory | What constitutes “all inventory”? Must the system track quantities, location, condition, rental allocation, or maintenance? |
+| Administration | Which administrative tasks and existing manual processes must be digitized? |
+| Users and access | Which guest and staff roles are needed, and what information or actions may each access? |
+| Central data | What records must be shared across resorts? Are existing records to be migrated? |
+| Security and privacy | What authentication, data protection, payment-security, and legal obligations apply? |
+| Quality requirements | What usability, accessibility, performance, availability, backup, and recovery targets are required? |
+| Integrations | Are connections to accounting, payment providers, or other external systems required? |
+| Delivery | What budget, system launch date, rollout sequence, and acceptance criteria apply? |
+
+The interview establishes the system’s high-level scope, but does not provide sufficient detail for measurable acceptance criteria or a complete technical specification.

@@ -1,0 +1,122 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and scope
+
+Cool Ski Resorts requires a centralized website and management system for its three ski resorts. The system will move reservations, class bookings, equipment hires, and payments from semi-manual telephone and fax processes to an online platform, while centralizing inventory and financial information.
+
+The primary business objectives are to:
+- Streamline operations across all three resorts.
+- Reach a larger customer base throughout the United States.
+- Improve competitiveness.
+- Simplify financial reporting.
+- Introduce the new system with minimal disruption to existing operations.
+
+These are business objectives, not guarantees of increased revenue or market share.
+
+## 2. Intended users
+
+| User | Intended use |
+|---|---|
+| Customers | Register, make reservations and bookings, hire equipment, pay online, and view reservations for presentation at the resort. |
+| Mary, the owner | Oversee centralized resort operations and review financial reports. |
+| Assistants | Generate reports and potentially maintain website content. |
+| Resort operational users | Manage reservations, bookings, equipment hires, and inventory. Specific roles and permissions require clarification. |
+
+## 3. Functional requirements
+
+### 3.1 Centralized management
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide a centralized database for reservations, bookings, equipment hires, and inventory across all three resorts. |
+| FR-02 | The system shall associate reservations, bookings, hires, and inventory records with the relevant resort. |
+| FR-03 | The system shall allow authorized business users to track and manage these records through the centralized platform. |
+
+### 3.2 Customer website and online transactions
+
+Online reservations, bookings, and equipment hires are the stakeholder’s highest-priority capabilities.
+
+| ID | Requirement |
+|---|---|
+| FR-04 | The system shall provide a public-facing website presenting resort services and contact information. |
+| FR-05 | The system shall allow customers to make resort reservations online. The types of reservations supported require clarification. |
+| FR-06 | The system shall allow customers to book ski classes online. |
+| FR-07 | The system shall allow customers to arrange equipment hires online. |
+| FR-08 | The system shall integrate an online payment gateway to support payment for reservations, bookings, and hires. |
+| FR-09 | The system shall retain transaction information needed for centralized tracking and financial reporting. |
+
+### 3.3 Customer accounts
+
+| ID | Requirement |
+|---|---|
+| FR-10 | The system shall support customer registration and login using email-based accounts. |
+| FR-11 | The system shall allow registered customers to view and track their reservations. |
+| FR-12 | The system shall display reservation details in a form customers can present on arrival at the resort. The presentation format requires clarification. |
+
+The interview did not establish whether registration is mandatory for completing a transaction.
+
+### 3.4 Inventory and equipment management
+
+The stakeholder explicitly accepted the proposed inventory capabilities below.
+
+| ID | Requirement |
+|---|---|
+| FR-13 | The system shall track equipment inventory separately for each resort within the centralized platform. |
+| FR-14 | The system shall provide real-time tracking of equipment availability. The required update latency shall be agreed before acceptance testing. |
+| FR-15 | The system shall maintain equipment rental history. |
+| FR-16 | The system shall track equipment maintenance schedules. |
+| FR-17 | The system shall automatically alert relevant business users when stock is low. Thresholds and notification methods require clarification. |
+| FR-18 | The system shall automatically alert relevant business users when equipment requires servicing. Service criteria and notification methods require clarification. |
+| FR-19 | The system shall integrate equipment availability with the booking process so customers can reserve equipment in advance. |
+
+### 3.5 Financial reporting
+
+| ID | Requirement |
+|---|---|
+| FR-20 | The system shall generate financial reports concerning bookings, including revenue and expenses. |
+| FR-21 | The system shall support financial reporting across the three resorts using centrally held information. |
+| FR-22 | The system shall allow Mary and authorized assistants to generate financial reports. |
+
+Report formats, reporting periods, expense data sources, and calculation rules remain to be defined. Although Mary currently manages accounts and taxation, the interview did not establish requirements for tax calculation, tax filing, or a full accounting system.
+
+## 4. Optional or incompletely defined capabilities
+
+These items were discussed but are not sufficiently defined for implementation or acceptance testing.
+
+| ID | Candidate requirement | Status |
+|---|---|---|
+| OP-01 | Display weather information relevant to a customer’s resort and planned stay. | Desired; forecast coverage, provider, and display behavior are unspecified. |
+| OP-02 | Support promotion of the website through social media. | Desired; no particular platform integration or software functionality was identified. |
+| OP-03 | Allow authorized assistants to maintain website content. | Tentative; content types, editing tools, and permissions require confirmation. |
+
+## 5. Quality and security requirements
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The website shall use a visually appealing design suitable for Cool Ski Resorts. Design approval criteria shall be agreed with Mary. |
+| NFR-02 | The system shall apply standard security controls to protect customer registration, login, and personal information. Specific controls and verification criteria require definition. |
+| NFR-03 | Access to operational, inventory, financial, and website-management functions shall be restricted to authorized users. The permission model requires confirmation. |
+
+No quantitative requirements were established for performance, availability, capacity, or recovery.
+
+## 6. Transition and support requirements
+
+| ID | Requirement |
+|---|---|
+| TR-01 | Deployment shall be planned to minimize disruption to ongoing resort operations. Acceptable downtime and transition arrangements shall be agreed with Mary. |
+| TR-02 | The project shall assess training and support needs for Mary’s assistants, particularly for reporting and any future website-maintenance responsibilities. |
+
+Existing resort systems store data locally. Whether and how historical data will be migrated or existing systems integrated remains undecided.
+
+## 7. Clarifications required before specification approval
+
+1. **Reservation scope:** What distinguishes a reservation from a booking, and what services or facilities can be reserved?
+2. **Transaction rules:** What availability, capacity, pricing, cancellation, modification, refund, and no-show rules apply?
+3. **Payments:** Which gateway, payment methods, currencies, and payment timings are required?
+4. **Customer accounts:** Is registration mandatory, and what reservation details must customers present on arrival?
+5. **Inventory:** Is equipment tracked individually, by category, or both? How are maintenance status and low-stock thresholds determined?
+6. **Reporting:** What reports, filters, calculations, expense-entry mechanisms, and export formats are needed?
+7. **Access control:** Which staff roles exist, and which resorts and functions may each role access?
+8. **Transition:** What data must be migrated, and must existing telephone, fax, or local-system workflows continue?
+9. **Optional features:** What precise weather, social-media, and website-content-management capabilities are expected?
+10. **Acceptance criteria:** What measurable usability, security, performance, availability, and deployment-disruption targets must be met?

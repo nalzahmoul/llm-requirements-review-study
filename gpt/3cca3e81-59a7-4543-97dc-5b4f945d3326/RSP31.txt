@@ -1,0 +1,58 @@
+# Software Requirements: Ski Resort Customer Management Website
+
+## 1. Purpose and scope
+
+The system shall provide a website for a business operating three ski resorts. It shall enable customers to book accommodation, reserve ski equipment, book ski training classes, and make online payments. It shall centralize customer-related reservation and payment information and support equipment inventory management.
+
+The business goals are to reduce reliance on manual processes and attract more customers through social media connectivity.
+
+## 2. Users
+
+- **Customers:** Book rooms, equipment, and ski training classes; make payments; and view weather forecasts.
+- **Resort owner and authorized staff:** Manage customer-related reservations, payments, and equipment inventory. Specific staff roles and permissions require clarification.
+
+## 3. Functional requirements
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-01 | The system shall support the business’s three ski resorts within a centralized website and database. | Not explicitly ranked |
+| FR-02 | The system shall allow customers to book rooms online. | High—reservation functionality |
+| FR-03 | The system shall allow customers to reserve ski equipment online. | High—reservation functionality |
+| FR-04 | The system shall allow customers to book ski training classes online. | High—reservation functionality |
+| FR-05 | The system shall provide online payment functionality for customer reservations. | High |
+| FR-06 | The system shall support credit card and PayPal payments. | High; methods should be reconfirmed* |
+| FR-07 | The system shall store reservation and payment information in a centralized database. | Supports high-priority functionality |
+| FR-08 | The system shall provide equipment inventory management that tracks available ski equipment. | Not explicitly ranked |
+| FR-09 | The system shall integrate equipment inventory with equipment reservations so that bookings automatically update equipment availability. | Not explicitly ranked* |
+| FR-10 | The system shall provide real-time updates to equipment availability. | Not explicitly ranked* |
+| FR-11 | The system shall display a daily weather forecast relevant to the ski resorts. | Not explicitly ranked |
+| FR-12 | The system shall provide general sharing and connectivity features across major social media platforms to support advertising and customer acquisition. | Not explicitly ranked |
+
+\*Credit card and PayPal payments, real-time availability, and automatic inventory updates were included in the interviewer’s interpretation and final summary without stakeholder objection. However, the stakeholder’s initial responses to compound questions were brief, so these details should be explicitly reconfirmed.
+
+## 4. Usability requirement
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The customer reservation and payment process shall be intuitive and easy to navigate. Measurable usability acceptance criteria must be agreed with the stakeholder. |
+
+No measurable requirements for performance, availability, security, or accessibility were established during the interview.
+
+## 5. Scope exclusions and boundaries
+
+- Customer feedback and review functionality is not required.
+- Social media integration is intended for advertising and customer acquisition. Social login, automated campaign management, and other specific social media capabilities were not requested.
+- Inventory management was requested for ski equipment; broader inventory management was not established.
+
+## 6. Open questions requiring clarification
+
+1. **Multi-resort operation:** How will customers select a resort, and how will reservations and inventory be allocated between resorts?
+2. **Customer management:** What customer information must be stored, and are customer accounts required?
+3. **Booking rules:** What dates, durations, capacities, equipment details, and other information are required for each booking type? What cancellation and modification rules apply?
+4. **Payments:** Confirm credit card and PayPal support, payment timing, deposits, currencies, refunds, and whether payment at the resort will remain available.
+5. **Inventory:** Confirm real-time and automatic updates; define update timing and how equipment returns, maintenance, and unavailable items affect availability.
+6. **Administration:** Which owner and staff actions are required, and what access permissions should apply?
+7. **Weather:** Which locations, forecast information, provider, and refresh schedule are required?
+8. **Social media:** Which platforms and specific sharing or connectivity features are required?
+9. **Existing operations:** Must historical records be migrated, and must staff be able to enter telephone or fax reservations?
+10. **Quality and compliance:** Define security, privacy, payment-processing compliance, performance, accessibility, availability, and usability acceptance criteria.

@@ -1,0 +1,104 @@
+# Software Requirements: Ski Resort Website and Management System
+
+## 1. Purpose and Scope
+
+The system will provide a public website and centralized internal management capabilities for a business operating three ski resorts.
+
+Its business objectives are to:
+- Attract new customers and increase the resorts’ visibility.
+- Allow customers to book resort visits and training classes online.
+- Streamline reservation management, recruitment, and internal administration across the three resorts.
+
+## 2. Functional Requirements
+
+### 2.1 Resort Information and Promotion
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The website shall present information about the three ski resorts and their offerings to prospective customers. |
+| FR-02 | The website shall provide access to reservation, training-class booking, and job-listing functions. |
+
+### 2.2 Reservations and Availability
+
+| ID | Requirement |
+|---|---|
+| FR-03 | The system shall allow customers to make reservations for visits to the resorts. |
+| FR-04 | The system shall allow staff to manage customer reservations. The required management actions remain to be defined. |
+| FR-05 | The website shall display a customer-accessible calendar showing resort opening dates or times and real-time booking availability. |
+| FR-06 | The reservation process shall use current availability when accepting bookings. |
+| FR-07 | The system shall support booking-calendar synchronization. The calendars, synchronization direction, and synchronization frequency remain to be confirmed. |
+| FR-08 | The system shall support customer profiles for use in the booking process. Required profile information and account workflows remain to be defined. |
+| FR-09 | The system shall integrate with a payment gateway to support online booking payments. The provider and payment workflow remain to be selected. |
+
+### 2.3 Training Classes
+
+| ID | Requirement |
+|---|---|
+| FR-10 | The system shall allow customers to book ski training classes. |
+
+Class schedules, capacity, pricing, instructor allocation, and their relationship to resort-visit reservations require further clarification.
+
+### 2.4 Weather Information
+
+| ID | Requirement |
+|---|---|
+| FR-11 | The website shall display weather forecasts for the ski resorts to help customers make booking decisions. |
+| FR-12 | The system shall obtain updated weather information for each customer weather inquiry. What constitutes an inquiry remains to be defined. |
+| FR-13 | The system shall integrate with a third-party weather service. No provider has been selected. |
+
+The system must not assume that forecasts are available for every future booking date; the required behavior outside the provider’s forecast range needs confirmation.
+
+### 2.5 Recruitment
+
+| ID | Requirement |
+|---|---|
+| FR-14 | The website shall publish job listings for the resorts. |
+| FR-15 | The system shall support staff management of job listings and job applications. |
+
+Whether candidates must submit applications through the website, and the required application-processing workflow, remain to be confirmed.
+
+### 2.6 Centralized Internal Administration
+
+| ID | Requirement |
+|---|---|
+| FR-16 | The system shall provide a centralized database supporting internal administration across all three resorts. |
+| FR-17 | The system shall support centralized management of accounting and tax-related information for the resorts. The precise functions and data requirements remain to be defined. |
+| FR-18 | The system shall restrict internal administrative data and functions to authorized internal users. |
+| FR-19 | The system shall expose opening-calendar and booking-availability information to customers without exposing other internal administrative data. |
+
+Existing accounting and management software must be identified with the stakeholder’s assistant before integration requirements can be specified.
+
+## 3. Quality Requirements
+
+| ID | Requirement |
+|---|---|
+| QR-01 | The public website shall be aesthetically pleasing. Branding, design direction, and approval criteria require agreement with the stakeholder. |
+| QR-02 | The website shall be easy to use, particularly for viewing availability and completing bookings. Usability acceptance criteria remain to be established. |
+| QR-03 | Customer-facing availability shall be maintained in real time. The maximum acceptable update delay and handling of simultaneous bookings require definition. |
+| QR-04 | The system design shall allow special-event functionality to be added in the future. |
+
+Security requirements beyond the internal-access restriction, as well as performance, availability, accessibility, backup, and privacy requirements, were not established in the interview and require elicitation.
+
+## 4. Delivery Constraint
+
+| ID | Requirement |
+|---|---|
+| DC-01 | The website is targeted for completion approximately one year after the interview. The exact delivery date, milestones, and release scope require confirmation. |
+
+## 5. Future Scope
+
+Special events are not currently planned for the initial release. The design must accommodate their future addition, but event functionality and workflows have not been specified.
+
+## 6. Key Outstanding Decisions
+
+Before implementation and acceptance planning, confirm:
+- Reservation types, capacity rules, pricing, cancellations, refunds, and staff management actions.
+- Customer registration, profile data, and authentication workflows.
+- Payment provider, currencies, and payment-processing rules.
+- Calendar synchronization targets and timing.
+- Training-class scheduling and booking rules.
+- Weather provider, refresh triggers, and unavailable-forecast behavior.
+- Recruitment submission and application-management workflows.
+- Accounting and tax scope, existing software, and integration needs.
+- Internal user roles and access permissions.
+- Measurable quality criteria and the exact launch date.

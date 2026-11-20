@@ -1,0 +1,114 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and scope
+
+The system will digitize and centralize booking-related operations across the hotel entities of **Cool Ski Resorts**. It will support shared processes for reservations, customer service, and payments, alongside social media automation and website content integration.
+
+### Stakeholders
+- **Customers:** View availability and prices and use customer-facing processes.
+- **Employees:** Operate shared hotel processes and manage content.
+- **Owners:** Oversee operations, costs, promotions, and customer insights.
+- **Developers:** Integrate, maintain, and adapt the system.
+- **External providers:** Supply payment, social media, content management, and weather services.
+
+Specific permissions for these stakeholders remain to be defined.
+
+## 2. Business priorities
+
+The stakeholder specified the following order:
+
+1. Identify processes that can or should be shared across hotel entities.
+2. Implement those processes digitally.
+3. Automate social media publishing.
+4. Integrate social media content into the website.
+
+Identifying and agreeing on shared processes is a prerequisite to detailed implementation, rather than necessarily a software feature.
+
+## 3. Functional requirements
+
+### 3.1 Centralized operations
+
+| ID | Requirement |
+|---|---|
+| FR-01 | The system shall provide a centralized database shared across the participating hotel entities for booking-related operations. |
+| FR-02 | The system shall support standardized reservation processes across hotel entities. |
+| FR-03 | The system shall support standardized customer-service processes across hotel entities. |
+| FR-04 | The system shall support standardized payment processes across hotel entities. |
+
+The detailed workflows and data required for FR-02 through FR-04 must be established during shared-process analysis.
+
+### 3.2 Availability, pricing, and promotions
+
+| ID | Requirement |
+|---|---|
+| FR-05 | The system shall allow users to view which rooms are available for specified dates and their corresponding prices. |
+| FR-06 | The system shall allow staff to highlight selected dates or periods for promotion, including periods of low demand. |
+| FR-07 | The system shall allow staff to configure discounts for selected dates or periods, including periods of low demand. |
+| FR-08 | The system shall capture and present information about what prospective customers search for, to support understanding of customer demand. |
+
+The audience and presentation for highlighted dates, discount rules, and the scope of search analytics require clarification.
+
+### 3.3 Social media automation
+
+| ID | Requirement |
+|---|---|
+| FR-09 | The solution shall support managing social media publishing across multiple platforms through an integrated tool. |
+| FR-10 | The social media tool shall allow users to prepare and schedule posts in advance. |
+| FR-11 | The social media tool shall automatically publish scheduled posts to the selected supported platforms at the scheduled times. |
+| FR-12 | The solution shall support collecting or accessing insights about current and prospective customers through its social media tooling. |
+
+The stakeholder prefers coverage of as many social media platforms as practical. The required platforms and customer-insight capabilities have not yet been specified.
+
+### 3.4 Shared content and website integration
+
+| ID | Requirement |
+|---|---|
+| FR-13 | The solution shall support entering and managing post content in a shared content source for use by both social media automation and the website. |
+| FR-14 | The website shall present content from that shared source in a blog-like format. |
+| FR-15 | Website posts shall support displaying images alongside post text. |
+| FR-16 | The website shall display current weather information obtained through a weather API. |
+
+A headless CMS, such as Contentful, was suggested as an implementation approach; no particular product was mandated.
+
+## 4. Quality requirements and constraints
+
+| ID | Requirement or constraint |
+|---|---|
+| NFR-01 | Employee-facing and customer-facing functions shall be designed for simplicity, minimizing unnecessary steps and complications. |
+| NFR-02 | Employee-facing functions shall minimize the effort and cost required to train new employees. |
+| NFR-03 | The solution shall be adaptable to the organization's agreed processes and future process changes. |
+| NFR-04 | The solution architecture shall favor a small, low-complexity implementation to reduce the time and cost of maintenance, adjustments, and new features. |
+| CON-01 | Selection shall favor integration and adaptation of an existing system over development entirely from scratch. |
+| CON-02 | The selected core system should be open source or available with purchasable source code so that it can be modified. |
+| CON-03 | An existing payment provider, such as Stripe, shall be evaluated before deciding to implement payment processing from scratch. Stripe is an example, not a mandated provider. |
+| CON-04 | Payment-provider selection shall include a comparison with a self-implemented alternative over a 10-year operating period. The stakeholder requires provider fees not to exceed the comparable self-implemented cost. The comparison basis must be agreed; discounted cash flow is a suggested evaluation method. |
+
+Measurable usability, training, maintainability, and cost thresholds were not established in the interview.
+
+## 5. Business objectives and success criteria
+
+The solution is intended to:
+
+- Make shared reservation, customer-service, and payment processes operate effectively across hotel entities.
+- Reduce operational complications, training costs, and change costs.
+- Attract new customer segments and increase visibility.
+- Improve understanding of existing and prospective customers.
+- Strengthen the brand and relationships with existing customers.
+- Keep the website updated using content also prepared for social media.
+
+The stakeholder defines success as **working processes and satisfied stakeholders**. These criteria require measurable acceptance targets before deployment approval.
+
+## 6. Outstanding requirements to clarify
+
+1. **Shared workflows:** Detailed reservation, customer-service, and payment steps, including permitted differences between hotels.
+2. **Booking scope:** Whether customers book directly online and what booking changes, cancellations, or related operations are required.
+3. **Centralized data:** Required records, existing data sources, migration needs, and visibility between hotel entities.
+4. **Access control:** User roles and permissions.
+5. **Payments:** Required methods, currencies, refunds, and assumptions for the 10-year cost comparison.
+6. **Promotions:** Discount rules and where highlighted dates appear.
+7. **Analytics:** Search information to capture, required reports, and the intended social media insights.
+8. **Social media:** Required platforms, account structure, scheduling behavior, and handling of publishing failures.
+9. **Website content:** Content workflow and timing of website publication relative to social media publication.
+10. **Weather:** Relevant resort locations, weather provider, and refresh frequency.
+11. **Quality and compliance:** Security, privacy, accessibility, availability, performance, backup, and recovery requirements.
+12. **Acceptance:** Quantitative criteria for usability, training effort, cost, process effectiveness, and stakeholder satisfaction.

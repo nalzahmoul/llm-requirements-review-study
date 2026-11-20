@@ -1,0 +1,155 @@
+# Software Requirements: Cool Ski Resorts
+
+## 1. Purpose and scope
+
+The system will modernize Cool Ski Resorts’ online presence and consolidate booking, rental, payment, and reporting operations for its three US resorts.
+
+The primary objectives are to:
+- Enable customers to find information and book services online.
+- Increase customer acquisition through promotions and partnerships.
+- Automate routine work while allowing staff to handle exceptions and manual transactions.
+- Provide centralized operational and financial information.
+- Introduce the system without interrupting day-to-day business.
+
+Initial operational scope covers the three existing resorts and their current services: accommodation, ski equipment and clothing rentals, and ski training classes.
+
+## 2. Users
+
+- **Customers:** Browse resort information, book services, make payments, and submit feedback.
+- **Resort staff:** Manage bookings and rentals, handle walk-ins and exceptions, and respond to feedback.
+- **Accounting staff:** Manage accounting records and produce financial reports.
+- **Owner and management:** Review cross-resort performance, manage promotions, and access reports.
+
+Specific permissions for these users require further definition.
+
+## 3. Functional requirements
+
+### 3.1 Website and resort information
+
+| ID | Requirement |
+|---|---|
+| WEB-01 | The system shall provide a customer-facing website covering all three resorts. |
+| WEB-02 | The website shall display resort information, available services, and contact information. |
+| WEB-03 | The website shall display photographs of the resorts and their facilities. |
+| WEB-04 | The website shall provide an events calendar for resort events and activities. |
+| WEB-05 | The system shall display current weather and snow conditions for each resort through an external weather service. |
+| WEB-06 | The system shall display real-time ski lift operating status and wait times, subject to the availability of suitable data sources. |
+
+### 3.2 Bookings and rentals
+
+| ID | Requirement |
+|---|---|
+| BKG-01 | Customers shall be able to book accommodation online at any of the three resorts. |
+| BKG-02 | Customers shall be able to reserve ski equipment and clothing rentals online. |
+| BKG-03 | Customers shall be able to book ski training classes online. |
+| BKG-04 | The system shall maintain booking and rental records for all resorts in one centralized database, with each record associated with the relevant resort. |
+| BKG-05 | The system shall automatically process routine reservations that do not require staff intervention. |
+| BKG-06 | The system shall identify reservation-processing problems and make affected reservations available for staff review. |
+| BKG-07 | The system shall track equipment and clothing inventory, including quantities available and currently rented out. |
+| BKG-08 | Authorized staff shall be able to manually add, correct, and remove booking and rental records. |
+| BKG-09 | Staff shall be able to record walk-in bookings and rentals without requiring customers to use the online booking process. |
+
+### 3.3 Payments and accounting
+
+| ID | Requirement |
+|---|---|
+| PAY-01 | The system shall support online payment for bookable services using commonly used payment options. The specific payment methods shall be agreed before implementation. |
+| PAY-02 | The system shall maintain accounting information associated with business transactions across all resorts. |
+| PAY-03 | Authorized staff shall be able to manually add, correct, and remove accounting records. |
+| PAY-04 | The system shall automatically generate accounting reports at configured times. |
+| PAY-05 | Authorized users shall be able to generate accounting reports on demand. |
+
+Manual removal of accounting records is a stakeholder request; its implementation must be reconciled with applicable record-retention and audit obligations.
+
+### 3.4 Operational reporting
+
+| ID | Requirement |
+|---|---|
+| RPT-01 | The system shall generate booking, rental, and accounting reports for an individual resort. |
+| RPT-02 | The system shall generate consolidated booking, rental, and accounting reports covering all three resorts. |
+
+### 3.5 Promotions and partnerships
+
+| ID | Requirement |
+|---|---|
+| MKT-01 | The system shall support running promotions and advertisements through connected social media platforms. |
+| MKT-02 | The system shall support promotional activities conducted with travel agencies and tourism networks. |
+| MKT-03 | The system shall provide promotion-performance insights, including changes in booking volume, campaign reach, and audience reception, where supporting data is available. |
+| MKT-04 | The system shall allow users to compare booking volumes during promotional and non-promotional periods. |
+| MKT-05 | Authorized users shall be able to define promotion-report templates. |
+| MKT-06 | The system shall automatically generate a report using the specified template after a promotion ends. |
+
+The specific social platforms, partner interfaces, and available analytics data remain to be confirmed.
+
+### 3.6 Customer feedback and staff response
+
+| ID | Requirement |
+|---|---|
+| FBK-01 | Customers shall be able to provide optional feedback after their stay or use of a service. |
+| FBK-02 | Customers shall be able to submit feedback immediately during their stay or service experience. |
+| FBK-03 | Customers shall be able to report service or equipment problems and indicate when they want corrective action, such as an equipment replacement. |
+| FBK-04 | Customers shall be able to submit suggestions for future system features through the feedback facility. |
+| FBK-05 | The system shall notify relevant staff of actionable customer feedback and make that feedback accessible to available staff for response. |
+| FBK-06 | The system shall provide staff with suggested actions or guidance for handling customer issues. |
+| FBK-07 | Feedback collection shall be optional and designed to avoid excessive or intrusive requests. |
+
+The notification mechanism—such as email, an internal dashboard, or both—requires confirmation.
+
+### 3.7 External service integration
+
+| ID | Requirement |
+|---|---|
+| INT-01 | The system shall support integration with social media platforms for promotional activities. |
+| INT-02 | The system shall integrate with a weather and snow-condition data provider. |
+| INT-03 | The system shall support integration with existing ski lift information systems where usable interfaces are available. |
+| INT-04 | The system shall allow future integration with external equipment or service providers as business needs arise. |
+
+## 4. Non-functional requirements
+
+| ID | Requirement |
+|---|---|
+| NFR-01 | The customer website shall be usable on mobile devices and desktop computers through a responsive interface. |
+| NFR-02 | The system shall provide a modern, aesthetically pleasing customer interface. |
+| NFR-03 | Customer, staff, and management interfaces shall be easy to learn and use. Usability acceptance criteria shall be agreed and evaluated before launch. |
+| NFR-04 | The system shall protect customer and business information against unauthorized access, disclosure, and modification. |
+| NFR-05 | Payment processing shall use appropriate security controls and comply with applicable payment-security obligations. |
+| NFR-06 | The system shall include safeguards against attacks and service disruption. Specific availability, recovery, and security targets require definition. |
+| NFR-07 | The system shall comply with applicable privacy, payment, accommodation, and other relevant legal or industry requirements. Applicable obligations shall be established during detailed requirements analysis. |
+| NFR-08 | The system shall be extensible to accommodate additional resorts and services, including services unrelated to skiing. |
+| NFR-09 | The system shall allow customer reviews, personalized recommendations, and loyalty functionality to be added without substantial disruption to existing functions. |
+
+## 5. Implementation and acceptance requirements
+
+| ID | Requirement |
+|---|---|
+| DEP-01 | Implementation and transition to the new system shall not interrupt the resorts’ day-to-day operations. |
+| DEP-02 | A transition approach shall be established for consolidating information currently held in the resorts’ local databases. Data scope, migration rules, and reconciliation procedures require agreement. |
+| DEP-03 | The owner and selected employees shall be able to test the system before general release. |
+| DEP-04 | Pre-release testing shall allow selected customers to participate if the owner elects to include them. |
+| DEP-05 | Pre-release testing shall assess usability for customers, staff, and the owner. |
+
+## 6. Future or uncommitted capabilities
+
+These capabilities were discussed but are not confirmed initial-release commitments:
+
+- Customer reviews and personalized recommendations: the stakeholder wants the ability to add them.
+- Loyalty programs: potential future addition.
+- Additional resorts and non-ski services, such as hiking trips.
+- Virtual resort tours: nice to have; photographs are the initial preference.
+- Customer messaging service: undecided.
+- External equipment-provider integrations: desired as needed; no initial provider or workflow identified.
+
+## 7. Key requirements requiring clarification
+
+Before implementation, confirm:
+
+1. **Booking rules:** Availability calculations, room occupancy, class capacity, rental periods, pricing, and prevention of conflicting reservations.
+2. **Booking lifecycle:** Confirmation, amendments, cancellations, refunds, check-in/check-out, and equipment return processes.
+3. **Payments:** Accepted methods, payment timing, deposits, taxes, and handling of failed payments.
+4. **Staff permissions:** Access boundaries between resorts and authority for financial corrections or record removal.
+5. **Reports:** Required contents, formats, schedules, and promotion-success measures.
+6. **Integrations:** Target social platforms, partner systems, weather providers, and ski lift data availability.
+7. **Feedback handling:** Notification recipients, response responsibilities, and issue-resolution workflow.
+8. **Quality targets:** Expected transaction volumes, response times, availability, recovery objectives, and measurable usability criteria.
+9. **Transition:** Records to migrate, treatment of existing reservations, and how legacy operations will continue during rollout.
+10. **Release priorities:** Which desired features must be available at launch versus delivered later.

@@ -1,0 +1,123 @@
+# Software Requirements: Online Resort Management System
+
+## 1. Purpose and scope
+
+The system shall support the digital management of three ski resorts through an online customer website and resort management capabilities. It shall support accommodation reservations, rental hiring, training-class bookings, payments, inventory management, and customer-facing promotional and information services.
+
+The business objectives are to:
+- Reduce manual administration and staffing needs.
+- Improve transparency in the booking process.
+- Reduce coordination effort across the three resorts.
+- Allow customers to discover available offerings and book online easily.
+
+These are business objectives; measurable success targets have not yet been defined.
+
+## 2. Functional requirements
+
+### 2.1 Website and resort information
+
+| ID | Requirement |
+|---|---|
+| WEB-01 | The system shall provide a customer-facing website covering all three resorts. |
+| WEB-02 | The website shall allow customers to view the offerings and availability at each resort. |
+| WEB-03 | The website shall provide clearly labeled navigation controls that distinguish viewing information from making a booking. |
+
+### 2.2 Reservations and bookings
+
+| ID | Requirement |
+|---|---|
+| BKG-01 | The system shall allow customers to make accommodation reservations online. |
+| BKG-02 | The system shall allow customers to book rental items online. |
+| BKG-03 | The system shall allow customers to book training classes online. |
+| BKG-04 | The system shall guide customers through a step-by-step booking process. |
+| BKG-05 | The booking process shall allow customers to select optional add-ons and customize their booking package. |
+| BKG-06 | Supported booking options shall include flights, breakfast, accommodation-only stays without a ski pass, bus tickets, restaurant vouchers, and insurance. |
+| BKG-07 | The system shall support staff management of reservations and bookings across the three resorts. |
+
+The rules, availability, pricing, and fulfillment arrangements for booking options remain to be defined.
+
+### 2.3 Payments
+
+| ID | Requirement |
+|---|---|
+| PAY-01 | The system shall support online payment for reservations and bookings. |
+| PAY-02 | The system shall support multiple payment methods to accommodate a broad range of customers. |
+
+Specific payment methods and payment providers have not been selected. The stakeholder requested as many payment options as possible, but this requires an agreed, feasible list.
+
+### 2.4 Inventory management
+
+| ID | Requirement |
+|---|---|
+| INV-01 | The system shall support management of rental inventory for the resorts. |
+| INV-02 | The system shall support management of on-site operational inventory, including the household or utility items referred to by the stakeholder. |
+
+The inventory categories and required tracking operations have not yet been specified.
+
+### 2.5 Social media promotion
+
+| ID | Requirement |
+|---|---|
+| SOC-01 | The system shall support resort promotion through Twitter, Facebook, and Instagram. |
+
+The required integration behavior—such as profile links, content sharing, embedded feeds, or publishing tools—remains to be determined.
+
+### 2.6 Weather and snow information
+
+| ID | Requirement |
+|---|---|
+| WTH-01 | The system shall allow customers to view weather and snow-condition forecasts relevant to their resort. |
+| WTH-02 | The system shall obtain forecast information from suitable local weather and snow-information services. |
+
+The service providers and criteria for selecting the “best” local services remain to be agreed.
+
+### 2.7 Customer feedback
+
+| ID | Requirement |
+|---|---|
+| REV-01 | The website shall support customer feedback through Google Reviews. |
+
+Whether this requires links for submitting reviews, displaying existing reviews, or both remains to be confirmed.
+
+## 3. User interface and quality requirements
+
+| ID | Requirement |
+|---|---|
+| UX-01 | The website shall use a ski-themed visual design. |
+| UX-02 | The website shall be aesthetically pleasing and intuitive for customers. |
+| UX-03 | The booking interface shall allow customers to complete bookings easily and promptly. |
+| UX-04 | The interface shall make the paths to resort information and booking clearly distinguishable. |
+
+Usability acceptance criteria and booking response-time targets must be defined before these qualitative requirements can be tested objectively. The stakeholder’s request for “instant” booking does not yet establish a precise performance target or confirmation rule.
+
+## 4. Stakeholder-approved priorities
+
+The stakeholder approved the following order:
+
+1. Website development
+2. Online reservations and bookings
+3. Payment processing
+4. Social media promotion
+5. Weather and snow forecasts
+6. Inventory management
+7. Customer feedback
+8. Logo design
+
+## 5. Related non-software deliverable
+
+A new resort logo is a potential branding deliverable. The stakeholder is open to new design concepts and has not specified existing elements that must be retained. Logo creation should be treated separately from software functionality.
+
+## 6. Outstanding requirements and decisions
+
+The following matters were not resolved in the interview and should not be treated as agreed requirements:
+
+- **Multi-resort administration:** Staff roles, permissions, shared data, and resort-specific access.
+- **Booking rules:** Availability calculation, pricing, capacity limits, booking confirmation, amendments, cancellations, and prevention of conflicting bookings.
+- **Add-on fulfillment:** Whether flights, transport, insurance, and other options require external provider integrations or manual handling.
+- **Payments:** Supported methods, currencies, deposits, refunds, receipts, and payment-failure handling.
+- **Inventory:** Item categories, quantities, locations, rental issue/return tracking, and maintenance needs.
+- **Existing data:** Whether local resort databases must be migrated, replaced, or integrated.
+- **Financial administration:** Whether accounting, taxation, financial reporting, or accounting-system integration is in scope. These were described as existing activities, not explicitly requested features.
+- **External integrations:** Exact Google Reviews, social media, and forecast integration behavior.
+- **Quality and operational requirements:** Security, privacy, accessibility, availability, supported devices, backup, recovery, and measurable performance targets.
+- **Branding:** Whether the new logo is a committed deliverable and whether branding covers each resort individually or all three collectively.
