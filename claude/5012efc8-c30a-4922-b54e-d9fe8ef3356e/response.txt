@@ -1,0 +1,161 @@
+# Software Requirements Specification: Cool Ski Resorts Online System
+
+**Stakeholder:** Jim, Owner, Cool Ski Resorts
+**Source:** Requirements elicitation interview (ended early at the stakeholder's request)
+
+**Legend for "Basis" column:**
+- **Stated**: the stakeholder said it explicitly.
+- **Accepted**: the interviewer suggested it and the stakeholder agreed.
+- **Inferred**: the reviewer derived it from context. It needs confirmation.
+
+---
+
+## 1. Project Overview
+
+Cool Ski Resorts runs three resorts. It needs an online system that lets customers:
+- reserve hotel rooms,
+- hire ski equipment,
+- book training classes, and
+- view weather and snow conditions,
+
+all through a user-friendly website. The system will use one centralized database to manage reservations, bookings, and inventory across all three resorts. It will also connect to social media for promotion.
+
+**Business goals:**
+- Streamline operations and reduce staff workload.
+- Improve coordination between the three resorts.
+- Increase visibility and reach a larger customer base.
+- Let customers book from home without phoning or waiting in a queue.
+
+## 2. Current State
+
+| Area | Current Process | Problem |
+|---|---|---|
+| Reservations, hire, classes | Semi-manual, by telephone and fax | Slow, labor-intensive, and customers must call and wait |
+| Data storage | A separate local database at each resort | No shared view and little coordination |
+| Payments | Processed manually on-site by staff | No online payment capability |
+| Inventory | Tracked manually per resort. Staff update records when items are rented, returned, or maintained | No central overview, prone to errors, and no coordination between resorts |
+
+## 3. Users
+
+| User | Description |
+|---|---|
+| Customer / Guest | Browses resort offerings, makes bookings, pays online, and checks conditions |
+| Resort Staff | Manage inventory, accounts, and customer service at each resort |
+| Management / Owner | Monitors inventory and historical data across all resorts *(Inferred)* |
+
+## 4. Functional Requirements
+
+### 4.1 Online Booking: **Priority: HIGH (highest stated priority)**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-1 | The system shall allow customers to reserve hotel rooms online at any of the three resorts. | Stated |
+| FR-2 | The system shall allow customers to hire ski equipment (and other hire items, e.g., clothing) online. | Stated |
+| FR-3 | The system shall allow customers to book training classes online. | Stated |
+| FR-4 | The system shall allow customers to complete a booking end-to-end without contacting staff by phone. | Stated |
+| FR-5 | The system shall display what is available at each resort (rooms, equipment, classes). | Stated |
+| FR-6 | The system shall show real-time availability, based on the centralized database, before a customer confirms a booking. | Inferred |
+| FR-7 | The system shall send customers a booking confirmation (e.g., by email). | Inferred. Notifications were raised but not answered. |
+| FR-8 | The system shall allow customers to view, modify, or cancel their bookings. | Inferred. Needs confirmation. |
+
+### 4.2 Online Payment: **Priority: HIGH (part of the booking feature)**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-9 | The system shall accept online payment by credit card. | Stated |
+| FR-10 | The system shall accept online payment by debit card. | Stated |
+| FR-11 | The system shall accept online payment by PayPal. | Stated |
+| FR-12 | Online payment shall be a new integration with an external payment provider or gateway, since no payment system exists today. | Stated |
+| FR-13 | The system shall link each payment record to its booking and make it visible to staff for account management. | Inferred |
+
+### 4.3 Centralized Inventory Management: **Priority: To be confirmed**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-14 | The system shall maintain one centralized inventory covering all three resorts. | Stated |
+| FR-15 | The system shall track ski equipment, clothing, and other hire items per resort. | Stated |
+| FR-16 | The system shall record item status changes: rented, returned, and under maintenance. | Stated |
+| FR-17 | The system shall update inventory in real time, including when online hire bookings are made. | Stated (real time). Online-booking link is Inferred. |
+| FR-18 | The system shall track and keep historical inventory data. | Stated |
+| FR-19 | The system shall provide a visual dashboard of current and past inventory data. | Stated |
+| FR-20 | Staff shall be able to view inventory across all resorts, not only their own. | Inferred from the coordination goal |
+
+### 4.4 Customer-Facing Website: **Priority: To be confirmed**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-21 | The system shall provide a public website presenting each resort and its offerings. | Stated |
+| FR-22 | The website shall be the main channel for booking, payment, and condition information. | Stated |
+
+### 4.5 Weather and Snow Conditions: **Priority: To be confirmed**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-23 | The system shall display current weather and snow conditions for each resort in real time. | Stated |
+| FR-24 | The system shall display weather and snow forecasts for each resort. | Stated |
+| FR-25 | The system shall get weather data from an external data source or service. | Inferred |
+
+### 4.6 Social Media Integration: **Priority: To be confirmed**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-26 | The system shall integrate with social media platforms to promote and advertise the resorts. | Stated |
+| FR-27 | The website shall link to the resorts' social media channels and allow content to be shared. | Inferred |
+
+### 4.7 Online Customer Support: **Priority: To be confirmed (lower confidence)**
+
+| ID | Requirement | Basis |
+|---|---|---|
+| FR-28 | The system shall provide online customer support, such as live chat, for customer questions and issues. | Accepted |
+
+## 5. Non-Functional Requirements
+
+| ID | Category | Requirement | Basis |
+|---|---|---|---|
+| NFR-1 | Usability | The website shall be intuitive and easy to use for customers booking from home. | Stated |
+| NFR-2 | Aesthetics | The website shall be visually appealing. | Stated |
+| NFR-3 | Performance | Inventory and availability data shall update in real time across all three resorts. | Stated |
+| NFR-4 | Data consistency | The system shall prevent double-booking of rooms, equipment, and class places across concurrent users. | Inferred |
+| NFR-5 | Security | Payment processing shall follow payment-industry security standards (e.g., PCI DSS). Card data shall be handled by the payment provider. | Inferred |
+| NFR-6 | Security | Staff and dashboard functions shall require authenticated access. | Inferred |
+| NFR-7 | Availability | Customers shall be able to book at any time, since the goal is self-service from home. | Inferred |
+| NFR-8 | Scalability | The system shall handle growth in online customers, since a larger customer base is a stated goal. | Inferred |
+| NFR-9 | Integration | The system shall integrate with a payment gateway or gateways, social media platforms, and a weather data provider. | Stated / Inferred |
+
+## 6. Constraints and Assumptions
+
+- **C-1:** The system must serve three resorts from one centralized database. This replaces the current separate local databases.
+- **C-2:** The stakeholder wants the booking system as soon as possible ("Tomorrow"). This is not a realistic timeline, but it shows that booking and payment are urgent. Delivering these first, in a phased approach, is recommended.
+- **A-1:** Data from the existing local databases at each resort will need to be migrated. *(Inferred. Not discussed.)*
+- **A-2:** Staff will keep handling physical rentals and returns, recording them in the new system. *(Inferred.)*
+
+## 7. Open Issues for Follow-Up
+
+The interview ended early, so these points need answers:
+
+1. **Staff devices:** Should staff use the inventory system and dashboard on desktop, mobile, or both? This was asked but not answered.
+2. **Notifications:** Which notifications are needed (confirmations, reminders, cancellations), and through which channels? This was asked but not answered.
+3. **Priorities:** Only booking and payment were ranked. The other features still need to be ranked.
+4. **Weather access:** Are conditions public, or only for "customers staying at the resort"? The stakeholder's two statements differ.
+5. **Social media scope:** Which platforms are involved? Is it automated posting, share buttons, paid ads, or something else?
+6. **Customer support:** Should it be live chat with staff, a chatbot, or email/ticketing? What hours should it cover?
+7. **Booking rules:** What are the cancellation and refund policies, deposits, and package or bundled bookings (e.g., hotel plus equipment plus class)?
+8. **Customer accounts:** Should customers register accounts, or can they book as guests?
+9. **On-site payment:** Should on-site payment remain an option alongside online payment?
+10. **Dashboard content:** Which metrics, reports, and time ranges are needed (e.g., utilization, maintenance history)?
+11. **Languages and currencies:** Are multiple languages or currencies needed for international guests?
+12. **Budget and timeline:** What are the realistic budget and delivery milestones?
+
+## 8. Recommended Release Phasing
+
+1. **Phase 1 (urgent):**
+   - Website with resort offerings.
+   - Online hotel, equipment-hire, and class booking.
+   - Online payments (credit card, debit card, PayPal).
+   - The centralized database.
+2. **Phase 2:**
+   - Centralized inventory management with real-time tracking and the visual dashboard.
+3. **Phase 3:**
+   - Weather and snow conditions.
+   - Social media integration.
+   - Online customer support.

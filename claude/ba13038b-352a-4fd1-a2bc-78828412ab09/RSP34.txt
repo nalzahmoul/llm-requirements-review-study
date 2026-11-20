@@ -1,0 +1,168 @@
+# Software Requirements: Cool Ski Resorts Booking & Management System
+
+## 1. Context and Scope
+
+**Business:** Cool Ski Resorts is a chain of **three ski resorts** on different mountains in the USA. Each resort offers:
+- Resort hotel accommodation
+- Ski rental
+- Ski lessons/training
+
+**Business goals stated by the stakeholder:**
+- **BG-1:** Give customers a pleasant, smooth stay at the resorts.
+- **BG-2:** Increase the company's visibility and reach more customers.
+- **BG-3:** Fully digitize booking and administration, and replace fax- and phone-based processes.
+
+**Scope of this document:**
+- The main software system is a **new, centralized booking and management system** (Section 3–5).
+- The interview also covered a social-media initiative and staff training. These are mostly *not* software requirements. They are recorded separately (Sections 6–7) so they are not lost.
+
+**Legend:**
+- **[S] Stated:** the stakeholder said this explicitly.
+- **[D] Derived:** inferred by the reviewer from stated needs. Must be confirmed.
+- **Priority:** M = Must, S = Should, C = Could (MoSCoW).
+
+---
+
+## 2. Users and Stakeholders
+
+| User group | Description | Source |
+|---|---|---|
+| Guests / customers | Book hotel stays, ski rental and ski lessons; pay online | [S] |
+| Resort staff (front desk, rental, ski school) | Manage reservations, inventory and daily operations | [S] / [D] |
+| Management / owner | Oversees all three resorts; needs a consolidated view | [D] |
+| Social media staff | In-house staff who will run social media after agency training | [S] (non-software) |
+
+---
+
+## 3. Functional Requirements
+
+### 3.1 Online Reservations
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-01 | The system shall allow customers to make reservations online. | [S] "Online Reservierungen … ermöglichen" | M |
+| FR-02 | Online reservations shall cover all three service types: hotel rooms, ski rental equipment and ski lessons. | [D] from the services offered | M |
+| FR-03 | The customer shall be able to choose which of the three resorts to book. | [D] multi-resort chain | M |
+| FR-04 | The system shall show real-time availability of rooms, rental equipment and lesson slots before a booking is confirmed. | [D] needed to replace phone booking | M |
+| FR-05 | The system shall send the customer an electronic booking confirmation, e.g. by e-mail. | [D] replaces fax/phone confirmation | M |
+| FR-06 | Customers shall be able to view, change and cancel their reservations online, subject to resort policies. | [D] | S |
+| FR-07 | Customers should be able to combine several services (e.g. hotel + rental + lesson) in a single booking. | [D] supports BG-1 "smooth stay" | S |
+
+### 3.2 Online Payments
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-08 | The system shall allow customers to pay for reservations online. | [S] "Zahlungen ermöglichen" | M |
+| FR-09 | The system shall support common US payment methods, at minimum major credit and debit cards. | [D] | M |
+| FR-10 | The system shall issue digital receipts or invoices. | [D] | S |
+| FR-11 | The system shall support refunds according to cancellation policies. | [D] | S |
+
+### 3.3 Inventory Management
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-12 | The system shall provide digital management of **all inventory**. | [S] "digitale Verwaltung über alles Inventar" | M |
+| FR-13 | Inventory shall include at least hotel rooms, ski rental equipment and ski lesson capacity (instructors/time slots). | [D] needs confirmation of what "all inventory" means | M |
+| FR-14 | Staff shall be able to add, edit, deactivate and see the status of inventory items (e.g. available, rented, under maintenance). | [D] | M |
+| FR-15 | Inventory changes (bookings, returns, check-outs) shall update availability for online booking automatically. | [D] | M |
+| FR-16 | The system should support stock and inventory reports per resort and across all resorts. | [D] | S |
+
+### 3.4 Central Data and Administration
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-17 | All data for all three resorts (customers, reservations, payments, inventory) shall be held in **one central database**. | [S] "eine zentrale Datenbank" | M |
+| FR-18 | Staff at each resort shall access the same central data through a staff/administration interface. | [D] | M |
+| FR-19 | The system shall support role-based access, e.g. resort staff vs. management. | [D] | M |
+| FR-20 | Staff shall be able to create and manage reservations on a customer's behalf, e.g. at the front desk. | [D] | S |
+| FR-21 | Management shall be able to view consolidated reports across all resorts (bookings, revenue, utilization). | [D] | S |
+
+### 3.5 Replacement of Fax and Phone Processes
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-22 | All processes currently done by fax or phone shall be supported digitally by the new system. | [S] "nicht mehr mit Fax und Telefon arbeiten" | M |
+| FR-23 | An analysis of current fax/phone workflows shall be done to identify every process the system must replace. | [D] prerequisite for FR-22 | M |
+| FR-24 | Customer communication shall be handled digitally, e.g. automated e-mail notifications and reminders. | [D] | S |
+
+### 3.6 Optional: Visibility and Marketing Support
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| FR-25 | The online booking interface could link to the company's social media channels, and social media posts could link directly to booking. | [D] links BG-2 to the system | C |
+
+---
+
+## 4. Non-Functional Requirements
+
+| ID | Category | Requirement | Source | Prio |
+|---|---|---|---|---|
+| NFR-01 | Solution type | The system shall be a **completely new solution**, not an adaptation of the existing system. Custom build vs. new off-the-shelf product is to be clarified. | [S] "komplett neue Lösung" | M |
+| NFR-02 | Usability | The staff interface shall be easy to learn for users with little digital experience. | [D] stakeholder: "noch nicht sehr modern unterwegs" | M |
+| NFR-03 | Usability | The customer booking interface shall work on desktop and mobile devices. | [D] | S |
+| NFR-04 | Security | Online payments shall be processed according to PCI DSS, e.g. via a certified payment provider. | [D] legally/contractually required for card payments | M |
+| NFR-05 | Privacy | Personal customer data shall be protected according to applicable US federal and state privacy laws. | [D] question asked but not answered | M |
+| NFR-06 | Availability | The online booking system shall be available 24/7, with an availability target to be defined. | [D] | S |
+| NFR-07 | Data integrity | The central database shall prevent double bookings across concurrent online and staff bookings. | [D] | M |
+| NFR-08 | Backup | Data shall be backed up regularly and recoverable after failure. | [D] central DB = single point of failure | M |
+| NFR-09 | Language | The customer interface shall be in English at minimum. Other languages are to be clarified. | [D] US market | M |
+| NFR-10 | Scalability | The system should allow additional resorts or services to be added. | [D] | C |
+
+---
+
+## 5. Transition, Rollout and Training Requirements
+
+| ID | Requirement | Source | Prio |
+|---|---|---|---|
+| TR-01 | Staff shall be trained on the new system before or during go-live. | [S] "Schulung meines Personals ist mir wichtig" | M |
+| TR-02 | Training shall be delivered by an **external training provider**. | [S] | M |
+| TR-03 | Training shall be **on-site** at the resorts. | [S] "Vor-Ort-Training wäre uns am liebsten" | M |
+| TR-04 | Training shall be **staggered** in groups so enough staff remain available for operations. | [S] "staffelweise klingt gut" | M |
+| TR-05 | Training should be scheduled so it does not disrupt peak season operations. | [D] interviewer's suggestion; not explicitly confirmed | S |
+| TR-06 | Existing data (current bookings, customer records, inventory lists), including paper/fax records, shall be migrated into the central database where needed. | [D] | M |
+
+---
+
+## 6. Non-Software Requirements: Social Media Initiative
+
+These are business requirements, not system requirements. They are recorded for completeness.
+
+| ID | Requirement | Source |
+|---|---|---|
+| BR-01 | The company shall build a social media presence to increase visibility and reach more customers. The company currently has little social media experience. | [S] |
+| BR-02 | A social media agency shall be engaged. The agency shall also **train internal staff**, so the company can later manage social media itself. | [S] |
+| BR-03 | The agency shall be selected mainly for **expertise**. Agency size is irrelevant. Innovative approaches are valued. | [S] |
+| BR-04 | The agency engagement and training shall start **within this year**. | [S] "Dieses Jahr noch" |
+| BR-05 | Platforms (e.g. Instagram, Facebook, TikTok) and content types (videos, photos, guest stories) are generally acceptable. Specific choices are not yet decided. | [S] answer was ambiguous; see open issues |
+| BR-06 | The scope of the social media training (platform skills, content creation, community management, analytics) is not yet defined. | [S] "Ne noch nicht" |
+
+---
+
+## 7. Open Issues and Questions for Follow-up
+
+The interview ended early, and several important points were not covered.
+
+| # | Topic | Question |
+|---|---|---|
+| Q1 | Budget | No budget was given for the system, the agency or training. What are the budget limits? |
+| Q2 | Timeline | "This year" was said about social media. Does the same deadline apply to the booking/management system? |
+| Q3 | Inventory scope | What does "all inventory" include? Rooms, rental equipment and lesson slots only, or also lift passes, consumables, maintenance and staff scheduling? |
+| Q4 | Lift tickets | Should ski passes and lift tickets be bookable? They were not mentioned. |
+| Q5 | Data security | The data security and privacy question was not answered. Are there specific requirements or concerns? |
+| Q6 | Integrations | Are there existing systems (accounting, POS, lift access, website) the new system must connect to? |
+| Q7 | Build vs. buy | Does "completely new solution" mean custom development or a new commercial product? |
+| Q8 | Customer accounts | Should customers have accounts, a booking history or loyalty features? |
+| Q9 | Social platforms | "Ja kann ich mir gut vorstellen" did not specify platforms or content types. Which ones should be prioritized? |
+| Q10 | Target audience | Which customer groups or markets should social media target? This was asked but not answered. |
+| Q11 | Stakeholder role | What is the interviewee's role, and who else (resort managers, front-desk staff, ski school, IT) should be interviewed? |
+| Q12 | Pricing rules | Are there seasonal pricing, packages, discounts or group bookings the system must support? |
+| Q13 | Reporting | Which reports or KPIs does management need? |
+
+---
+
+## 8. Reviewer Notes on the Interview
+
+- **Mixed project scope:** The interview covered two separate initiatives: marketing/social media and a booking/management system. The software requirements come almost entirely from the second part, which got relatively little time.
+- **Compound questions:** The interviewer often asked two or three questions at once. The stakeholder usually answered only one of them, so budget, security, target groups and platform choice remained open.
+- **Most requirements are derived:** Only about 12 requirements are explicitly stated. The rest are reasonable inferences and should be validated in a follow-up session.
+- **Recommendation:** Schedule a second interview focused only on the booking/management system, with Q1–Q8 and Q11–Q13 as the agenda. Include operational staff from at least one resort.
