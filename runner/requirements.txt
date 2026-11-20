@@ -1,5 +1,0 @@
-openai
-openpyxl
-scipy
-pandas
-statsmodels
