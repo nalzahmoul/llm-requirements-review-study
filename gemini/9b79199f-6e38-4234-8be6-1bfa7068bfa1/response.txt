@@ -1,0 +1,66 @@
+Based on the requirements elicitation interview, here is the Software Requirements Specification (SRS) for the **Cool Ski Resorts Online System**. 
+
+---
+
+# Software Requirements Specification: Cool Ski Resorts System
+
+## 1. Project Overview
+Cool Ski Resorts, a chain of three US-based ski resorts, requires a transition from their current static website and semi-manual (phone/fax) local booking processes to a centralized, dynamic web-based system. The goal is to increase customer visibility, streamline multi-resort coordination, allow online customer self-service, and centralize data for reporting.
+
+## 2. User Roles
+*   **Customers:** Browse availability, view weather forecasts, book hotel rooms, hire equipment/clothing, register for ski classes, and make online payments.
+*   **Resort Staff (Customer Service & Inventory):** Manage local reservations, ski equipment/clothing inventory, and class schedules.
+*   **Accountants/Assistants:** Track financial aspects of bookings, manage accounts, and handle taxation data.
+*   **Owner/Management (Mary/Jim Smith):** View cross-resort reports on occupancy, inventory, and booking trends.
+
+---
+
+## 3. Functional Requirements
+
+### 3.1. Customer Portal & Booking Engine
+*   **FR-1.1 Catalog & Availability:** The system shall allow customers to view available hotel rooms, ski equipment, ski clothing, and training classes across all three resort locations.
+*   **FR-1.2 Hotel Reservations:** The system shall enable customers to book resort hotel rooms online for specified dates.
+*   **FR-1.3 Equipment & Clothing Hire:** The system shall allow customers to rent ski equipment and clothing online in advance of or during their stay.
+*   **FR-1.4 Class Booking:** The system shall allow customers to book ski training classes online.
+*   **FR-1.5 Online Payments:** The system shall integrate a secure payment gateway to process customer payments for reservations, rentals, and classes at the time of booking.
+
+### 3.2. Weather & Snow Forecast Integration
+*   **FR-2.1 API Integration:** The system shall integrate with the US Weather Forecast System (e.g., National Weather Service API) to fetch regional weather data for each of the three resorts.
+*   **FR-2.2 Real-Time Updates:** The system shall update weather and snow condition data in real-time.
+*   **FR-2.3 Placement:** The weather and snow condition forecasts shall be displayed on both the website’s main landing page and on the booking pages.
+*   **FR-2.4 Query Capability:** Customers shall be able to query weather and snow condition forecasts specific to the resort and dates they are viewing.
+
+### 3.3. Social Media & Marketing Integration
+*   **FR-3.1 Platform Linking:** The website shall integrate with and link to the company's official Twitter (X), Facebook, and Instagram accounts.
+*   **FR-3.2 Content Sharing & Feeds:** The system shall support the display/integration of promotions, user-generated content from the resorts, and customer reviews/testimonials. 
+*   *Note on Exclusions:* The system **does not** require an internal content scheduling tool or team communication tool; weekly content (resort news, weather updates, and photos) will be created and managed internally by staff outside of this software's workflow.
+
+### 3.4. Inventory, Accounting, & Reporting (Back-Office)
+*   **FR-4.1 Inventory Management:** The system shall track the inventory of hotel rooms, ski equipment, and clothing for each of the three resorts, deducting availability as bookings are made.
+*   **FR-4.2 Financial Tracking:** The system shall log all financial transactions related to bookings and hires to assist accounting staff with accounts management and taxation work.
+*   **FR-4.3 Reporting Engine:** The system shall generate reports for both individual resorts and consolidated across all three locations. Required reports include:
+    *   Hotel occupancy rates.
+    *   Equipment and clothing inventory levels.
+    *   Customer booking trends.
+
+---
+
+## 4. Non-Functional & Technical Requirements
+
+### 4.1. Database & Architecture
+*   **NFR-1.1 Database Type:** The system shall use a centralized Relational Database Management System (SQL) to store all reservations, bookings, hires, financial logs, and inventory data.
+*   **NFR-1.2 Data Synchronization:** The local resort systems and the centralized SQL database shall synchronize data on a scheduled batch basis (non-real-time synchronization, occurring at low-frequency intervals).
+
+### 4.2. Usability & Design
+*   **NFR-2.1 User Interface:** The customer-facing website must be aesthetically pleasing, modern, and intuitive to navigate.
+
+### 4.3. Deployment & Transition
+*   **NFR-3.1 Business Continuity:** The deployment of the new digital infrastructure and migration from the current local databases/fax/phone systems must be executed with minimal disruption to ongoing daily resort operations.
+
+---
+
+## 5. Reviewer’s Notes / Open Issues (Requires Follow-up)
+As a requirements reviewer, I noticed the stakeholder cut the interview short and gave brief answers in the latter half. Before development begins, the following ambiguities must be resolved:
+1.  **Synchronization Frequency Risk:** The stakeholder requested "not frequent" scheduled database synchronizations between the resorts and the central database. *Risk:* If a customer books the last pair of skis online, and a walk-in customer rents them at the resort before the database syncs, **double-booking will occur**. We need to define the exact sync interval (e.g., hourly vs. nightly) or advocate for real-time cloud access for staff.
+2.  **Payment Gateway:** Specific payment methods (Credit Card, PayPal, Stripe, etc.) and refund/cancellation policies were not defined.
+3.  **Legacy Data Migration:** We need to determine if historical financial and customer data from the current local databases needs to be migrated into the new SQL database.

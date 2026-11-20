@@ -1,0 +1,8 @@
+time_utc: 2026-11-15T20:02:08.222884+00:00
+model_alias: gemini
+model_requested: google/gemini-4-argon
+model_returned: google/gemini-4-argon
+interview: 9b79199f-6e38-4234-8be6-1bfa7068bfa1.json
+status: ok
+input_tokens: 1568
+output_tokens: 1285

@@ -1,0 +1,56 @@
+Based on the requirements elicitation interview with Jim, the owner of Cool Ski Resorts, here is the Software Requirements Specification (SRS) document for the proposed system.
+
+---
+
+# Software Requirements Specification: Cool Ski Resorts Online System
+
+## 1. Project Overview
+Cool Ski Resorts currently operates three separate resort locations using semi-manual, localized processes (telephone, fax, on-site payments, and disconnected local databases). The objective of this project is to develop a centralized, web-based system that unifies operations across all three resorts. The system will allow customers to book accommodations, rent equipment, and schedule training classes online, while providing staff with centralized inventory management and promotional tools. 
+
+## 2. User Roles
+*   **Customers/Guests:** Individuals visiting the website to view resort information, check weather conditions, make bookings, and pay online.
+*   **Resort Staff/Administrators:** Employees managing inventory, tracking equipment statuses, viewing historical data, and assisting customers across the three resorts.
+
+---
+
+## 3. Functional Requirements
+
+### 3.1. Online Booking & Reservation System (Highest Priority)
+*   **FR-1.1 Resort Availability:** The system shall allow customers to view available hotel rooms, ski equipment, and training classes across all three resort locations.
+*   **FR-1.2 Hotel Reservations:** The system shall enable customers to book hotel accommodations online without needing to call or fax the resort.
+*   **FR-1.3 Equipment Hire:** The system shall allow customers to reserve ski equipment and clothing prior to their arrival.
+*   **FR-1.4 Class Bookings:** The system shall enable customers to book ski training classes online.
+
+### 3.2. Payment Processing (Highest Priority)
+*   **FR-2.1 Online Payments:** The system shall integrate a new payment gateway to process customer transactions online at the time of booking.
+*   **FR-2.2 Payment Methods:** The payment gateway shall support multiple payment options, specifically credit cards, debit cards, and PayPal.
+
+### 3.3. Centralized Inventory Management
+*   **FR-3.1 Centralized Database:** The system shall connect all three resorts to a single, centralized database to manage reservations, bookings, and equipment inventory.
+*   **FR-3.2 Item Tracking:** The system shall track the status of ski equipment, clothing, and other hireable items (e.g., Available, Rented, Returned, In Maintenance).
+*   **FR-3.3 Real-Time Updates:** Inventory levels shall update in real-time across the system when items are booked online by customers or updated on-site by staff.
+*   **FR-3.4 Visual Dashboard:** The system shall provide a visual dashboard for staff to monitor current inventory levels and view historical inventory data.
+
+### 3.4. Customer Engagement & Information
+*   **FR-4.1 Weather & Snow Conditions:** The website shall allow customers to query and view real-time weather and snow condition forecasts for each of the three resorts.
+*   **FR-4.2 Online Customer Support:** The website shall include an online customer support/chat feature to address immediate guest inquiries and issues.
+*   **FR-4.3 Social Media Integration:** The system shall integrate with social media platforms to facilitate resort promotion and advertising.
+
+---
+
+## 4. Non-Functional Requirements
+*   **NFR-1 Usability & Design:** The customer-facing website must be aesthetically pleasing, intuitive, and user-friendly, enabling customers to comfortably navigate and book from home.
+*   **NFR-2 Performance (Real-Time):** Weather queries and inventory updates must be processed in real-time to prevent double-booking and provide accurate information.
+*   **NFR-3 Reliability & Centralization:** The centralized database must ensure data consistency across all three resort locations to eliminate the errors previously caused by manual, decentralized tracking.
+
+---
+
+## 5. Reviewer Notes & Gaps (To be clarified in follow-up)
+Because the stakeholder cut the interview short, several critical details were left undefined. The following areas require clarification before development begins:
+
+1.  **Data Migration:** How will the existing local databases at the three resorts be migrated into the new centralized database?
+2.  **Hardware/Platform Requirements:** The interviewer asked if the staff dashboard should be accessible via mobile, desktop, or both, which went unanswered. 
+3.  **Social Media Scope:** "Integration with social media for promotion" is vague. Does this mean social login, sharing buttons, automated posting, or tracking pixels for ads?
+4.  **Weather API:** Which third-party weather service will be used to pull the real-time snow and weather conditions?
+5.  **Cancellation/Refund Policy:** How should the system handle booking modifications, cancellations, and payment refunds?
+6.  **Timeline:** The stakeholder requested the system be ready "tomorrow." Expectations must be managed by providing a realistic project roadmap, perhaps starting with an MVP (Minimum Viable Product) focused solely on the highest-priority booking and payment features.

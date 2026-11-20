@@ -1,0 +1,78 @@
+Based on the transcript of the requirements elicitation interview with the stakeholder (Jim, Business Owner), below is the Software Requirements Specification (SRS) document, along with a critical review of the interview's gaps and ambiguities that will require follow-up.
+
+---
+
+# Software Requirements Specification (SRS)
+
+## 1. Project Overview
+The project involves developing a single, centralized web application to replace three separate existing websites for the stakeholder's three ski resorts. The primary goal is to modernize the booking process (currently handled via fax/phone) by providing a unified online reservation system that prevents double bookings, handles online payments, and offers additional resort-related services such as class bookings, inventory management, and weather updates.
+
+## 2. Feature Prioritization
+Based on the stakeholder's ranking, the features are prioritized as follows:
+1. **Priority 1 (Critical):** Centralized Room Booking System
+2. **Priority 2:** Aesthetically Pleasing and Intuitive UI/UX
+3. **Priority 3:** Inventory Management
+4. **Priority 4:** Social Media Promotion & Advertisement Integration
+5. **Priority 5:** Customer Feedback and Reviews
+6. **Priority 6:** Weather and Snow Condition Forecasts
+7. **Unranked (See Review Notes):** Booking Training Classes
+
+---
+
+## 3. Functional Requirements (FR)
+
+### 3.1. Centralized Booking System (Priority 1)
+*   **FR-1.1 Multi-Resort Centralization:** The system shall consolidate data for all three ski resorts into a single centralized database.
+*   **FR-1.2 Concurrency Control:** The system shall update room availability in real-time across the platform to prevent double reservations.
+*   **FR-1.3 Room Browsing & Selection:** Customers shall be able to view available rooms across each of the three resorts and select a specific room to reserve.
+*   **FR-1.4 Seasonal Pricing Display:** The system shall display room prices dynamically and allow customers to view the differences in pricing across different seasons.
+
+### 3.2. Payment Processing (Priority 1)
+*   **FR-2.1 Online Payments:** The system shall transition the business from semi-manual on-site payments to online pre-payments during the booking process.
+*   **FR-2.2 Payment Gateway Integration:** The system shall integrate with PayPal to process customer payments (Note: Bank wire transfers were also mentioned; see Review Notes).
+*   **FR-2.3 Payment Confirmation:** The system shall automatically confirm and track successful payments made via PayPal.
+*   **FR-2.4 Automated Receipts:** The system shall generate and send automated receipts to customers upon successful payment completion.
+
+### 3.3. Inventory Management (Priority 3)
+*   **FR-3.1 Inventory Tracking:** The system shall include an inventory management module. *(Note: Specifics were not elicited due to time constraints—requires follow-up).*
+
+### 3.4. Marketing and Social Media (Priority 4)
+*   **FR-4.1 Social Media Integration:** The system shall integrate with social media platforms to facilitate resort promotion and advertisements.
+
+### 3.5. Customer Feedback (Priority 5)
+*   **FR-5.1 Reviews and Ratings:** The system shall allow customers to submit feedback and reviews regarding their stay/experience.
+
+### 3.6. Weather and Snow Conditions (Priority 6)
+*   **FR-6.1 Weather Queries:** The system shall allow customers to query and view current weather and snow condition forecasts for each of the three resorts.
+
+### 3.7. Training Classes (Priority TBD)
+*   **FR-7.1 Class Reservations:** The system shall allow customers to book ski/resort training classes online.
+
+---
+
+## 4. Non-Functional Requirements (NFR)
+*   **NFR-1.1 Usability & Aesthetics (Priority 2):** The website shall have a modern, aesthetically pleasing design and an intuitive user interface so customers can easily navigate resort availability.
+*   **NFR-1.2 Data Integrity:** The database must maintain strict ACID (Atomicity, Consistency, Isolation, Durability) properties for booking transactions to ensure zero double-bookings.
+
+---
+---
+
+# Requirements Reviewer Notes (Gaps & Ambiguities)
+
+As a requirements reviewer, I must highlight several flaws, contradictions, and missing details from this elicitation session that must be clarified with the stakeholder in the next meeting before development begins:
+
+1.  **Prioritization Error by the Interviewer:** 
+    *   *Issue:* The interviewer asked the stakeholder to rank 6 remaining features. The stakeholder replied "1, 2, 5, 3, 6, 4". When the interviewer summarized the ranking, they accidentally **omitted "Booking Training Classes"** from the final confirmed list, and the stakeholder did not catch the mistake. 
+    *   *Action Needed:* Confirm where "Booking Training Classes" falls in the priority list (likely Priority 5 or 6 based on the stakeholder's raw numbers).
+2.  **Contradiction in Payment Methods:** 
+    *   *Issue:* The stakeholder initially stated, *"The customer should wire us the money,"* and immediately followed up with *"PayPal"* for tracking. A bank wire and a PayPal transaction are fundamentally different payment flows. 
+    *   *Action Needed:* Clarify if the stakeholder only wants PayPal, or if the system also needs to generate invoices with IBAN/Routing numbers for traditional bank wires and hold rooms until the wire clears.
+3.  **Undefined Scope for "Inventory Management":**
+    *   *Issue:* In the hospitality/ski industry, "inventory" can mean room inventory, ski equipment rental inventory, or retail/food inventory. 
+    *   *Action Needed:* Elicit detailed requirements on what is being tracked in the Inventory Management module.
+4.  **Legacy System Transition:**
+    *   *Issue:* The stakeholder mentioned bookings are currently done via fax and phone. 
+    *   *Action Needed:* Determine if staff will still accept phone/fax bookings. If yes, the system will require an **Admin/Staff Portal** so employees can manually input phone/fax reservations into the centralized database to prevent double-booking with online users.
+5.  **Incomplete Elicitation:**
+    *   *Issue:* The interview ended abruptly because the stakeholder had to attend to customers. Only Priority 1 was explored in detail. 
+    *   *Action Needed:* Schedule a follow-up interview to gather detailed functional requirements for Priorities 2 through 7.

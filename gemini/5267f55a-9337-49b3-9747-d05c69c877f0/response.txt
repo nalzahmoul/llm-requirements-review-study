@@ -1,0 +1,73 @@
+Based on the interview transcript, here is the Software Requirements Specification (SRS) document for the "Cool Ski Resorts" digitalization project. 
+
+As a requirements reviewer, I have categorized the requirements into **Functional**, **Non-Functional**, and **Project/Transition** requirements, and I have also included a section on **Identified Gaps** that will need further clarification in future meetings.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Cool Ski Resorts Digitalization Platform
+**Stakeholder:** Mary (Owner)
+
+## 1. Project Overview & Business Goals
+The objective of this project is to replace the current static website and semi-manual (telephone/fax) local processes with a centralized, web-based platform for "Cool Ski Resorts" (comprising 3 resort locations). 
+*   **Primary Goals:** Streamline business operations, centralize data across all three resorts, automate financial reporting, and increase revenue by expanding market reach across the US.
+
+## 2. User Roles
+*   **Customers:** End-users who browse the website, register accounts, and book accommodations, classes, and equipment.
+*   **Owner (Mary):** Super-admin with full access to centralized data, financial reports, and system configurations.
+*   **Assistants:** Administrative users responsible for generating reports and performing ongoing website maintenance.
+
+## 3. Functional Requirements (FR)
+
+### 3.1. Centralized Database & Architecture (Priority: High)
+*   **FR-1.1:** The system shall utilize a single, centralized database to track reservations, bookings, equipment hires, and inventory across all three resort locations.
+*   **FR-1.2:** The system shall allow users (customers and staff) to filter or select specific resort locations when viewing availability or data.
+
+### 3.2. Online Booking, Reservations, and Hires (Priority: High)
+*   **FR-2.1:** The system shall allow customers to make resort stay reservations online.
+*   **FR-2.2:** The system shall allow customers to book ski classes online.
+*   **FR-2.3:** The system shall allow customers to hire (rent) ski equipment in advance online, directly integrated with the resort's real-time inventory.
+*   **FR-2.4:** The system shall generate a digital confirmation/receipt that customers can present on-site upon arrival.
+
+### 3.3. User Account Management
+*   **FR-3.1:** The system shall allow customers to register for an account and log in using an email address and password.
+*   **FR-3.2:** Logged-in customers shall be able to view and track their current and past reservations, class bookings, and equipment hires.
+
+### 3.4. Payment Processing (Priority: High)
+*   **FR-4.1:** The system shall integrate a third-party payment gateway to securely process online payments for reservations, classes, and equipment hires at the time of booking.
+
+### 3.5. Inventory Management
+*   **FR-5.1:** The system shall track the real-time availability of rental ski equipment across all three resorts.
+*   **FR-5.2:** The system shall log the rental history of inventory items.
+*   **FR-5.3:** The system shall track maintenance schedules for ski equipment.
+*   **FR-5.4:** The system shall generate automated alerts for staff when inventory stock is low or when specific equipment requires maintenance/servicing.
+
+### 3.6. Reporting & Financials
+*   **FR-6.1:** The system shall generate financial reports detailing revenue and expenses related to bookings, reservations, and hires.
+*   **FR-6.2:** The system shall support reporting necessary for accounting and taxation purposes.
+*   **FR-6.3:** Reports shall be accessible by the Owner and authorized Assistants, with the ability to view data per resort or aggregated across all three resorts.
+
+### 3.7. Customer Engagement & External Integrations (Priority: Low/Medium)
+*   **FR-7.1:** The website shall display weather forecasts/updates for the resort locations, specifically showing customers the expected weather during their booked stay.
+*   **FR-7.2:** The website shall include features to support social media promotion (e.g., social sharing buttons, links to resort social profiles).
+*   **FR-7.3:** The system shall include a Content Management System (CMS) or admin portal allowing Assistants to maintain and update website content.
+
+## 4. Non-Functional Requirements (NFR)
+*   **NFR-1 (Security):** The system shall implement industry-standard security protocols (e.g., HTTPS, encrypted passwords, PCI-DSS compliance via the payment gateway) to protect user data and financial transactions.
+*   **NFR-2 (Usability):** The public-facing website shall be modern, visually appealing, and intuitive for customers across the US to navigate.
+*   **NFR-3 (Availability/Reliability):** The centralized database must update in real-time to prevent double-booking of rooms, classes, or equipment across the resorts.
+
+## 5. Project & Transition Requirements
+*   **TR-1 (Business Continuity):** The deployment of the new system must be executed with minimal disruption to the current daily operations of the resorts.
+*   **TR-2 (Training):** Training and support documentation must be provided to the Assistants to transition them from manual report generation to using the new reporting tools and maintaining the website.
+
+---
+
+## 6. Reviewer’s Notes: Ambiguities & Missing Requirements
+*The following areas were glossed over during the interview and require follow-up elicitation with Mary or her assistants before development begins:*
+
+1.  **Data Migration:** Mary mentioned existing local databases at each of the three resorts. Do we need to migrate historical data and future bookings from those local databases into the new centralized system?
+2.  **Modification/Cancellation Policies:** How should the system handle booking cancellations, refunds, or date modifications by the customer?
+3.  **On-Site Walk-ins:** The system handles *online* bookings, but how will staff handle walk-in customers at the resort? Will front-desk staff use the same web portal to input walk-in rentals so inventory remains accurate?
+4.  **Expense Tracking:** Mary agreed to a feature tracking "revenue and expenses." While the system will naturally track revenue via the payment gateway, how are "expenses" inputted into this system?
+5.  **Taxation Specifics:** Are the three resorts in different states or municipalities with different tax rates? The payment gateway and reporting module will need specific tax rules configured.

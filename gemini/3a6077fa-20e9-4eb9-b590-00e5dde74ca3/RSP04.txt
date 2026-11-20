@@ -1,0 +1,74 @@
+Based on the requirements elicitation interview transcript, here is the Software Requirements Specification (SRS) for the Resort Online Management System. 
+
+The requirements are organized by the priority order agreed upon by the stakeholder during the interview.
+
+---
+
+# Software Requirements Specification (SRS)
+**Project:** Multi-Resort Online Management System
+
+## 1. Project Overview & Business Objectives
+The client operates three ski resorts that currently rely on manual/semi-manual processes (telephone, fax, and local databases) for bookings, equipment hire, and accounting. The objective of this project is to develop a centralized, digital management system and customer-facing website to:
+* Streamline coordination across all three resorts.
+* Automate financial tracking, taxation data, and accounting processes to reduce reliance on administrative staff.
+* Increase transparency and ease of use in the customer booking process.
+* Establish a digital marketing presence.
+
+---
+
+## 2. Functional Requirements (Prioritized)
+
+### Priority 1: Website & User Interface (UI)
+* **FR1.1 Multi-Resort Display:** The website shall display real-time availability of accommodations, rentals, and classes across all three resorts.
+* **FR1.2 Navigation:** The website shall feature distinct, clearly labeled Call-to-Action (CTA) buttons separating "Offer Information" from "Booking Actions."
+
+### Priority 2: Online Reservations and Bookings
+* **FR2.1 Core Bookings:** The system shall allow customers to book hotel/hostel accommodations, hire/rent equipment, and book training classes online.
+* **FR2.2 Step-by-Step Wizard:** The booking engine shall guide the user through a sequential, step-by-step booking process.
+* **FR2.3 Customizations & Add-ons:** During the booking process, the system shall allow users to customize their packages with the following options/add-ons:
+  * Accommodation only (e.g., hostel with no ski pass).
+  * Flights and bus tickets.
+  * Meal options (e.g., breakfast included, restaurant vouchers).
+  * Travel/Ski insurance.
+* **FR2.4 Instant Confirmation:** The system shall process and confirm bookings instantly upon completion.
+
+### Priority 3: Payment Processing & Financial Management
+* **FR3.1 Online Payment Gateway:** The system shall automate payments online, replacing the current semi-manual on-site payment system.
+* **FR3.2 Multiple Payment Methods:** The payment gateway shall support a wide variety of payment methods (e.g., major credit/debit cards, PayPal, digital wallets).
+* **FR3.3 Centralized Financial Tracking:** The system shall centrally record all financial transactions across the three resorts to support accounting and taxation workflows. *(Implied by the business need to replace local databases and manual assistant tracking).*
+
+### Priority 4: Social Media Integration
+* **FR4.1 Platform Integration:** The system/website shall integrate with **Twitter (X), Facebook, and Instagram** to facilitate resort promotion and advertising.
+
+### Priority 5: Weather and Snow Forecast Integration
+* **FR5.1 Live Weather Feeds:** The website shall allow users to query and view current weather and snow condition forecasts for the resorts.
+* **FR5.2 Data Source:** The weather feature shall pull data via API from the most accurate local weather services available in the resorts' regions.
+
+### Priority 6: Inventory Management
+* **FR6.1 Rental Tracking:** The system shall track the inventory and availability of all rentable ski equipment across the three resorts.
+* **FR6.2 Internal Supplies Tracking:** The system shall provide a back-end module for staff to track internal house inventory and utilities. 
+
+### Priority 7: Customer Feedback System
+* **FR7.1 Google Reviews Integration:** The website shall integrate with Google Reviews to allow customers to leave feedback and to display existing ratings/reviews on the site.
+
+### Priority 8: Branding (Non-Software Deliverable)
+* **DEL8.1 Logo Design:** The project shall include the creation of a new, original brand logo for the resorts.
+
+---
+
+## 3. Non-Functional Requirements (NFRs)
+
+* **NFR1 Usability:** The website must be intuitive and easy to navigate for end-users, minimizing the steps required to find information and complete a booking.
+* **NFR2 Aesthetics & Theming:** The website must be aesthetically pleasing and feature a distinct **ski and winter-sports theme**.
+* **NFR3 Performance:** Bookings and availability checks must be processed instantly (real-time synchronization across the centralized database).
+* **NFR4 Architecture:** The system must transition from three separate local databases to a single centralized (or cloud-based) database to allow seamless management of all three resorts simultaneously.
+
+---
+
+## 4. Reviewer’s Notes: Gaps & Open Questions
+*As a requirements reviewer, I have identified the following areas where the interviewer did not gather enough technical detail. These will need to be clarified with the stakeholder before development begins:*
+
+1. **Accounting/Taxation Specifics:** The stakeholder mentioned wanting "less staff" because assistants currently handle accounts and taxation. Does the new system need to integrate with specific accounting software (e.g., QuickBooks, Xero, SAP), or just export CSV financial reports?
+2. **Third-Party Add-on Integrations:** Offering "flights" and "bus tickets" as add-ons is complex. Will the resort manage a pre-bought inventory of tickets, or does the system need to integrate with third-party travel APIs (like GDS/Amadeus for flights)?
+3. **Data Migration:** Does the historical data from the three existing local databases need to be migrated into the new system?
+4. **Social Media Scope:** Does the stakeholder just want links/feeds on the website, or do they expect a marketing dashboard to schedule posts and run ad campaigns?

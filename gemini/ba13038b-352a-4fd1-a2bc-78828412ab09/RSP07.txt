@@ -1,0 +1,65 @@
+Based on the transcript provided, here is a review of the interview and the extracted requirements. 
+
+*(Note: I have provided the requirements in English as requested by the prompt, though they are derived from the German transcript. As a requirements reviewer, I have also separated the **Software Requirements** from the **Project/Business Requirements**, as a large portion of the interview focused on marketing and training rather than software functionality.)*
+
+---
+
+### 1. Project Overview & Business Context
+* **Client:** Cool Ski Resorts
+* **Locations:** 3 ski resorts located in various mountain ranges in the USA.
+* **Core Services:** Resort hotels, ski equipment rental, and ski training/lessons.
+* **Business Goals:** 
+  1. Provide a smooth and pleasant stay for customers.
+  2. Increase company visibility and reach more customers via Social Media.
+  3. Completely digitize the booking and management processes, replacing outdated methods (phone and fax) with a brand-new, centralized system.
+
+---
+
+### 2. Functional Software Requirements (Booking & Management System)
+The stakeholder wants a completely new software solution. Based on the services they offer and their stated needs, the system must include the following functionalities:
+
+* **FR1: Online Reservation System**
+  * **FR1.1:** Customers must be able to book resort hotel rooms online.
+  * **FR1.2:** Customers must be able to reserve ski rental equipment online.
+  * **FR1.3:** Customers must be able to book ski training/lessons online.
+  * **FR1.4:** Staff must be able to view and manage all reservations digitally (replacing phone/fax workflows).
+* **FR2: Online Payment Processing**
+  * **FR2.1:** The system must allow customers to pay for their reservations (hotel, rentals, lessons) online.
+* **FR3: Digital Inventory Management**
+  * **FR3.1:** The system must track and manage all resort inventory digitally (e.g., available hotel rooms, ski rental equipment stock, and ski instructor availability).
+  * **FR3.2:** Inventory should automatically update when an online reservation is made.
+
+---
+
+### 3. Non-Functional & Architectural Requirements
+* **NFR1: Centralized Database**
+  * The system must utilize a single, centralized database that connects and manages data across all three US ski resort locations.
+* **NFR2: System Deployment**
+  * The system must be a completely new implementation (greenfield project or new Commercial Off-The-Shelf software), as there is no existing digital legacy system to integrate with.
+
+---
+
+### 4. Project, Training, & Marketing Requirements (Non-Software)
+A significant portion of the interview covered operational rollout and marketing. While not software features, these are critical project requirements for the stakeholder:
+
+* **PR1: System Training (Rollout)**
+  * **PR1.1:** Training for the new booking/management software must be conducted by an external training provider.
+  * **PR1.2:** Training must be conducted on-site (Vor-Ort-Training) at the resorts.
+  * **PR1.3:** Training must be executed in phases/batches (staffelweise) so that daily resort operations are not disrupted.
+* **PR2: Social Media & Marketing**
+  * **PR2.1:** Procure an external Social Media Agency to build an online presence from scratch (considering platforms like Instagram, Facebook, TikTok).
+  * **PR2.2:** The agency selection criteria must prioritize expertise and innovative ideas over the size of the agency.
+  * **PR2.3:** The agency must train internal resort staff on how to manage social media.
+  * **PR2.4:** The social media implementation and staff training must be completed within the current calendar year.
+
+---
+
+### 5. Reviewer’s Notes: Missing Information & Next Steps
+As a requirements reviewer, I must point out that the interviewer spent too much time on the Social Media aspect and ran out of time before gathering deep technical requirements for the software. **A follow-up session is required to clarify the following gaps:**
+
+1. **Multi-Location Logic:** Can a customer book across multiple resorts in one transaction, or are they separate portals connected to one central database?
+2. **Inventory Specifics:** What specific metrics are needed for ski rentals (e.g., tracking boot sizes, ski lengths, maintenance status/damaged gear)?
+3. **Payment Gateways:** Which payment methods (Credit Card, PayPal, etc.) and currencies (USD only, or international?) must be supported?
+4. **Cancellation/Modification:** What are the business rules for customers canceling or changing a booking online?
+5. **User Roles:** What are the different staff permission levels needed for the management system (e.g., Front Desk vs. Ski Rental Tech vs. Resort Manager)?
+6. **Compliance:** Since the resorts are in the USA, the system will need to comply with US data privacy laws and PCI-DSS (for payments), though the stakeholder seems to be German-speaking (potential GDPR implications if they market to European tourists).
