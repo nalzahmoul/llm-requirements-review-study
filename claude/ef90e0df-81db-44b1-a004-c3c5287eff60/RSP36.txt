@@ -1,0 +1,251 @@
+# Software Requirements Specification: Cool Ski Resorts Digital Booking & Engagement Platform
+
+**Source:** Requirements elicitation interview with the owner of "Cool Ski Resorts"
+**Document status:** Draft for stakeholder review
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+This document defines the software requirements for digitalizing and centralizing the booking system of "Cool Ski Resorts." It also covers the related social media and website capabilities. The requirements come from an elicitation interview with the resort owner.
+
+### 1.2 Background / Current State
+- Cool Ski Resorts operates multiple hotel entities.
+- Booking is **not centralized**. Each hotel manages its own customers independently.
+- The public website is **static** and does not reflect current updates or social media activity.
+
+### 1.3 Project Goals
+1. Centralize customer and booking data across all hotel entities.
+2. Identify and standardize processes that can be shared among hotel entities.
+3. Implement the shared processes digitally.
+4. Automate social media publishing across multiple platforms.
+5. Turn the static website into a dynamic site that shows social media content and current weather.
+
+### 1.4 Stakeholder-Defined Priorities
+
+| Priority | Feature Area |
+|---|---|
+| 1 | Identify processes that should/can be shared among hotel entities |
+| 2 | Implement these shared processes digitally |
+| 3 | Social media automation |
+| 4 | Social media integration on the website |
+
+---
+
+## 2. Stakeholders
+
+| Stakeholder | Interest / Role |
+|---|---|
+| Owners | Project sponsor; cost efficiency, business insights, brand growth |
+| Employees (hotel staff) | Daily users of reservation, customer service, and payment processes; need ease of use and low training effort |
+| Customers (current and potential) | Make bookings and payments; consume website and social media content |
+| Developers | Integrate, customize, and maintain the system; need adaptable, small systems |
+| External tool / social media providers (secondary) | Provide APIs and platforms (payment, CMS, social media, weather) |
+
+---
+
+## 3. Scope
+
+### 3.1 In Scope
+- Analysis and standardization of shared processes: **reservations, customer service, payment**
+- A centralized database for customers and bookings across all hotel entities
+- Digital reservation management, including availability, pricing, promotions, and search insights
+- Integration of a third-party payment provider (e.g., Stripe)
+- Integration of an external social media scheduling and automation tool
+- A headless CMS (e.g., Contentful) as the single content source for social media and the website
+- A blog-like website section and a current weather display
+
+### 3.2 Out of Scope (implied)
+- Building a booking, payment, or social media scheduling system from scratch, unless analysis shows that no suitable existing system is available
+- Hotel-specific processes that are not shared across entities (not discussed)
+
+---
+
+## 4. Functional Requirements
+
+### 4.1 Process Identification & Standardization (Priority 1)
+
+| ID | Requirement |
+|---|---|
+| FR-1.1 | The project shall analyze the current processes of each hotel entity to identify which can be standardized and shared. |
+| FR-1.2 | At minimum, the shared processes shall include **reservations**, **customer service**, and **payment**. |
+| FR-1.3 | The standardized processes shall be documented so that all hotel entities follow the same workflow. |
+
+### 4.2 Centralized Data Management
+
+| ID | Requirement |
+|---|---|
+| FR-2.1 | The system shall provide a centralized database for customer and booking data across all hotel entities. |
+| FR-2.2 | Authorized employees of each hotel entity shall be able to access the centralized customer and booking data relevant to their role. |
+| FR-2.3 | The system shall replace the per-hotel customer management currently in use. |
+
+### 4.3 Reservations (Priority 2)
+
+| ID | Requirement |
+|---|---|
+| FR-3.1 | The system shall display which rooms are available on which dates, across all hotel entities. |
+| FR-3.2 | The system shall display the price of each available room for the selected dates. |
+| FR-3.3 | Authorized staff shall be able to **highlight specific dates** (e.g., to promote them). |
+| FR-3.4 | Authorized staff shall be able to **apply discounts** to dates or periods with lower demand. |
+| FR-3.5 | Highlighted dates and discounts shall be visible to customers when they search for or view availability. |
+| FR-3.6 | Customers shall be able to make reservations through the system. *(Implied by "both sides"; to be confirmed.)* |
+
+### 4.4 Customer Search Insights (Priority 2)
+
+| ID | Requirement |
+|---|---|
+| FR-4.1 | The system shall capture what potential customers search for, such as dates, room types, and hotel entities. |
+| FR-4.2 | The system shall give owners and authorized staff reports or views of search behavior, to support pricing and promotion decisions. |
+
+### 4.5 Customer Service (Priority 2)
+
+| ID | Requirement |
+|---|---|
+| FR-5.1 | Customer service shall follow a single standardized process shared by all hotel entities. |
+| FR-5.2 | Customer service staff shall have access to centralized customer and booking information. |
+
+*Note: The specific customer service functions (channels, ticketing, booking changes, cancellations) were not specified. See Section 8.*
+
+### 4.6 Payment (Priority 2)
+
+| ID | Requirement |
+|---|---|
+| FR-6.1 | The system shall integrate a third-party payment provider (e.g., Stripe) rather than a custom-built payment engine. |
+| FR-6.2 | Customers shall be able to pay for reservations through the integrated payment provider. |
+| FR-6.3 | Payment processing shall follow the same standardized process across all hotel entities. |
+
+### 4.7 Social Media Automation (Priority 3)
+
+| ID | Requirement |
+|---|---|
+| FR-7.1 | The solution shall use an **external tool** for social media management rather than a custom-built one. |
+| FR-7.2 | The tool shall support publishing to **as many social media platforms as possible**. |
+| FR-7.3 | Users shall be able to create and **schedule posts in advance**. |
+| FR-7.4 | The tool shall **automatically publish** scheduled posts to all selected platforms at the scheduled time. |
+| FR-7.5 | The tool shall provide insights or analytics on audience engagement, to support customer insight and brand-building goals. *(Derived from stated objectives.)* |
+
+**Business objectives this feature supports:**
+- Acquire new customer segments
+- Increase overall visibility
+- Provide better insights into current and potential customers
+- Improve brand building
+- Strengthen relationships with existing customers
+
+### 4.8 Content Management & Website Integration (Priority 4)
+
+| ID | Requirement |
+|---|---|
+| FR-8.1 | A **headless CMS** (e.g., Contentful) shall be the single source for social media post content. |
+| FR-8.2 | Content entered in the CMS shall feed both the social media automation tool and the website. |
+| FR-8.3 | The website shall show social media posts, **including images**, in a blog-like format. |
+| FR-8.4 | New posts shall appear on the website without manual website changes. |
+| FR-8.5 | The website shall display the **current weather** using a third-party weather API. |
+
+---
+
+## 5. Non-Functional Requirements
+
+### 5.1 Usability
+
+| ID | Requirement |
+|---|---|
+| NFR-1.1 | The system shall be as simple as possible for both employees and customers, to avoid frustration and complications. |
+| NFR-1.2 | The system shall keep training effort and cost for new employees to a minimum. |
+
+### 5.2 Maintainability & Adaptability
+
+| ID | Requirement |
+|---|---|
+| NFR-2.1 | Integrated systems shall be highly adjustable, so they can be adapted to current and future business processes. |
+| NFR-2.2 | Integrated systems shall be as small and lightweight as possible, to reduce the cost and time of new features or changes. |
+| NFR-2.3 | Core systems (e.g., booking) shall be **open source** or have **purchasable source code**, so they can be customized without rebuilding from scratch. |
+
+### 5.3 Cost Efficiency
+
+| ID | Requirement |
+|---|---|
+| NFR-3.1 | Total payment provider fees over a **10-year operating period** shall not exceed the estimated total cost of a self-implemented payment solution over the same period. |
+| NFR-3.2 | The comparison in NFR-3.1 shall use a financial method such as **discounted cash flow (DCF)** or an equivalent. |
+| NFR-3.3 | Solution selection shall consider total cost of ownership, including training, maintenance, and customization. |
+
+### 5.4 Security & Compliance (implied; to be confirmed)
+
+| ID | Requirement |
+|---|---|
+| NFR-4.1 | Payment processing shall comply with applicable payment security standards (e.g., PCI DSS). Using a provider such as Stripe should cover most of this. |
+| NFR-4.2 | Storage and processing of customer data, including search tracking, shall comply with applicable data protection regulations (e.g., GDPR, if applicable). |
+| NFR-4.3 | Access to centralized customer data shall be role-based. |
+
+---
+
+## 6. Constraints & Design Decisions
+
+| ID | Constraint |
+|---|---|
+| C-1 | **Buy/integrate over build:** Integrate existing systems wherever possible. |
+| C-2 | Booking and reservation systems should be open source or have purchasable source code. |
+| C-3 | Payment shall use an established provider (Stripe is the suggested candidate). |
+| C-4 | Social media scheduling and publishing shall use an external tool. |
+| C-5 | Content shall be managed in a headless CMS (Contentful is the suggested candidate). |
+| C-6 | Weather data shall come from a third-party weather API. |
+
+---
+
+## 7. Success Criteria
+
+As stated by the stakeholder, the project succeeds when:
+1. The shared processes (reservations, customer service, payment) **work correctly** across all hotel entities.
+2. **Stakeholders are satisfied**, including customers, owners, employees, and developers.
+
+*Reviewer note:* These criteria are qualitative. Measurable acceptance criteria should be defined, for example:
+- All hotel entities operate on the centralized booking system by a target date.
+- Employee onboarding time for the system stays below X hours.
+- Customer and employee satisfaction scores reach at least X.
+- Online booking conversion rate or social media reach grows by X% within Y months.
+
+---
+
+## 8. Open Issues & Items Requiring Clarification
+
+The interview left several gaps. These should be resolved before design begins:
+
+| # | Topic | Open Question |
+|---|---|---|
+| 1 | Scale | How many hotel entities, rooms, and room types are there? What booking volumes are expected? |
+| 2 | Booking channels | Will customers book directly online, or will staff enter bookings? Is integration with third-party booking platforms (OTAs) needed? |
+| 3 | Customer service | What does "customer service" include: inquiries, booking changes, cancellations, complaints? Which channels: email, phone, chat? |
+| 4 | Booking policies | What cancellation, deposit, and refund rules apply? Should they be standardized across hotels? |
+| 5 | Pricing | Who sets base prices and discounts? Should pricing be manual, rule-based, or dynamic? |
+| 6 | Search insights | What data should be tracked, and how should it be reported? What are the privacy and consent requirements? |
+| 7 | Data migration | How will existing customer data from each hotel be migrated and de-duplicated? |
+| 8 | User roles | What roles and permissions are needed (owner, hotel manager, front desk, marketing, etc.)? |
+| 9 | Social media | Which platforms are mandatory versus optional? Who creates and approves posts? |
+| 10 | Weather | Which locations should the weather cover (per resort, per hotel)? Is a forecast needed, or only current conditions? |
+| 11 | Localization | Which languages and currencies must be supported? |
+| 12 | Budget & timeline | What are the overall budget and target delivery dates? |
+| 13 | Payment cost analysis | What assumptions (transaction volume, discount rate, development cost) should the 10-year DCF comparison use? |
+| 14 | Website | Will the existing static website be extended, or replaced with a new CMS-driven site? |
+
+---
+
+## 9. Traceability Summary
+
+| Stakeholder Statement | Requirement(s) |
+|---|---|
+| "Centralize the database and share different standardized processes" | FR-1.x, FR-2.x |
+| "reservations, customer service, payment" | FR-1.2, FR-3.x, FR-5.x, FR-6.x |
+| "search for a system that... is either open source or the source code can be bought" | NFR-2.3, C-1, C-2 |
+| "check if something like stripe can be used" | FR-6.1, C-3 |
+| "as simple as possible for both sides" | NFR-1.x |
+| "as adjustable as possible and as small as possible" | NFR-2.1, NFR-2.2 |
+| "payment fees should not exceed a self implemented solution... 10 year operation" | NFR-3.1, NFR-3.2 |
+| "see when which rooms are available and at what costs" | FR-3.1, FR-3.2 |
+| "highlight certain dates and/or provide discounts" | FR-3.3–FR-3.5 |
+| "see what potential customers are looking/searching for" | FR-4.x |
+| "as much social media platforms as possible... tool that automatically posts" | FR-7.1–FR-7.4 |
+| "planning the posts in advance" | FR-7.3 |
+| "contentful... headless cms... streamlines it to the post automation and the website" | FR-8.1, FR-8.2, C-5 |
+| "posts with images on the site and showing the current weather" | FR-8.3, FR-8.5 |
+| "using a weather api" | FR-8.5, C-6 |
+| "success when the processes are working and stakeholders are happy" | Section 7 |

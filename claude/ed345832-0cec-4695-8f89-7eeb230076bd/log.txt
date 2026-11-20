@@ -1,0 +1,8 @@
+time_utc: 2026-11-15T19:53:35.180721+00:00
+model_alias: claude
+model_requested: anthropic/claude-opus-5.5-20260921
+model_returned: anthropic/claude-opus-5.5
+interview: ed345832-0cec-4695-8f89-7eeb230076bd.json
+status: ok
+input_tokens: 1674
+output_tokens: 5365
